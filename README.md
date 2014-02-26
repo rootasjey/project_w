@@ -10,7 +10,6 @@ Everything aim to be interactive.
 
 **programming language**
 * python
-* r-markdown
 * html/css
 * javascript
 
@@ -21,3 +20,7 @@ Everything aim to be interactive.
 **supervisor:** Lucas De Feo
 
 **year:** 2014
+
+##updates: next to do
+* use **jinja2** to template webpages (translated from *.md* to *.html*)
+* create a server with **flask**
