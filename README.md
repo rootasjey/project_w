@@ -1,25 +1,23 @@
-project_w
-=========
+# [webbapp] (https://github.com/rootasjey/webbapp)
+
+It's a web-platform where students can practice mathematic and computer science exercices.
 
 A UVSQ's project
 
-##description
-Create a web-platform where students can practice on mathematic and/or computer science exercices.
-Everything aim to be interactive.
 
 
-**programming language**
+##Languages
 * python
 * html/css
 * javascript
 
-**developers:**
+##Developers:
 * Jeremie CORPINOT
 * Somia KATIR
 
-**supervisor:** Lucas De Feo
+##Supervisor
+* Lucas De Feo
 
-**year:** 2014
 
 ##updates: next to do
 * use **jinja2** to template webpages (translated from *.md* to *.html*)
