@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    {% block header %}
+        <meta charset="utf-8" />
+        <title>{% block titre %}webbapp - Accueil{% endblock %}</title>
+        <link type="text/css" href="{{ url_for('static', filename='indexstyle.css') }}" rel="stylesheet" />
+    {% endblock %}
+    </head>
+
+    <body>
+        <div id="content">
+            <div id="header">
+                {% block bodyheader %}
+                    <div id="top_bar">
+                        <a href="/">
+                            <h1>webbapp</h1>
+                            <h2>Accueil</h2>
+                        </a>
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+
+        <div id="body">
+            {% block bodycontent %}
+            {% endblock %}
+        </div>
+
+        <div id="footer">
+            {% block bodyfooter %}
+                <ul>
+                    <li><a href="/">accueil</a></li>
+                    <li>à propos</li>
+                </ul>
+            {% endblock %}
+        </div>
+    </body>
+</html>
