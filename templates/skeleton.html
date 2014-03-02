@@ -5,14 +5,26 @@
         <meta charset="utf-8" />
         <title>{% block titre %}webbapp - Accueil{% endblock %}</title>
         <link type="text/css" href="{{ url_for('static', filename='indexstyle.css') }}" rel="stylesheet" />
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {% endblock %}
     </head>
 
     <body>
+        <!-- CONTENU DE LA PAGE -->
         <div id="content">
+            <!-- EN-TÊTE (TITRE, SOUS-TITRE, AVATAR, HEURE)-->
             <div id="header">
                 {% block bodyheader %}
-                    <div id="top_bar">
+                    <!-- BARRE UTILISATEUR (AVATAR, PSEUDO, HEURE) -->
+                    <div id="userbar">
+                         {% block userbarblock %}
+                            <img class="useravatar" src="../static/img/avatar.png" alt="avatar.png">
+                            <p class="message">Hello {{welcomeMessage}} !</p>
+                         {% endblock  %}
+                    </div>
+
+                    <!-- TITRE DE LA PAGE ET SOUS-TITRE -->
+                    <div id="topbar">
                         <a href="/">
                             <h1>webbapp</h1>
                             <h2>Accueil</h2>
@@ -20,20 +32,36 @@
                     </div>
                 {% endblock %}
             </div>
-        </div>
+        
+            <!-- CORPS DE LA PAGE: CONTIENT LE CONTENU PRINCIPAL -->
+            <div id="body">
+                {% block bodycontent %}
+                {% endblock %}
+            </div>
 
-        <div id="body">
-            {% block bodycontent %}
-            {% endblock %}
-        </div>
+            <!-- PIED DE PAGE: SITEMAP, LIENS, À PROPOS -->
+            <div id="footer">
+                {% block bodyfooter %}
+                    <ul>
+                        <li><a href="/">accueil</a></li>
+                        <li><a href="/">à propos</a></li>
+                    </ul>
+                {% endblock %}
+            </div>
 
-        <div id="footer">
-            {% block bodyfooter %}
-                <ul>
-                    <li><a href="/">accueil</a></li>
-                    <li>à propos</li>
-                </ul>
-            {% endblock %}
+            <!-- BARRE DE NAVIGATION -->
+            <div id="sidebar">
+                <div id="sidebar_content">
+                    <h2>MENU</h2>
+                    <p class="sidebar_section">Exercices</p>
+                    <ul>
+                        <li>informatique</li>
+                        <li>maths</li>
+                    </ul>
+                    <!-- <p class="sidebar_subsection">informatique</p>
+                    <p class="sidebar_subsection">maths</p> -->
+                </div>
+            </div>
         </div>
     </body>
 </html>

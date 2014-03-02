@@ -12,7 +12,7 @@ app = Flask(__name__)
 def index():
 	# mots = ["Ceci", "est" "un", "test."]
 	# return render_template('index.html', titre="Bienvenue !", mots=mots)
-	return render_template('index.html')
+	return render_template('index.html', welcomeMessage="visiteur")
 
 @app.route('/contact/')
 def contact():
