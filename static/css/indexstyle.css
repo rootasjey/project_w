@@ -52,6 +52,12 @@ body {
         #userbar .useravatar {
             height: 90px;
             width: 90px;
+
+            border-style: solid;
+            border-color: #eee;
+            border-radius: 60px;
+            border-width: 1px;
+
             transition: 1s;
         }
             #userbar .useravatar:hover {
@@ -174,8 +180,8 @@ div .news {
 #clock {
     color: black;
     margin-top: -30px;
-    /*display: inline-block;*/
     font-size: 1em;
+    width: 200px;
     transition: 1s;
 }
     #clock:hover {

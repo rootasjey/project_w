@@ -12,11 +12,9 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html', welcomeMessage="visiteur")
 
-@app.route('/contact/')
+@app.route('/exercice/')
 def contact():
-	mail = "jeremiecorpinot@outlook.com"
-	tel = "01 23 45 67 89"
-	return "Mail: {} --- Tel: {}".format(mail, tel)
+	return ""
 
 if __name__ == '__main__':
 	app.run(debug=True)

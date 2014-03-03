@@ -10,7 +10,7 @@
     {% endblock %}
     </head>
 
-    <body onLoad="goforit()">
+    <body onLoad="happyHour()">
         <!-- CONTENU DE LA PAGE -->
         <div id="content">
             <!-- EN-TÊTE (TITRE, SOUS-TITRE, AVATAR, HEURE)-->
@@ -19,13 +19,17 @@
                     <!-- BARRE UTILISATEUR (AVATAR, PSEUDO, HEURE) -->
                     <div id="userbar">
                          {% block userbarblock %}
+
+                            <!-- MESSAGE PERSONNALISE -->
                             <div class="box_content">
                                 <p>Vous pouvez vous connectez en cliquant sur l'avatar dans le coin haut gauche.</p>
                             </div>
 
+                            <!-- AVATAR DE L'UTILISATEUR -->
                             <img class="useravatar" src="../static/img/avatar.png" alt="avatar.png">
                             <p class="message">Hello {{welcomeMessage}} !</p>
 
+                            <!-- HORLOGE (LIVE) -->
                             <div id="clock"></div>
                          {% endblock  %}
                     </div>
