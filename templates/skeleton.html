@@ -4,12 +4,13 @@
     {% block header %}
         <meta charset="utf-8" />
         <title>{% block titre %}webbapp - Accueil{% endblock %}</title>
-        <link type="text/css" href="{{ url_for('static', filename='indexstyle.css') }}" rel="stylesheet" />
+        <link type="text/css" href="{{ url_for('static', filename='css/indexstyle.css') }}" rel="stylesheet" />
+        <script type="text/javascript" src=" {{ url_for('static', filename='js/indexscript.js' ) }} " language="javascript" ></script>
         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {% endblock %}
     </head>
 
-    <body>
+    <body onLoad="goforit()">
         <!-- CONTENU DE LA PAGE -->
         <div id="content">
             <!-- EN-TÊTE (TITRE, SOUS-TITRE, AVATAR, HEURE)-->
@@ -18,8 +19,14 @@
                     <!-- BARRE UTILISATEUR (AVATAR, PSEUDO, HEURE) -->
                     <div id="userbar">
                          {% block userbarblock %}
+                            <div class="box_content">
+                                <p>Vous pouvez vous connectez en cliquant sur l'avatar dans le coin haut gauche.</p>
+                            </div>
+
                             <img class="useravatar" src="../static/img/avatar.png" alt="avatar.png">
                             <p class="message">Hello {{welcomeMessage}} !</p>
+
+                            <div id="clock"></div>
                          {% endblock  %}
                     </div>
 
@@ -28,6 +35,7 @@
                         <a href="/">
                             <h1>webbapp</h1>
                             <h2>Accueil</h2>
+                            <h2>Exercices</h2>
                         </a>
                     </div>
                 {% endblock %}
@@ -44,13 +52,14 @@
                 {% block bodyfooter %}
                     <ul>
                         <li><a href="/">accueil</a></li>
+                        <li><a href="/">aide</a></li>
                         <li><a href="/">à propos</a></li>
                     </ul>
                 {% endblock %}
             </div>
 
             <!-- BARRE DE NAVIGATION -->
-            <div id="sidebar">
+            <!-- <div id="sidebar">
                 <div id="sidebar_content">
                     <h2>MENU</h2>
                     <p class="sidebar_section">Exercices</p>
@@ -58,10 +67,8 @@
                         <li>informatique</li>
                         <li>maths</li>
                     </ul>
-                    <!-- <p class="sidebar_subsection">informatique</p>
-                    <p class="sidebar_subsection">maths</p> -->
                 </div>
-            </div>
+            </div> -->
         </div>
     </body>
 </html>

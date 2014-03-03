@@ -10,13 +10,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	# mots = ["Ceci", "est" "un", "test."]
-	# return render_template('index.html', titre="Bienvenue !", mots=mots)
 	return render_template('index.html', welcomeMessage="visiteur")
 
 @app.route('/contact/')
 def contact():
-	# mail = "jeremiecorpinot@outlook.com"
+	mail = "jeremiecorpinot@outlook.com"
 	tel = "01 23 45 67 89"
 	return "Mail: {} --- Tel: {}".format(mail, tel)
 
