@@ -4,13 +4,13 @@
     {% block header %}
         <meta charset="utf-8" />
         <title>{% block titre %}webbapp - Accueil{% endblock %}</title>
-        <link type="text/css" href="{{ url_for('static', filename='css/indexstyle.css') }}" rel="stylesheet" />
-        <script type="text/javascript" src=" {{ url_for('static', filename='js/indexscript.js' ) }} " language="javascript" ></script>
+        <link type="text/css" href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+        <script type="text/javascript" src=" {{ url_for('static', filename='js/script.js' ) }} " language="javascript" ></script>
         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {% endblock %}
     </head>
 
-    <body onLoad="happyHour()">
+    <body onload="load_things()">
         <!-- CONTENU DE LA PAGE -->
         <div id="content">
             <!-- EN-TÊTE (TITRE, SOUS-TITRE, AVATAR, HEURE)-->
@@ -24,6 +24,8 @@
                             <div class="box_content">
                                 <p>Vous pouvez vous connectez en cliquant sur l'avatar dans le coin haut gauche.</p>
                             </div>
+                                <div id="hangon"></div>
+                                <div id="hangon_rope"></div>
 
                             <!-- AVATAR DE L'UTILISATEUR -->
                             <img class="useravatar" src="../static/img/avatar.png" alt="avatar.png">
@@ -35,21 +37,21 @@
                     </div>
 
                     <!-- TITRE DE LA PAGE ET SOUS-TITRE -->
-                    <div id="topbar">
-                        <a href="/">
-                            <h1>webbapp</h1>
-                            <h2>Accueil</h2>
-                            <h2>Exercices</h2>
-                        </a>
+                    <div id="navbar">
+                            <a href="/"><h1>webbapp</h1></a>
+                            <a href="/"><h2>Accueil</h2></a>
+                            <a href="/domains/"><h2>Exercices</h2></a>
+                            <a href="#"><h2>Cours</h2></a>
+                        
                     </div>
                 {% endblock %}
             </div>
         
             <!-- CORPS DE LA PAGE: CONTIENT LE CONTENU PRINCIPAL -->
-            <div id="body">
-                {% block bodycontent %}
-                {% endblock %}
-            </div>
+            {% block bodycontent %}
+                <div id="body">
+                </div>
+            {% endblock %}
 
             <!-- PIED DE PAGE: SITEMAP, LIENS, À PROPOS -->
             <div id="footer">

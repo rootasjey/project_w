@@ -1,0 +1,16 @@
+{% extends "/templates/skeleton.html" %}
+
+{% block titre %}webbapp - Matières{% endblock %}
+
+<!-- Affiche dynamique la liste des matières disponibles -->
+{% block bodycontent %}
+<div id="body">
+	<div class="domains_list">
+		{% for domain in domains %}
+			<a href="/domains/{{ domain }}">
+				<div class="domain_square" id="square_{{ domain }}"><p>{{ domain }}</p></div>
+			</a>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
