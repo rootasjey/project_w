@@ -1,8 +1,11 @@
 # [webbapp](https://github.com/rootasjey/webbapp)
 
 It's a web-platform where students can practice mathematic and computer science exercices.
-
 A UVSQ's project
+
+#updates
+* *last*: render exercices on a webpage
+* *to do*: use **jinja2** extension to run python code on the go
 
 #How to install (Windows)
 * Install [Pyhton 2.7 or later (or Python 3.4 or later, but it's experimental)](https://www.python.org/download/)
@@ -13,7 +16,7 @@ A UVSQ's project
 	* Clic on *Environment Variables...*
 	* In the *System variables* section, double-clic on the variable named 'Path'
 	* Then add *';C:\Python27\Scripts'* at the end of the line. (Check that this folder exists to be 100% sure)
-* Now, you can run the windows' command prompt *cmd*, and enter these 2 lines :
+* Now, you can run the windows' command prompt *cmd*, and enter these lines :
 	* easy_install pip
 	* pip install Jinja2
 	* pip install flask
@@ -21,19 +24,21 @@ A UVSQ's project
 * You're ready to go, try to run the **application.py** python script
 * And Voilà!
 
-##Languages
+#Languages
 * python
 * html/css
 * javascript
 
-##Developers:
+#Developers:
 * Jeremie CORPINOT
 * Somia KATIR
 
-##Supervisor
+#Supervisor
 * Lucas De Feo
 
-
-##updates: next to do
-* use **jinja2** to template webpages (translated from *.md* to *.html*)
-* create a server with **flask**
+# librairies
+* [python](https://www.python.org/)
+* [jinja2](http://jinja.pocoo.org/)
+* [flask](http://flask.pocoo.org/)
+* [highlight.js](http://highlightjs.org/)
+* [fontsquirrel](http://www.fontsquirrel.com/)

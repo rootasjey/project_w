@@ -5,8 +5,10 @@
         <meta charset="utf-8" />
         <title>{% block titre %}webbapp - Accueil{% endblock %}</title>
         <link type="text/css" href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+        
         <script type="text/javascript" src=" {{ url_for('static', filename='js/script.js' ) }} " language="javascript" ></script>
         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
     {% endblock %}
     </head>
 
@@ -63,18 +65,6 @@
                     </ul>
                 {% endblock %}
             </div>
-
-            <!-- BARRE DE NAVIGATION -->
-            <!-- <div id="sidebar">
-                <div id="sidebar_content">
-                    <h2>MENU</h2>
-                    <p class="sidebar_section">Exercices</p>
-                    <ul>
-                        <li>informatique</li>
-                        <li>maths</li>
-                    </ul>
-                </div>
-            </div> -->
         </div>
     </body>
 </html>
