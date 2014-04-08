@@ -2,9 +2,9 @@
 // -----------------------------
 
 // HORLOGE
-(function happyHour() {
-       setInterval(TicTac, 1000);
-})();
+// (function happyHour() {
+//        setInterval(TicTac, 1000);
+// })();
 
        function TicTac() {
               // Obtient l'heure actuelle (heures:minutes:secondes)
@@ -65,9 +65,9 @@ function set_default_message_style () {
 }
 
 // Ajoute des évènements
-(function add_events() {
-       window.setTimeout(load_click_on_chapters, 1000);
-})();
+// (function add_events() {
+//        window.setTimeout(load_click_on_chapters, 1000);
+// })();
 
 function load_click_on_chapters () {
        if(document.querySelector('.chapitre')){
@@ -85,53 +85,7 @@ function open_chapter (event) {
        chap_num = chap_num - 1;
 
        var xhr = new XMLHttpRequest();
-       // xhr.open('GET', "/domaine/informatique/chapitre?id=" + chap_num);
-       xhr.open('GET', "../html/informatique/chapitre1/exercice1.html");
+       xhr.open('GET', "/domaine/informatique/chapitre?id=" + chap_num);
        xhr.send(null);
-
-       var d = document.querySelectorAll('#id');
-       if (d.id = 0) {
-              d.innerHTML = xhr.responseText;
-       };
-
-       
-
-
-
-       // // chapitre fermé (--> ouvert)
-       // if (event.target.className == "chapitre") {
-       //        event.target.className = 'chapitre_opened';
-       //        get_exercices(event.target.firstChild);
-       // }
-       // // chapitre ouvert (--> fermé)
-       // else if(event.target.className == 'chapitre_opened'){
-       //        event.target.className = 'chapitre';
-       // }
-       // else {
-       //        var parent = event.target.parentNode;
-       //        // chapitre fermé (--> ouvert)
-       //        if(parent.className == 'chapitre'){
-       //               parent.className = 'chapitre_opened';
-       //               get_exercices(event.target);
-       //        }
-       //        // chapitre ouvert (--> fermé)
-       //        else{
-       //               parent.className = 'chapitre';
-       //        }
-       // }
-}
-
-function get_exercices(chapitre) {
-       // console.log(document.URL);
-       console.log(chapitre);
-       console.log(window.location.pathname);
-       
-       var url = window.location.pathname;
-       if(url.indexOf("informatique") != -1) {
-              console.log('toto');
-       }
-       else if (url.indexOf("maths") != -1) {
-              console.log('titi');
-       }
-       else console.log('tata');
+       console.log(xhr.responseText);
 }

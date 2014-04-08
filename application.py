@@ -46,16 +46,16 @@ def maths():
 	chaptersl = os.listdir('exercices/' + domainsl[1])
 	return render_template('/static/html/maths.html', chapitres = chaptersl);
 
-@app.route('/domaine/informatique/chapitre/', methods=['GET', 'POST'])
-def exercices():
+@app.route('/domaine/informatique/chapitre/<int:id>', methods=['GET', 'POST'])
+def exercices(id=1):
 	if request.method == 'GET':
-		chap_num = int(request.args.get('id', ''))
-
+		id = id - 1 #commencer à 0
 		domainsl = os.listdir('exercices/')
 		chaptersl = os.listdir('exercices/' + domainsl[0])
-		exercicesl = os.listdir('exercices/' + domainsl[0] + '/' + chaptersl[chap_num])
+		exercicesl = os.listdir('exercices/' + domainsl[0] + '/' + chaptersl[id])
 		print exercicesl
-		return render_template('/static/html/listeexercices.html', exercices = exercicesl);
+		return render_template('/static/html/chapitre.html', id = id, exercices = exercicesl)
+		
 
 if __name__ == '__main__':
 	app.run(debug=True)

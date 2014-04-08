@@ -6,7 +6,9 @@
 		<ul>
 		{% for chapitre in chapitres %}
 				<span>
+				<a href="/domaine/informatique/chapitre/{{ loop.index }}">
 					<li class="chapitre" id="{{ loop.index }}"><h1>{{ chapitre }}</h1></li>
+				</a>
 				</span>
 		{% endfor %}
 		</ul>
