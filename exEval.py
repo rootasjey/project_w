@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from math import *
-
+import os, sys
 def call_Eval(block):
 	print open(block).read()
 
@@ -19,3 +19,4 @@ for x in range(1,10):
 	# ajouter x
 	safe_dict['x']=x
 	print "x = ", x , ", y = ", eval(user_function,{"__builtins__":None},safe_dict)
+os.system('pause')
