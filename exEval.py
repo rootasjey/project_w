@@ -20,3 +20,4 @@ for x in range(1,10):
 	safe_dict['x']=x
 	print "x = ", x , ", y = ", eval(user_function,{"__builtins__":None},safe_dict)
 os.system('pause')
+
