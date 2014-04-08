@@ -35,7 +35,7 @@ def to_replace(eval_ctx, stingS, old, new, count = None):
         stringS = soft_unicode(stringS) 
     return stringS.replace(soft_unicode(old), soft_unicode(new), count)
 
-
+os.system('pause')
 
 # def to_tronsforme(stringS):
 # 	# transformer une chaine de caractère en une expression mathématique est evaluer avec eval
