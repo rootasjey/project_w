@@ -34,6 +34,7 @@ def to_replace(eval_ctx, stingS, old, new, count = None):
     	# Faire un unicode chaîne si ce n'est pas déjà fait. De cette façon une chaîne de balisage n'est pas reconverti en unicode.
         stringS = soft_unicode(stringS) 
     return stringS.replace(soft_unicode(old), soft_unicode(new), count)
+    
 
 os.system('pause')
 
