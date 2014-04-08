@@ -2,10 +2,17 @@
 """This is the default application which launch the web app"""
 
 import os, sys
-import flask, jinja2
-from packages.jinja2 import Template
-from packages.flask import Flask, request, render_template
+
 from packages.converter import converter
+from jinja2 import Template
+from flask import Flask, request, render_template
+
+# try:
+	# from packages.jinja2 import Template
+	# from packages.flask import Flask, request, render_template
+# except Exception as e:
+# 	print e
+# 	os.system('pause')
 
 
 app = Flask(__name__, template_folder='')
@@ -20,30 +27,35 @@ def index():
 
 
 
-@app.route('/domains/')
+@app.route('/domaine/')
 def domains():
 	domainsl = os.listdir('exercices/')
-	return render_template('/static/html/domains.html', domains = domainsl)
+	return render_template('/static/html/domaine.html', domains = domainsl)
 
-@app.route('/domains/informatique')
+@app.route('/domaine/informatique/')
 def informatique():
 	domainsl = os.listdir('exercices/')
 	chaptersl = os.listdir('exercices/' + domainsl[0])
-	for chap in chaptersl:
-		exerc = os.listdir('exercices/' + domainsl[0] + '/' + chap)
-		print exerc
-	return render_template('/static/html/domains_informatique.html', chapitres = chaptersl);
+	# for chap in chaptersl:
+	# 	exerc = os.listdir('exercices/' + domainsl[0] + '/' + chap)
+	return render_template('/static/html/informatique.html', chapitres = chaptersl);
 
-@app.route('/domains/maths')
+@app.route('/domaine/maths/')
 def maths():
 	domainsl = os.listdir('exercices/')
 	chaptersl = os.listdir('exercices/' + domainsl[1])
-	return render_template('/static/html/domains_maths.html', chapitres = chaptersl);
+	return render_template('/static/html/maths.html', chapitres = chaptersl);
 
-# @app.route('/domains/informatique/<chapitre>')
-# def exercices():
-# 	domainsl = os.listdir('exercices/')
-# 	chaptersl = os.listdir('exercices/' + domainsl[0])
+@app.route('/domaine/informatique/chapitre/', methods=['GET', 'POST'])
+def exercices():
+	if request.method == 'GET':
+		chap_num = int(request.args.get('id', ''))
+
+		domainsl = os.listdir('exercices/')
+		chaptersl = os.listdir('exercices/' + domainsl[0])
+		exercicesl = os.listdir('exercices/' + domainsl[0] + '/' + chaptersl[chap_num])
+		print exercicesl
+		return render_template('/static/html/listeexercices.html', exercices = exercicesl);
 
 if __name__ == '__main__':
 	app.run(debug=True)

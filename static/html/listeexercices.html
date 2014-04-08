@@ -1,0 +1,12 @@
+{% extends "/templates/skeleton.html" %}
+{% block titre %}webbapp - Matières{% endblock %}
+
+{% block bodycontent %}
+	<div id="body">
+		<ul>
+		{% for exo in exercices %}
+			<li>{{ exo }}</li>
+		{% endfor %}
+		</ul>
+	</div>
+{% endblock %}

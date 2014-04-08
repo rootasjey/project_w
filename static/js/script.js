@@ -76,32 +76,49 @@ function load_click_on_chapters () {
                      chapters[i].addEventListener('click', open_chapter, false);
               };
        }
-       // else { console.log("ce n'est pas la page des chapitres");}
 }
 
 // Lorsqu'on clic sur un chapitre
 function open_chapter (event) {
-       // chapitre fermé (--> ouvert)
-       if (event.target.className == "chapitre") {
-              event.target.className = 'chapitre_opened';
-              get_exercices(event.target.firstChild);
-       }
-       // chapitre ouvert (--> fermé)
-       else if(event.target.className == 'chapitre_opened'){
-              event.target.className = 'chapitre';
-       }
-       else {
-              var parent = event.target.parentNode;
-              // chapitre fermé (--> ouvert)
-              if(parent.className == 'chapitre'){
-                     parent.className = 'chapitre_opened';
-                     get_exercices(event.target);
-              }
-              // chapitre ouvert (--> fermé)
-              else{
-                     parent.className = 'chapitre';
-              }
-       }
+       var parent = event.target.parentNode;
+       var chap_num = parent.id;
+       chap_num = chap_num - 1;
+
+       var xhr = new XMLHttpRequest();
+       // xhr.open('GET', "/domaine/informatique/chapitre?id=" + chap_num);
+       xhr.open('GET', "../html/informatique/chapitre1/exercice1.html");
+       xhr.send(null);
+
+       var d = document.querySelectorAll('#id');
+       if (d.id = 0) {
+              d.innerHTML = xhr.responseText;
+       };
+
+       
+
+
+
+       // // chapitre fermé (--> ouvert)
+       // if (event.target.className == "chapitre") {
+       //        event.target.className = 'chapitre_opened';
+       //        get_exercices(event.target.firstChild);
+       // }
+       // // chapitre ouvert (--> fermé)
+       // else if(event.target.className == 'chapitre_opened'){
+       //        event.target.className = 'chapitre';
+       // }
+       // else {
+       //        var parent = event.target.parentNode;
+       //        // chapitre fermé (--> ouvert)
+       //        if(parent.className == 'chapitre'){
+       //               parent.className = 'chapitre_opened';
+       //               get_exercices(event.target);
+       //        }
+       //        // chapitre ouvert (--> fermé)
+       //        else{
+       //               parent.className = 'chapitre';
+       //        }
+       // }
 }
 
 function get_exercices(chapitre) {
@@ -109,11 +126,12 @@ function get_exercices(chapitre) {
        console.log(chapitre);
        console.log(window.location.pathname);
        
-       var url = document.URL;
+       var url = window.location.pathname;
        if(url.indexOf("informatique") != -1) {
-
+              console.log('toto');
        }
        else if (url.indexOf("maths") != -1) {
-
+              console.log('titi');
        }
+       else console.log('tata');
 }

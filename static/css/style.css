@@ -210,27 +210,21 @@ body {
                 }
 
         .chapitre {
-            height: 200px;
-            width: 200px;
-            background: #f1c40f;
-            display: inline-block;
-            transition: 1s;
+            font-family: sspro;
+            cursor: pointer;
         }
             .chapitre h1 {
-                color: white;
-                text-align: center;
-                margin-top: 70px;
-                font-size: 3em;
+                color: #3498db;
+                font-size: 1.7em;
+                transition: 1s;
             }
-            .chapitre:hover {
-                height: 300px;
-                width: 300px;
-                background: #d35400;
+            .chapitre h1:hover {
+                color: black;
                 transition: 1s;
             }
 
             .chapitre_opened {
-                height: 700px;
+                /*height: 700px;
                 width: 700px;
                 background: #d35400;
                 display: inline-block;
@@ -238,7 +232,7 @@ body {
                 color: white;
                 text-align: center;
                 font-size: 3em;
-                transition: 1s;
+                transition: 1s;*/
             }
 
 
@@ -272,9 +266,8 @@ a {
     color: black;
 }
 
-ul li {
+#footer ul li {
     list-style-type: none;
-    /*color: white;*/
     font-size: 1.5em;
 }
 
@@ -387,4 +380,16 @@ ul li {
          url('../fonts/greatvibes-regular-webfont.svg#great_vibesregular') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'sspro';
+    src: url('../fonts/sourcesanspro-extralight-webfont.eot');
+    src: url('../fonts/sourcesanspro-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-extralight-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-extralight-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-extralight-webfont.svg#source_sans_proextralight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
