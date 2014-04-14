@@ -261,7 +261,13 @@ body {
     .exotitle {
         font-family: sspro;
         font-size: 2em;
+        color: #3498db;
+        transition: 1s;
     }
+        .exotitle:hover {
+            color: black;
+            transition: 1s;
+        }
 
     /* contenu des exercices */
     .exocontent {
@@ -284,9 +290,11 @@ body {
       width: 650px!ie7;
       padding-bottom: 20px!ie7;
       max-height: 600px;
-    }*/
-        /*pre:hover {
-            background-color: 
+      transition: 1s;
+    }
+        pre:hover {
+            background-color: #3498db; 
+            transition:1s;
         }*/
 
 #footer {

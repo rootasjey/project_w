@@ -87,5 +87,5 @@ function open_chapter (event) {
        var xhr = new XMLHttpRequest();
        xhr.open('GET', "/domaine/informatique/chapitre?id=" + chap_num);
        xhr.send(null);
-       console.log(xhr.responseText);
+       // console.log(xhr.responseText);
 }

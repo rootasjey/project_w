@@ -47,10 +47,10 @@ def maths():
 
 # liste des exos
 @app.route('/domaine/informatique/chapitre/<int:id>', methods=['GET', 'POST'])
-def exercices(id=1):
+def chapter(id=1):
 	if request.method == 'GET':
 		id = id - 1 # commence à 0
-		book = []	# contiendra le contenu des exos
+		# book = []	# contiendra le contenu des exos
 		memory = [] # contiendra les index des fichiers .md a retirer
 		domainsl = os.listdir(root)
 		chaptersl = os.listdir(root + domainsl[0])
@@ -61,12 +61,12 @@ def exercices(id=1):
 			if ".md" in ex:
 				memory.append(index)
 				# sauvegarde l'index des .md
-				continue # on passe à l'exo suivant
+				# continue # on passe à l'exo suivant
 			
-			path = root + domainsl[0] + '/' + chaptersl[id] + '/'+ ex
-			with open(path, 'r') as work:
-						text = work.read()
-						book.append(text)	# ajoute l'exo dans le book
+			# path = root + domainsl[0] + '/' + chaptersl[id] + '/'+ ex
+			# with open(path, 'r') as work:
+			# 			text = work.read()
+			# 			book.append(text)	# ajoute l'exo dans le book
 
 		
 		# retire les fichiers .md de la liste ------|
@@ -82,9 +82,25 @@ def exercices(id=1):
 
 		# affichage de la page
 		return render_template('/static/html/chapitre.html', id = id,
-															 exercices = exercicesl,
-															 book = book)
-		
+															 exercices = exercicesl)
+
+
+@app.route('/domaine/informatique/chapitre/<int:id>/<exercice>/')
+def exercice(id, exercice):
+	domainsl = os.listdir(root)
+	chaptersl = os.listdir(root + domainsl[0])
+	exercicesl = os.listdir(root + domainsl[0] + '/' + chaptersl[id])
+
+	for index, ex in enumerate(exercicesl):
+		if exercice in ex:
+			path = root + domainsl[0] + '/' + chaptersl[id] + '/'+ ex
+			break;
+
+	# affichage de la page
+	return render_template('/static/html/exercice.html', id = id,
+														 exercice = exercice,
+														 path = path)
+	
 # run en debug si l'user
 # exec application.py
 if __name__ == '__main__':

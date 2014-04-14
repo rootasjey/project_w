@@ -1,23 +1,15 @@
 {% extends "/templates/skeleton.html" %}
 {% block titre %}webbapp - Chap {{ id }}{% endblock %}
 
-{% block header%} {{ super() }} 
-	<!-- script pour le highlight -->
-	<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/obsidian.min.css"/>
-	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-{% endblock %}
-
 {% block bodycontent %}
 	<div id="body">
 		<ul>
 		{% for exo in exercices %}
-			<li class="exotitle">{{ exo }}</li>
-			<span class="exocontent">{{ book[loop.index - 1]|safe }}</span>
+			<a href="/domaine/informatique/chapitre/{{ id }}/{{ exo }}">
+				<li class="exotitle">{{ exo|replace(".html", "") }}</li>
+			</a>
 			<br />
 		{% endfor %}
 		</ul>
-
-		<!-- highlighting -->
-		<script>hljs.initHighlightingOnLoad();</script>
 	</div>
 {% endblock %}
