@@ -1,6 +1,7 @@
 
 import os, sys
 
+
 from packages.converter import converter
 from jinja2 import Template
 from flask import Flask, request, render_template
@@ -13,6 +14,10 @@ def testEval():
 @app.template_filter('eval_filtre')
 def Evaluer_args(var1):
     return eval(var1)
+@app.template_filter('exec_filtre')
+def Executer_args(code):
+	exec code
+
 
 
 if __name__ == '__main__':
