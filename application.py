@@ -4,21 +4,33 @@
 import os, sys
 
 from packages.converter import converter
-from jinja2 import Template
+from jinja2 import Template, Environment
+from packages.python_extension.python_extension import PythonExtension
+
 from flask import Flask, request, render_template
+
 
 # dossier racine des exercices
 root = "exercices/"
+
+
 
 # -------------------/
 # --- ~ APP ~ ------/
 # -----------------/
 app = Flask(__name__, template_folder='')
+app.jinja_env.add_extension(PythonExtension)
+
 
 # Valeurs par défault
 @app.context_processor
 def passer_titre():
 	return dict(welcomeMessage = 'Visiteur')
+
+
+@app.template_filter('eval')
+def Evaluer_args(args):
+    return eval(args)
 
 # index route
 @app.route('/')
@@ -30,6 +42,11 @@ def index():
 def domains():
 	domainsl = os.listdir(root)
 	return render_template('/static/html/domaine.html', domains = domainsl)
+
+#redaction des exos
+@app.route('/redaction/')
+def redaction():
+	return render_template('/templates/redaction.html')
 
 # liste des chapitres informatique
 @app.route('/domaine/informatique/')

@@ -1,0 +1,25 @@
+{% extends "/templates/skeleton.html" %}
+
+{% block bodycontent %}
+<div id="body">
+<form method="post" action="">
+   <center><p>
+        <h1><label for="titre">Le titre de votre exercie :</label>
+        <input type="text" name="titre" id="titre" placeholder="Ex : les integrales" size="30" maxlength="10" /></h1>
+        <h1><label for="type">Le type de votre exercie :</label>
+       	<select name="type" id="type">
+           <option value="Informatique">Informatique</option>
+           <option value="Maths">Maths</option>
+       </select></br>
+
+        <label for="exo">Redigez votre exercice :</label><br />
+       	<textarea name="ameliorer" id="ameliorer" rows="10" cols="50"></textarea>   </br>  
+
+       	<input type="submit" value="Envoyer" />  
+    </p></center>
+</form>
+
+
+	
+</div>
+{% endblock %}
