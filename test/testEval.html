@@ -6,6 +6,11 @@
 <p>
 {{'1+2'|eval_filtre}}
 
+{% exec_block %}
+a = 2
+b = 3
+return a+b
+{% endblock %}
 
 {{'print 1'|exec_filtre}}
 
