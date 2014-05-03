@@ -1,7 +1,8 @@
 # [webbapp](https://github.com/rootasjey/webbapp)
 
 It's a web-platform where students can practice mathematic and computer science exercices.
-A UVSQ's project
+A UVSQ's project.
+The nice jinja2 extension to run python code uses the [CreateFunction from this sample](http://code.activestate.com/recipes/550804-create-a-restricted-python-function-from-a-string/)
 
 #updates
 * *last*: render exercices on a webpage
@@ -9,7 +10,7 @@ A UVSQ's project
 
 #How to install (Windows)
 * Install [Pyhton 2.7 or later (or Python 3.4 or later, but it's experimental)](https://www.python.org/download/)
-* Run the python script **distribute_setup.py** (located in the main folder) to install **easy_install**
+* Run the python script **distribute_setup.py** (located in the 'install' folder) to install **easy_install**
 * Add **easy_install** to the PATH environment :
 	* Right clic on *Computer* -> Properties
 	* Clic on *Advanced system settings* on the left panel (win7 or later)
