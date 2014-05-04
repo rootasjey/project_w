@@ -273,29 +273,10 @@ body {
     .exocontent {
         font-family: sspro;
     }
-
-    /* style pour le bouts de code */
-    /*pre{
-      font-family: Consolas, Menlo, 
-                    Monaco, Lucida Console,
-                    Liberation Mono, 
-                    DejaVu Sans Mono, 
-                    Bitstream Vera Sans Mono, 
-                    Courier New, monospace, serif;
-      margin-bottom: 10px;
-      overflow: auto;
-      width: auto;
-      padding: 10px;
-      background-color: #eee;
-      width: 650px!ie7;
-      padding-bottom: 20px!ie7;
-      max-height: 600px;
-      transition: 1s;
+    .exocontentTiny{
+        font-family: sspro;
+        font-size: 0.5em;
     }
-        pre:hover {
-            background-color: #3498db; 
-            transition:1s;
-        }*/
 
 #footer {
     position: absolute;

@@ -57,7 +57,7 @@ class PythonExtension(Extension):
     # (>Think about passing arguments)
   def Transmitter(self, args="", caller=None):
       block_content = caller()
-      run = CreateFunction(block_content, args)
+      run = CreateFunction(block_content, "")
       result = run()
       return str(result)
 

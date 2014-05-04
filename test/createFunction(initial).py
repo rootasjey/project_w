@@ -8,7 +8,7 @@ SAFE_SYMBOLS = ["list", "dict", "tuple", "set", "long", "float", "object",
                 "hash", "hex", "int", "isinstance", "issubclass", "len",
                 "map", "filter", "max", "min", "oct", "chr", "ord", "range",
                 "reduce", "repr", "str", "type", "zip", "xrange", "None",
-                "Exception", "KeyboardInterrupt"]
+                "Exception", "KeyboardInterrupt", "random"]
 # Also add the standard exceptions
 __bi = __builtins__
 if type(__bi) is not dict:

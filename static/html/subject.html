@@ -6,9 +6,9 @@
 {% block bodycontent %}
 <div id="body">
 	<div class="domains_list">
-		{% for domain in domains %}
-			<a href="/domaine/{{ domain }}">
-				<div class="domain_square" id="square_{{ domain }}"><p>{{ domain }}</p></div>
+		{% for science in subjects %}
+			<a href="/subject/{{ science }}">
+				<div class="domain_square" id="square_{{ science }}"><p>{{ science }}</p></div>
 			</a>
 		{% endfor %}
 	</div>

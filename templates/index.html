@@ -15,12 +15,26 @@
 		    $$\bbox[5px, border:2px solid black]{E=mc^2}$$
 	    </p>
 
-	    {% python %}
-	    a=4
-	    b=22
-	    phrase = 'Il était une fois, '
-	    return a*b
-	    {% endpython %}
+	    <p class="exocontentTiny">
+	    	<br/><br/>
+	    	Cette application web est capable de générer des exercices dynamiquement,
+	    	c'est-à-dire que les valeurs numériques seront aléatoirement générée à chaque nouvel affichage.<br/>
+	    	Vous pouvez essayer de réactualiser cette page d'accueil. <br/><br/>
+
+	    	La formule pour calculer le périmètre d'un rectangle est : 2* Longueur * Largeur. <br/>
+
+	    	Exemple: <br/> 
+	    	
+	    	{% python %}
+		    a=max(3,8,9,11)
+		    b=max(2,1,10)
+		    phrase = "Un Rectangle avec une longeur de "+ str(a) +"cm et une largeur de "+ str(b) +"cm aura un perimetre de : " + str(a*b) +"cm"
+		    return phrase
+		    {% endpython %}
+
+	    </p>
+
+	    
 	</div>
 </div>
 {% endblock %}

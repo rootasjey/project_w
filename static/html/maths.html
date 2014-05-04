@@ -1,15 +1,16 @@
 {% extends "/templates/skeleton.html" %}
+{% block titre %}webbapp - Maths{% endblock %}
 
-{% block titre %}webbapp - Informatique{% endblock %}
-
-<!-- {% block bodycontent %}
+{% block bodycontent %}
 	<div id="body">
 		<ul>
 		{% for chapitre in chapitres %}
 				<span>
+				<a href="/subject/maths/chapitre/{{ loop.index }}">
 					<li class="chapitre" id="{{ loop.index }}"><h1>{{ chapitre }}</h1></li>
+				</a>
 				</span>
 		{% endfor %}
 		</ul>
 	</div>
-{% endblock %} -->
+{% endblock %}
