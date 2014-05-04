@@ -15,23 +15,35 @@
 		    $$\bbox[5px, border:2px solid black]{E=mc^2}$$
 	    </p>
 
-	    <p class="exocontentTiny">
+	    <p class="exocontentTiny" style="color:#27ae60">
 	    	<br/><br/>
 	    	Cette application web est capable de générer des exercices dynamiquement,
-	    	c'est-à-dire que les valeurs numériques seront aléatoirement générée à chaque nouvel affichage.<br/>
+	    	c'est-à-dire que les valeurs numériques seront aléatoirement générées à chaque nouvel affichage.<br/>
 	    	Vous pouvez essayer de réactualiser cette page d'accueil. <br/><br/>
 
-	    	La formule pour calculer le périmètre d'un rectangle est : 2* Longueur * Largeur. <br/>
 
-	    	Exemple: <br/> 
-	    	
-	    	{% python %}
-		    a=max(3,8,9,11)
-		    b=max(2,1,10)
-		    phrase = "Un Rectangle avec une longeur de "+ str(a) +"cm et une largeur de "+ str(b) +"cm aura un perimetre de : " + str(a*b) +"cm"
-		    return phrase
-		    {% endpython %}
+	    	<div class="exoSolution" style="color:black">
+		    	Exemple: <br/> 
+		    	La formule pour calculer le périmètre d'un rectangle est : 2* Longueur * Largeur. <br/>
 
+		    	<!-- <div class='square'></div> -->
+		    	
+		    	{% python %}
+				    a=random.randint(1, int(round(time.time()))/100000)
+				    b=random.randint(1, int(round(time.time()))/100000)
+
+				    # This is a python comment
+				    # a is the height
+				    # whereas b is the width
+				    
+				    if(a>b):
+				    	a,b=b,a
+
+				    phrase = "<div class='figure'> <span class='largeur'>" + str(b) + "</span> <div class='square'> </div> <span class='longueur'>"+ str(a)+ "</span> </div>" + "Un Rectangle avec une longeur de <strong style='color:#e74c3c'>"+ str(a) +"cm</strong> et une largeur de <strong style='color:#e74c3c'>"+ str(b) +"cm</strong> aura un perimetre de : <strong style='color:#e74c3c'>" + str(a*b) +"cm</strong>"
+
+				    return phrase
+			    {% endpython %}
+		    </div>
 	    </p>
 
 	    

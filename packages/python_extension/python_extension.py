@@ -56,8 +56,11 @@ class PythonExtension(Extension):
     # and pass the content's block to the CreateFunction
     # (>Think about passing arguments)
   def Transmitter(self, args="", caller=None):
+      import random, time
+      random.seed(round(time.time())) # graine du random
+
       block_content = caller()
-      run = CreateFunction(block_content, "")
+      run = CreateFunction(block_content, "", additional_symbols = dict(random=random, time=time))
       result = run()
       return str(result)
 
