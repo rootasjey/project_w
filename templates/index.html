@@ -15,8 +15,12 @@
 		    $$\bbox[5px, border:2px solid black]{E=mc^2}$$
 	    </p>
 
-	    {% python '42', 46 %}5+6{% endpython %}
-	    <!-- {{'1+9'|eval}} -->
+	    {% python %}
+	    a=4
+	    b=22
+	    phrase = 'Il était une fois, '
+	    return a*b
+	    {% endpython %}
 	</div>
 </div>
 {% endblock %}

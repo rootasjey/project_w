@@ -3,6 +3,10 @@ from jinja2 import nodes
 from jinja2.ext import Extension
 
 
+# -----------------
+# JINJA2 EXTENSION
+# -----------------
+# -----------------
 class PythonExtension(Extension):
   """A jinja2 extension which execute python in blocks"""
   tags = set(['python'])
@@ -18,56 +22,82 @@ class PythonExtension(Extension):
     lineno = parser.stream.next().lineno
 
     # now we parse a single expression that is used as cache key.
-    args = [parser.parse_expression()]
+    # args=None
+    # if parser.parse_expression():
+    #     args = [parser.parse_expression()]
+    # args = [parser.parse_expression()]
 
     # if there is a comma, the user provided a timeout.  If not use
     # None as second parameter.
-    if parser.stream.skip_if('comma'):
-        args.append(parser.parse_expression())
-    else:
-        args.append(nodes.Const(None))
+    # if parser.stream.skip_if('comma'):
+    #     args.append(parser.parse_expression())
+    # else:
+    #     args.append(nodes.Const(None))
 
 
     # now we parse the body of the cache block up to `endpython` and
     # drop the needle (which would always be `endpython` in that case)
     body = parser.parse_statements(['name:endpython'], drop_needle=True)
 
+    # if args != None:
+    #      return nodes.CallBlock(
+    #     self.call_method('Transmitter', args),
+    #                        [], [], body).set_lineno(lineno)
+
+
     # now return a `CallBlock` node that calls our _cache_support
     # helper method on this extension.
     return nodes.CallBlock(
-        self.call_method('anotherone', args),
+        self.call_method('Transmitter'),
                            [], [], body).set_lineno(lineno)
 
 
-  def anotherone(self, code='1+1', code2='2', caller=None):
-      a = eval(code)
-      rv = caller()
-      b = eval(rv)
-      return str(b)
-
-  
-
-  # The list of symbols that are included by default in the generated
-  # function's environment
-  SAFE_SYMBOLS = ["list", "dict", "tuple", "set", "long", "float", "object",
-                  "bool", "callable", "True", "False", "dir",
-                  "frozenset", "getattr", "hasattr", "abs", "cmp", "complex",
-                  "divmod", "id", "pow", "round", "slice", "vars",
-                  "hash", "hex", "int", "isinstance", "issubclass", "len",
-                  "map", "filter", "max", "min", "oct", "chr", "ord", "range",
-                  "reduce", "repr", "str", "type", "zip", "xrange", "None",
-                  "Exception", "KeyboardInterrupt"]
-  # Also add the standard exceptions
-  __bi = __builtins__
-  if type(__bi) is not dict:
-      __bi = __bi.__dict__
-  for k in __bi:
-      if k.endswith("Error") or k.endswith("Warning"):
-          SAFE_SYMBOLS.append(k)
-  del __bi
+    # Fonction called by nodes.CallBlock
+    # and pass the content's block to the CreateFunction
+    # (>Think about passing arguments)
+  def Transmitter(self, args="", caller=None):
+      block_content = caller()
+      run = CreateFunction(block_content, args)
+      result = run()
+      return str(result)
 
 
-  def createFunction(sourceCode, args="", additional_symbols=dict()):
+
+# ------------------(sub-functions)-------------------
+# ----------------------------------------------------
+# -----CODE FOR GENERATE A FUNCTION FROM A STRING-----
+# ----------------------------------------------------
+# ----------------------------------------------------
+
+# ----------------------------------------------------
+# -------------------SAFE SYMBOLS---------------------
+# ----------------------------------------------------
+# The list of symbols that are included by default in the generated
+# function's environment
+SAFE_SYMBOLS = ["list", "dict", "tuple", "set", "long", "float", "object",
+              "bool", "callable", "True", "False", "dir",
+              "frozenset", "getattr", "hasattr", "abs", "cmp", "complex",
+              "divmod", "id", "pow", "round", "slice", "vars",
+              "hash", "hex", "int", "isinstance", "issubclass", "len",
+              "map", "filter", "max", "min", "oct", "chr", "ord", "range",
+              "reduce", "repr", "str", "type", "zip", "xrange", "None",
+              "Exception", "KeyboardInterrupt"]
+# Also add the standard exceptions
+__bi = __builtins__
+if type(__bi) is not dict:
+  __bi = __bi.__dict__
+for k in __bi:
+  if k.endswith("Error") or k.endswith("Warning"):
+      SAFE_SYMBOLS.append(k)
+del __bi
+
+
+
+# -----------------------------------------------------
+# PYTHON FUNCTION WHICH CREATE A FUNCTION WITH A STRING
+# -----------------------------------------------------
+# -----------------------------------------------------
+def CreateFunction(sourceCode, args="", additional_symbols=dict()):
     """
     Create a python function from the given source code
     
@@ -161,112 +191,3 @@ class PythonExtension(Extension):
     # Attach the actual source code to the docstring
     fct.__doc__ = sourceCode
     return fct
-
-
-  ##################################################################
-  ### Some tests
-  def test():
-      # -----------------------------------------------------
-      # Code to execute as function 'f' (as a string):
-      s = """
-  if a == "BE RECURSIVE":
-      print "In the recursion 1"
-      return __TheFunction__("THE END", 54)
-  elif a == "THE END":
-      print "In the recursion 2"
-      return 54
-
-  print a
-  print b
-  x = True
-
-  def sayhello(s):
-      print "I say hello that way: %s" % s
-
-  class SayHello(object):
-      def __init__(self, s):
-          self.__s = s
-          print "ctor says %s" % self.__s
-
-      def s(self):
-          return self.__s
-  try:
-      1/0
-  except ZeroDivisionError, ex:
-      print "GOT EX", ex
-
-  print "ooo in here says", ooo.mouf()
-
-  result = a + b +1
-  afunction(a+1)
-  c = re.compile("^a").search("ba", 1)
-  d = re.compile("a").match("ba", 1)
-  sayhello("I am so happy today %s,%s" % (c, d))
-  o = SayHello("this works")
-  vvv = range(42)
-  print vvv
-  sys.stderr.write("writing to stderr\\n")
-
-  print __TheFunction__
-  print "============ BEGIN docstring ==========="
-  print __TheFunction__.__doc__
-  print "============ END docstring ==========="
-  return a*b + __TheFunction__("BE RECURSIVE", 33)
-  """
-      # End of source code string
-      # -----------------------------------------------------
-
-      # Create objects, functions, etc.
-      class OOO:
-          def __init__(self, id):
-              self.__id = id
-          def mouf(self):
-              return "OOO: My ID is %s" % self.__id
-      def F(n):
-          print "F: my parameter is", n
-
-      # Generate a first function, f, which needs the re and sys modules
-      import sys, re
-      OoO = OOO(64)
-      f = createFunction(s, "a=3, b=4",
-                         additional_symbols = dict(re=re, sys=sys,
-                                                   afunction=F, ooo=OoO))
-      # Generate another function
-      OoO = OOO("FOR G")
-      g = createFunction("print 'G: my parameter is ', p, 'and o says', o.mouf()\nreturn p",
-                      "p='undefined'", dict(o=OoO))
-
-      # Test them
-      print "call f():", f()
-      print "call g():", g()
-      print "call f(42):", f(42)
-      print "call g(22):", g(22)
-      print "call f(b=42):", f(b=42)
-      print "call f(b=7, a=8):", f(b=7, a=8)
-      print "call f(9, 10):", f(9, 10)
-
-      # Do some basic profiling
-      def nothing(a):
-          return a*42
-
-      import time
-      ITER=10000000
-
-      time.sleep(1.) # force preemption
-      
-      st = time.time()
-      for i in xrange(ITER):
-          x = nothing(i)
-      et = time.time()
-      print "Basic: %fs" % (et-st)
-      t = et-st
-
-      time.sleep(1.) # force preemption
-
-      f = createFunction("return a*42", "a")
-      st = time.time()
-      for i in xrange(ITER):
-          x = f(i)
-      et = time.time()
-      print "FromString: %fs" % (et-st)
-      print "FromString time = Basic%+f%%" % ((((et-st) - t) / t)*100.)

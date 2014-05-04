@@ -229,10 +229,11 @@ phrase = """
 a=2
 b=3
 c = a*b
-print c
 print("I'M ALIVE!")
+return c
 """
 
 f = createFunction(phrase)
-f()
+res = f()
+print res
 os.system('pause')
