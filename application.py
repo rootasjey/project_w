@@ -43,8 +43,8 @@ def index():
 	return render_template('/templates/index.html')
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+# <<<<<<< HEAD
+# <<<<<<< HEAD
 #cours
 
 @app.route('/cours')
@@ -60,25 +60,20 @@ def coursMath():
 	return render_template('/templates/coursMath.html')
 
 # Matières
-=======
-# Subjects
->>>>>>> 1a320e371dd7c5bfc078187095142bbf6fe273c8
-=======
-# Subjects
->>>>>>> 1a320e371dd7c5bfc078187095142bbf6fe273c8
+
+# # Subjects
+
 @app.route('/subject/')
 def subjects():
 	subjectsl = os.listdir(root)
 	return render_template('/static/html/subject.html', subjects = subjectsl)
 
 
-<<<<<<< HEAD
+
 # Create Exercices
-@app.route('/redaction/')
-=======
+
 # Rédaction des exos
 @app.route('/redaction', methods=['GET', 'POST'])
->>>>>>> 1ba6047e9f6514408bd14260f3c6673f1b36956e
 def redaction():
 	if request.method == 'POST':
 		return "vous avez rédigé un exercices"
@@ -196,9 +191,4 @@ def exercice(id=0, science="informatique", exercice="exercice1.html"):
 # ----------------------
 if __name__ == '__main__':
 	app.run(debug=True)
-<<<<<<< HEAD
-# ----------------------
-=======
 
-
->>>>>>> 1ba6047e9f6514408bd14260f3c6673f1b36956e
