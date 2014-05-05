@@ -89,7 +89,7 @@ def chapter(id=1, science="informatique"):
 
 		for index, ex in enumerate(exercicesl):
 			
-			if ".md" in ex:
+			if ".html" in ex:
 				memory.append(index)
 				# sauvegarde l'index des .md
 				# continue # on passe à l'exo suivant
@@ -121,7 +121,7 @@ def chapter(id=1, science="informatique"):
 @app.route('/subject/<science>/chapitre/<int:id>/<exercice>/')
 def exercice(id=0, science="informatique", exercice="exercice1.html"):
 	subjectsl = os.listdir(root) # liste des matières
-	domain=""					# matières choisie
+	domain=""					 # matières choisie
 
 	if science == "informatique":
 		domain = subjectsl[0]
@@ -137,6 +137,11 @@ def exercice(id=0, science="informatique", exercice="exercice1.html"):
 		if exercice in ex:
 			path = root + domain + '/' + chaptersl[id] + '/'+ ex
 			break;
+
+	# conversion du document .md en .html
+	converter.ConvertSingleFileToHTML(path)
+	extension=".md"
+	path = str.replace(path, extension, ".html")
 
 	# affichage de la page
 	return render_template('/static/html/exercice.html', id = id,

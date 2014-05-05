@@ -67,13 +67,18 @@ body {
             }
         #userbar .message {
             margin-top: 0;
-            font-size: 0.8em;
+            font-size: 0.6em;
+            font-family: sspro;
         }
 
         #userbar .box_content {
             width: 100%;
             height: 5px;
-            background-color: #e74c3c;
+
+            color: white;
+            font-family: sspro;
+
+            background-color: #3498db;
             text-align: center;
             padding-right: 40px;
 
@@ -93,7 +98,11 @@ body {
             #userbar .box_content_hide {
                 width: 100%;
                 height: 5px;
-                background-color: #e74c3c;
+
+                color: white;
+                font-family: sspro;
+
+                background-color: #3498db;
                 text-align: center;
                 padding-right: 40px;
 
@@ -123,7 +132,11 @@ body {
              #userbar .box_content_show {
                 width: 100%;
                 height: 5px;
-                background-color: #e74c3c;
+
+                color: white;
+                font-family: sspro;
+                
+                background-color: #3498db;
                 text-align: center;
                 padding-right: 40px;
 
@@ -160,7 +173,7 @@ body {
         #hangon {
             height: 50px;
             width: 50px;
-            background: #e74c3c;
+            background: #3498db;
             border-radius: 40px;
 
             position: absolute;
@@ -175,7 +188,7 @@ body {
             #hangon_rope {
                 height: 50px;
                 width: 10px;
-                background: #e74c3c;
+                background: #3498db;
 
                 margin-top: -30px;
                 position: absolute;
@@ -382,16 +395,17 @@ a {
     }
 
 #clock {
-    color: black;
+    color: white;
     margin-top: -30px;
     font-size: 1em;
-    width: 200px;
+    width: 20px;
+    display: inline;
     transition: 1s;
 }
-    #clock:hover {
+    /*#clock:hover {
         font-size: 3em;
         transition: 1s;
-    }
+    }*/
 
 /*ANIMATIONS*/
 /*---------*/

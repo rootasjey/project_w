@@ -18,7 +18,37 @@ from packages.markdown import Markdown 			  #|
 markdowner = Markdown()							  #|
 # --------------------------------------------------
 
+
+# ------------------------------------------------
 # FUNCTIONS --------------------------------------->
+# ------------------------------------------------
+
+
+# ---------------------------------
+# Convertit un fichier .md en .html
+# ---------------------------------
+def ConvertSingleFileToHTML(path=""):
+	if path == "":
+		return
+
+	extension = ".md"
+	if path.endswith(extension):
+		# ouverture du fichier
+		with open(path, 'r') as exercice:
+			text = exercice.read()
+			# création du nouveau chemin absolu (du nouveau fichier) > en replaçant l'extension
+			new_path = str.replace(path, extension, ".html")
+			# création du nouveau fichier
+			with open(new_path, 'w') as html_file:
+				# conversion + écriture dans le nouveau fichier
+				html_file.write(markdowner.convert(text)) 
+
+
+# ----------------------------------------------------------------
+# Convertit un ensemble de fichiers .md -> .html
+# Prend en paramètre un répertoire racine  qui doit contenir
+# des répertoires matières, puis des chapitres, et enfin des exos
+# ----------------------------------------------------------------
 def convertMDtoHTML(path = "exercices/"):
 	"""Fonction qui cherche des fichiers .md (exercices) contenus
 				à l'adresse du chemin passé en paramètre,
@@ -62,11 +92,14 @@ def convertMDtoHTML(path = "exercices/"):
 							print("Conversion : " + file + " > " + file[:-2] + "html")
 	
 	# demande à l'utilisateur s'il veut suprimmer les fichiers de génération
-	if(cleanFiles()):
-		deleteFiles(path)
-	os.system('pause')
+	# if(cleanFiles()):
+	# 	deleteFiles(path)
+	# os.system('pause')
 
-# -----------------------------------------------------------------------------------
+
+# -------------------------------------------------------------
+# Supprime les fichiers d'une certaine extension (.md ou .html)
+# -------------------------------------------------------------
 def deleteFiles(path="exercices/", extensions = ".html"):
 	"""Fonction qui recherche les fichiers de type 'extentions' (passé en paramètre)
 				au chemin 'path' spécifié, et les supprime"""
@@ -94,6 +127,10 @@ def deleteFiles(path="exercices/", extensions = ".html"):
 					print("Suppression de {}".format(file_path))
 					os.remove(file_path)
 
+
+# ---------------------------------------
+# Demande pour la suppression de fichiers 
+# ---------------------------------------
 def cleanFiles():
 	userinput = raw_input("Voulez-vous supprimer les fichiers .html? (Y/N) ")
 	userinput = userinput.lower()
