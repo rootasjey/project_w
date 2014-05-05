@@ -44,6 +44,7 @@ def index():
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #cours
 
 @app.route('/cours')
@@ -59,6 +60,9 @@ def coursMath():
 	return render_template('/templates/coursMath.html')
 
 # Matières
+=======
+# Subjects
+>>>>>>> 1a320e371dd7c5bfc078187095142bbf6fe273c8
 =======
 # Subjects
 >>>>>>> 1a320e371dd7c5bfc078187095142bbf6fe273c8
