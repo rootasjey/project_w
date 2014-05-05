@@ -10,6 +10,7 @@ from packages.python_extension.python_extension import PythonExtension
 from flask import Flask, request, render_template
 # --------------------------------------
 
+from flask import request
 
 # root folder of exercices
 # ----------------------------
@@ -49,10 +50,22 @@ def subjects():
 	return render_template('/static/html/subject.html', subjects = subjectsl)
 
 
+<<<<<<< HEAD
 # Create Exercices
 @app.route('/redaction/')
+=======
+# Rédaction des exos
+@app.route('/redaction', methods=['GET', 'POST'])
+>>>>>>> 1ba6047e9f6514408bd14260f3c6673f1b36956e
 def redaction():
-	return render_template('/templates/redaction.html')
+	if request.method == 'POST':
+		return "vous avez rédigé un exercices"
+	else:
+		return render_template('/templates/redaction.html')
+	# if request.method == 'POST':
+ #        return "Vous avez rédiger un exercice "
+ #    else:
+	# 	return render_template('/templates/redaction.html')
 
 
 # Chapters list 
@@ -164,4 +177,9 @@ def exercice(id=0, science="informatique", exercice="exercice1.html"):
 # ----------------------
 if __name__ == '__main__':
 	app.run(debug=True)
+<<<<<<< HEAD
 # ----------------------
+=======
+
+
+>>>>>>> 1ba6047e9f6514408bd14260f3c6673f1b36956e
