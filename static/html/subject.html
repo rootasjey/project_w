@@ -2,13 +2,13 @@
 
 {% block titre %}webbapp - Matières{% endblock %}
 
-<!-- Affiche dynamique la liste des matières disponibles -->
+<!-- Show a dynamic list of subjects -->
 {% block bodycontent %}
 <div id="body">
-	<div class="domains_list">
+	<div class="subjects_list">
 		{% for science in subjects %}
 			<a href="/subject/{{ science }}">
-				<div class="domain_square" id="square_{{ science }}"><p>{{ science }}</p></div>
+				<div class="subject_square" id="square_{{ science }}"><p>{{ science }}</p></div>
 			</a>
 		{% endfor %}
 	</div>

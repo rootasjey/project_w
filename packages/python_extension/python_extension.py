@@ -57,7 +57,7 @@ class PythonExtension(Extension):
     # (>Think about passing arguments)
   def Transmitter(self, args="", caller=None):
       import random, time
-      random.seed(round(time.time())) # graine du random
+      random.seed(round(time.time())) # random's seed
 
       block_content = caller()
       run = CreateFunction(block_content, "", additional_symbols = dict(random=random, time=time))

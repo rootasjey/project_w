@@ -35,11 +35,22 @@
 				    # This is a python comment
 				    # a is the height
 				    # whereas b is the width
-
+				    # ----------------------
 				    if(a>b):
 				    	a,b=b,a
 
-				    phrase = "<div class='figure'> <span class='largeur'>" + str(b) + "</span> <div class='square'> </div> <span class='longueur'>"+ str(a)+ "</span> </div>" + "Un Rectangle avec une longeur de <strong style='color:#e74c3c'>"+ str(a) +"cm</strong> et une largeur de <strong style='color:#e74c3c'>"+ str(b) +"cm</strong> aura un perimetre de : <strong style='color:#e74c3c'>" + str(a*b) +"cm</strong>"
+				    # contenu de retour
+				    # -----------------
+				    phrase="""
+				    	<div class='figure'> <span class='largeur'>
+				    	""" + str(b) + """
+				    	</span> <div class='square'> </div> <span class='longueur'>""" + str(a)+ """
+				    	</span> </div>""" + """
+				    	Un Rectangle avec une longeur de <strong style='color:#e74c3c'>"""+ str(a) + """
+				    	cm</strong> et une largeur de <strong style='color:#e74c3c'>"""+ str(b) + """
+				    	cm</strong> aura un perimetre de : <strong style='color:#e74c3c'>""" + str(a*b) + """
+				    	cm</strong>
+				    """
 
 				    return phrase
 			    {% endpython %}
