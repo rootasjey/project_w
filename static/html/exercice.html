@@ -1,21 +1,15 @@
 {% extends "/templates/skeleton.html" %}
-{% block titre %}webbapp - Chap {{ id }} - {{ exercice }} {% endblock %}
-
-{% block header%} {{ super() }}
-	<!-- script pour le highlight -->
-    <link type="text/css" rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/monokai.min.css">
-    <script type="text/javascript" src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-{% endblock %}
+{% block titre %}webbapp - Chap {{ id }}{% endblock %}
 
 {% block bodycontent %}
 	<div id="body">
-		<div class="exocontent">
-			{% if path %}
-				{% include path %}
-			{% endif %}
-		</div>
-
-		<!-- highlighting -->
-		<script>hljs.initHighlightingOnLoad();</script>
+		<ul>
+		{% for exo in exercices %}
+			<a href="/subject/{{ science }}/chapter/{{ id }}/{{ exo }}">
+				<li class="exotitle">{{ exo|replace(".md", "") }}</li>
+			</a>
+			<br />
+		{% endfor %}
+		</ul>
 	</div>
 {% endblock %}

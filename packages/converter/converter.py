@@ -4,9 +4,9 @@ convert exercices from .md format to .html format.
 A function checks if new files has been added or updated."""
 
 import os, sys
-# Ajoute le module racine 'webbapp' dans le PYTHONPATH
-# Permet d'importer le module Markdown, même si on se
-# trouve dans un sous-doosier (>remonte l'arborescence des fichiers)
+# Add 'webbapp' module in the PYTHONPATH
+# Allow the import of Markdown module,
+# even if we are in a sub-folder (so we climb the arborescence)
 folder = os.path.dirname(os.path.abspath(__file__))
 while not folder.endswith('webbapp'):
 	folder = os.path.dirname(folder)
@@ -25,7 +25,7 @@ markdowner = Markdown()							  #|
 
 
 # ---------------------------------
-# Convertit un fichier .md en .html
+# Convert one file from .md to .html
 # ---------------------------------
 def ConvertSingleFileToHTML(path=""):
 	if path == "":
@@ -33,35 +33,33 @@ def ConvertSingleFileToHTML(path=""):
 
 	extension = ".md"
 	if path.endswith(extension):
-		# ouverture du fichier
+		# open file
 		with open(path, 'r') as exercice:
 			text = exercice.read()
-			# création du nouveau chemin absolu (du nouveau fichier) > en replaçant l'extension
+			# create a new absolute path (for the new file) > replacing the extension
 			new_path = str.replace(path, extension, ".html")
-			# création du nouveau fichier
+			# create a new file
 			with open(new_path, 'w') as html_file:
-				# conversion + écriture dans le nouveau fichier
+				# conversion + write in the new file
 				html_file.write(markdowner.convert(text)) 
 
 
 # ----------------------------------------------------------------
-# Convertit un ensemble de fichiers .md -> .html
-# Prend en paramètre un répertoire racine  qui doit contenir
-# des répertoires matières, puis des chapitres, et enfin des exos
+# Convert multiple files from .md -> .html
+# Take one parameter : root folder
+# root folder must contains subjects, then chapters, and finally exercices
+# It won't work properly if the arborescence changes (must adapt)
 # ----------------------------------------------------------------
 def convertMDtoHTML(path = "exercices/"):
-	"""Fonction qui cherche des fichiers .md (exercices) contenus
-				à l'adresse du chemin passé en paramètre,
-				et les convertit en .html grâce au module markdown"""
+	"""Look for .md files (exercices) in the path (parameter),
+				and convert them in .html with markdown module"""
 
-	# listdir liste les dossiers 
-	# et fichiers au chemin 
-	# absolu passé en paramètre
+	# listdir folders list 
 	try:
 		dirs = os.listdir(path)
 	except WindowsError as detail:
 		print detail
-		print ">Récupération du chemin du dossier d'exercice..."
+		print ">Try to recorver the path..."
 		path = "../../exercices/"
 		dirs = os.listdir(path)
 
@@ -71,34 +69,34 @@ def convertMDtoHTML(path = "exercices/"):
 	for discipline in dirs:
 		file_path = path + discipline + '/'
 		courses = os.listdir(file_path)
-		# pour chaque cours d'une discipline
+		# for each chapter of a subject
 		for course in courses:
 			file_path = path + discipline + '/' + course + '/'
 			files = os.listdir(file_path)
-			# pour chaque exercice d'un cours
+			# for each exercice in a chapter
 			for file in files:
-				# vérifie que notre fichier a la bonne extension
+				# verify that our file get the right extension
 				if file.endswith(extensions):
 					file_path = path + discipline + '/' + course + '/' + file
-					# ouverture du fichier
+					# open the file
 					with open(file_path, 'r') as exercice:
 						text = exercice.read()
-						# création du nouveau chemin absolu (du nouveau fichier) > en replaçant l'extension
+						# create a new absolute path (for the new file) > replacing the extension
 						new_path = str.replace(file_path, file, file[:-2] + "html")
-						# création du nouveau fichier
+						# create a new file
 						with open(new_path, 'w') as html_file:
-							# conversion + écriture dans le nouveau fichier
+							# conversion + write in the new file
 							html_file.write(markdowner.convert(text)) 
 							print("Conversion : " + file + " > " + file[:-2] + "html")
 	
-	# demande à l'utilisateur s'il veut suprimmer les fichiers de génération
+	# ask the user if he wants to delete original files
 	# if(cleanFiles()):
 	# 	deleteFiles(path)
 	# os.system('pause')
 
 
 # -------------------------------------------------------------
-# Supprime les fichiers d'une certaine extension (.md ou .html)
+# Delete specifics files with the match extension (.md or .html)
 # -------------------------------------------------------------
 def deleteFiles(path="exercices/", extensions = ".html"):
 	"""Fonction qui recherche les fichiers de type 'extentions' (passé en paramètre)
@@ -107,7 +105,7 @@ def deleteFiles(path="exercices/", extensions = ".html"):
 	try:
 		dirs = os.listdir(path)
 	except WindowsError:
-		print ">Récupération du chemin du dossier de fichiers a supprimer..."
+		print ">Recover the path to delete files..."
 		path = "../../exercices/"
 
 	file_path = ''
@@ -115,13 +113,13 @@ def deleteFiles(path="exercices/", extensions = ".html"):
 	for discipline in dirs:
 		file_path = path + discipline + '/'
 		courses = os.listdir(file_path)
-		# pour chaque cours d'une discipline
+		# for each chapter of a subject
 		for course in courses:
 			file_path = path + discipline + '/' + course + '/'
 			files = os.listdir(file_path)
-			# pour chaque exercice d'un cours
+			# for each exercice in a chapter
 			for file in files:
-				# vérifie que notre fichier a la bonne extension
+				# verify that our file get the right extension
 				if file.endswith(extensions):
 					file_path = path + discipline + '/' + course + '/' + file
 					print("Suppression de {}".format(file_path))
@@ -129,7 +127,7 @@ def deleteFiles(path="exercices/", extensions = ".html"):
 
 
 # ---------------------------------------
-# Demande pour la suppression de fichiers 
+# Ask for the deletions of files 
 # ---------------------------------------
 def cleanFiles():
 	userinput = raw_input("Voulez-vous supprimer les fichiers .html? (Y/N) ")
@@ -141,9 +139,12 @@ def cleanFiles():
 		print "Les fichiers .html ont ete conserves"
 		return False
 
+
+# ----------------------
 # TEST ----------------->
-# s'exécute si ce fichier 
-# est lancé en standalone
+# ----------------------
+# Run this code if this file 
+# is the main app
 if __name__ == '__main__':
 	print("TEST PACKAGE")
 	convertMDtoHTML()

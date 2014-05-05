@@ -5,8 +5,8 @@ A UVSQ's project.
 The nice jinja2 extension to run python code uses the [CreateFunction from this sample](http://code.activestate.com/recipes/550804-create-a-restricted-python-function-from-a-string/)
 
 #updates
-* *last*: completed **jinja2** extension to run python code on the go
-* *to do*: create exercice in the web browser
+* *last*: wrote 1st dynamic exercice
+* *next*: create a solution system for exercices
 
 #How to install (Windows)
 * Install [Pyhton 2.7 or later (or Python 3.4 or later, but it's experimental)](https://www.python.org/download/)

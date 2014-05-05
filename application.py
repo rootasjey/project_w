@@ -2,15 +2,16 @@
 """This is the default application which launch the web app"""
 
 import os, sys
-# ------------
+# --------------------------------------
 from packages.converter import converter
 from jinja2 import Template, Environment
 from packages.python_extension.python_extension import PythonExtension
-# -----------------------------------------------
+# --------------------------------------
 from flask import Flask, request, render_template
+# --------------------------------------
 
 
-# dossier racine des exercices
+# root folder of exercices
 # ----------------------------
 root = "exercices/"
 # ----------------------------
@@ -23,13 +24,13 @@ app = Flask(__name__, template_folder='')
 app.jinja_env.add_extension(PythonExtension)
 
 
-# Valeurs par défault
+# Default values
 @app.context_processor
 def passer_titre():
 	return dict(welcomeMessage = 'Visiteur')
 
 
-# Filtre évaluant du code python
+# Filter to eval python code
 @app.template_filter('eval')
 def Evaluer_args(args):
     return eval(args)
@@ -41,58 +42,68 @@ def index():
 	return render_template('/templates/index.html')
 
 
-# Matières
+# Subjects
 @app.route('/subject/')
 def subjects():
 	subjectsl = os.listdir(root)
 	return render_template('/static/html/subject.html', subjects = subjectsl)
 
 
-# Rédaction des exos
+# Create Exercices
 @app.route('/redaction/')
 def redaction():
 	return render_template('/templates/redaction.html')
 
 
-# Liste des chapitres 
+# Chapters list 
+# -------------
 @app.route('/subject/<science>/')
 def chapters(science="informatique"):
-	chosen=""	# matiere choisie
-	subjectsl = os.listdir(root)
+	chosen=""					 # chosen subject
+	subjectsl = os.listdir(root) # subjects list
 
-	if science == "informatique":
-		chosen = subjectsl[0]
-	elif science == "maths":
-		chosen = subjectsl[1]
-
+	# find subject's index
+	for subject in subjectsl:
+		if science == subject:
+			chosen = subject
+			break;
+	
+	# chapters list
 	chaptersl = os.listdir(root + chosen)
-	return render_template('/static/html/'+ chosen +'.html', chapitres = chaptersl);
+	return render_template('/static/html/chapter.html', chapters = chaptersl,
+															 subject = chosen);
 
 
-# Liste des exos
-@app.route('/subject/<science>/chapitre/<int:id>', methods=['GET', 'POST'])
+# Exercices list
+# --------------
+@app.route('/subject/<science>/chapter/<int:id>', methods=['GET', 'POST'])
 def chapter(id=1, science="informatique"):
 	if request.method == 'GET':
-		id = id - 1 # commence à 0
-		# book = []	# contiendra le contenu des exos
-		memory = [] # contiendra les index des fichiers .md a retirer
+		id = id - 1 				 # start from 0
+		# book = []					 # exercices' content
+		memory = [] 				 # .html files' indexes to remove
+
+		chosen=""					 # chosen subject
 		subjectsl = os.listdir(root)
 		chaptersl=[]
 		exercicesl=[]
-		if science == "informatique":
-			chaptersl = os.listdir(root + subjectsl[0])
-			exercicesl = os.listdir(root + subjectsl[0] + '/' + chaptersl[id])
-		else:
-			chaptersl = os.listdir(root + subjectsl[1])
-			exercicesl = os.listdir(root + subjectsl[1] + '/' + chaptersl[id])
-		
+
+		# find subject's index
+		for subject in subjectsl:
+			if science == subject:
+				chosen = subject
+				break
+
+		chaptersl = os.listdir(root + chosen)
+		exercicesl = os.listdir(root + chosen + '/' + chaptersl[id])
+
 
 		for index, ex in enumerate(exercicesl):
 			
 			if ".html" in ex:
 				memory.append(index)
-				# sauvegarde l'index des .md
-				# continue # on passe à l'exo suivant
+				# save .html indexes
+				# continue # next exercice
 			
 			# path = root + subjectsl[0] + '/' + chaptersl[id] + '/'+ ex
 			# with open(path, 'r') as work:
@@ -100,7 +111,7 @@ def chapter(id=1, science="informatique"):
 			# 			book.append(text)	# ajoute l'exo dans le book
 
 		
-		# retire les fichiers .md de la liste ------|
+		# remove .html files from the list ------|
 		cpt = 0
 		deleted = 0
 		while memory:
@@ -111,44 +122,46 @@ def chapter(id=1, science="informatique"):
 				break
 		# ------------------------------------------|
 
-		# affichage de la page
-		return render_template('/static/html/chapitre.html', id = id,
+		# return the html page
+		return render_template('/static/html/exercice.html', id = id,
 															 science = science,
 															 exercices = exercicesl)
 
 
-# Présentation de l'exercice
-@app.route('/subject/<science>/chapitre/<int:id>/<exercice>/')
+# Exercice show
+# -------------
+@app.route('/subject/<science>/chapter/<int:id>/<exercice>/')
 def exercice(id=0, science="informatique", exercice="exercice1.html"):
-	subjectsl = os.listdir(root) # liste des matières
-	domain=""					 # matières choisie
+	subjectsl = os.listdir(root) # subjects list
+	chosen=""					 # subject chosen
 
-	if science == "informatique":
-		domain = subjectsl[0]
-
-	elif science == "maths":
-		domain = subjectsl[1]
-
-
-	chaptersl = os.listdir(root + domain)
-	exercicesl = os.listdir(root + domain + '/' + chaptersl[id])
+	# find subject's index
+	for subject in subjectsl:
+		if science == subject:
+			chosen = subject
+			break;
+	
+	chaptersl = os.listdir(root + chosen)
+	exercicesl = os.listdir(root + chosen + '/' + chaptersl[id])
 
 	for index, ex in enumerate(exercicesl):
 		if exercice in ex:
-			path = root + domain + '/' + chaptersl[id] + '/'+ ex
+			path = root + chosen + '/' + chaptersl[id] + '/'+ ex
 			break;
 
-	# conversion du document .md en .html
+	# convert .md to .html
 	converter.ConvertSingleFileToHTML(path)
 	extension=".md"
 	path = str.replace(path, extension, ".html")
 
-	# affichage de la page
-	return render_template('/static/html/exercice.html', id = id,
+	# return page
+	return render_template('/static/html/work.html', id = id,
 														 exercice = exercice,
 														 path = path)
 	
-# run en debug si l'user
-# exec application.py
+# debug mode if the 
+# application.py is launched
+# ----------------------
 if __name__ == '__main__':
 	app.run(debug=True)
+# ----------------------

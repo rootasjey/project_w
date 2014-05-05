@@ -1,0 +1,21 @@
+{% extends "/templates/skeleton.html" %}
+{% block titre %}webbapp - Chap {{ id }} - {{ exercice }} {% endblock %}
+
+{% block header%} {{ super() }}
+	<!-- script highlight -->
+    <link type="text/css" rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/monokai.min.css">
+    <script type="text/javascript" src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+{% endblock %}
+
+{% block bodycontent %}
+	<div id="body">
+		<div class="exocontent">
+			{% if path %}
+				{% include path %}
+			{% endif %}
+		</div>
+
+		<!-- highlighting -->
+		<script>hljs.initHighlightingOnLoad();</script>
+	</div>
+{% endblock %}
