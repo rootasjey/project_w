@@ -9,7 +9,7 @@ from packages.python_extension.python_extension import PythonExtension
 # -----------------------------------------------
 from flask import Flask, request, render_template
 
-
+from flask import request
 
 # dossier racine des exercices
 # ----------------------------
@@ -50,10 +50,10 @@ def subjects():
 
 
 # Rédaction des exos
-@app.route('/redaction/')
+@app.route('/redaction', methods=['GET', 'POST'])
 def redaction():
-	if request.args.get('titre') is not None:
-        return "Vous avez rédiger l'exercice : {titre}".format(titre=request.args['titre'])
+	if request.method == 'POST':
+        return "Vous avez rédiger un exercice "
     else:
 		return render_template('/templates/redaction.html')
 
