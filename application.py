@@ -53,9 +53,13 @@ def subjects():
 @app.route('/redaction', methods=['GET', 'POST'])
 def redaction():
 	if request.method == 'POST':
-        return "Vous avez rédiger un exercice "
-    else:
+		return "vous avez rédigé un exercices"
+	else:
 		return render_template('/templates/redaction.html')
+	# if request.method == 'POST':
+ #        return "Vous avez rédiger un exercice "
+ #    else:
+	# 	return render_template('/templates/redaction.html')
 
 
 # Liste des chapitres 
@@ -156,3 +160,5 @@ def exercice(id=0, science="informatique", exercice="exercice1.html"):
 # exec application.py
 if __name__ == '__main__':
 	app.run(debug=True)
+
+
