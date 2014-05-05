@@ -10,6 +10,7 @@ from packages.python_extension.python_extension import PythonExtension
 from flask import Flask, request, render_template
 
 
+
 # dossier racine des exercices
 # ----------------------------
 root = "exercices/"
@@ -51,7 +52,10 @@ def subjects():
 # Rédaction des exos
 @app.route('/redaction/')
 def redaction():
-	return render_template('/templates/redaction.html')
+	if request.args.get('titre') is not None:
+        return "Vous avez rédiger l'exercice : {titre}".format(titre=request.args['titre'])
+    else:
+		return render_template('/templates/redaction.html')
 
 
 # Liste des chapitres 

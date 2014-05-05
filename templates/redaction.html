@@ -2,7 +2,7 @@
 
 {% block bodycontent %}
 <div id="body">
-<form method="post" action="">
+<form method="GET" action="">
    <center><p>
         <h1><label for="titre">Le titre de votre exercie :</label>
         <input type="text" name="titre" id="titre" placeholder="Ex : les integrales" size="30" maxlength="10" /></h1>
@@ -13,7 +13,10 @@
        </select></br>
 
         <label for="exo">Redigez votre exercice :</label><br />
-       	<textarea name="ameliorer" id="ameliorer" rows="10" cols="50"></textarea>   </br>  
+       	<textarea name="exo" id="exo" rows="10" cols="50"></textarea>   </br>  
+
+        <label for="sol">Donner la solution :</label><br />
+        <textarea name="sol" id="sol" rows="10" cols="50"></textarea>   </br> 
 
        	<input type="submit" value="Envoyer" />  
     </p></center>
