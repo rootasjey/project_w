@@ -9,14 +9,17 @@ Echange de clef de Diffie-Hellman
 	\# 
 	\# 
 	\#
-	enonce1 = """ <span class="exoSummary"> Alice et Bob veulent convenir d'un secret en utilisant le protocole d'echange de clef de Diffie-Hellman."""
+	enonce1 = """ <span class="exoSummary"> **Alice** et **Bob** veulent convenir d'un secret en utilisant le protocole d'echange de clef de Diffie-Hellman."""
 	enonce1 += """ Ils se mettent d'accord pour le corps \\(Z/""" + str(p) +"Z\\)"""
 	enonce1 += """ et pour le generateur \\(g = """ + str(g) + """\\)."""
 	enonce1 += """ Alice choisit la clef secrete \\(a = """ + str(a) + """\\) et Bob \\(b = """ + str(b) + """\\). </span>"""
 	\# 
-	question1 = """<p class="exoQuestion"> 1. Calculez les clefs publiques de Alice et Bob. </p>"""
-	\# 
-	question2 = """<p class="exoQuestion"> 2. Calculez la clef partagee. </p>"""
+	questions1 = """<p>
+
++	<span class="exoQuestion">	1. Calculez les clefs publiques de Alice et Bob.</span>
++	<span class="exoQuestion">	2. Calculez la clef partagee. </span>
+
+</p>"""
 	\# 
 	\# 
 	\# 
@@ -24,14 +27,24 @@ Echange de clef de Diffie-Hellman
 		deux questions. Ne donnez pas seulement les resultats finaux:
 		developpez en detail les etapes du calcul. </span>"""
 	\# 
-	question3 = """<p class="exoQuestion"> 3. Calculez \\(""" + str(g) + """^{""" + str(100 * (p-1) + random.randint(1,4)) + """} \mod """ + str(p) + """\\). </p>"""
+	questions2 = """<p>
+
++	<span class="exoQuestion">	3. Calculez \\(""" + str(g) + """^{""" + str(100 * (p-1) + random.randint(1,4)) + """} \mod """ + str(p) + """\\).</span>
++	<span class="exoQuestion">	4. Calculez le logarithme en base """ +  str(g) + """ de \\(""" + str(pow(g, 3, p)) + """\\).</span>
+
+</p>"""
 	\# 
-	question4 = """<p class="exoQuestion"> 4. Calculez le logarithme en base """ +  str(g) + """ de \\(""" + str(pow(g, 3, p)) + """\\). </p>"""
 	\# 
 	\# 
-	\# 
+	solution = """<p><br/><br/><span class="solutionButton">solution</span> <div class="solutionArea">
+
++	<span class="exoSolution">question 1</span>
++	<span class="exoSolution">question 2</span>
+
+</p></div>"""
+	\#
 	\# --------valeur de retour----------
-	exercice = enonce1 + question1 + question2 + enonce2 + question3 + question4
+	exercice = enonce1 + questions1 + enonce2 + questions2 + solution
 	\# ---------------------------------
 	return exercice
 	\# 

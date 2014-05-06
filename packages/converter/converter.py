@@ -90,7 +90,7 @@ def convertMDtoHTML(path = "exercices/"):
 							print("Conversion : " + file + " > " + file[:-2] + "html")
 	
 	# ask the user if he wants to delete original files
-	# if(cleanFiles()):
+	# if(cleanFiles(False)):
 	# 	deleteFiles(path)
 	# os.system('pause')
 
@@ -98,15 +98,43 @@ def convertMDtoHTML(path = "exercices/"):
 # -------------------------------------------------------------
 # Delete specifics files with the match extension (.md or .html)
 # -------------------------------------------------------------
-def deleteFiles(path="exercices/", extensions = ".html"):
-	"""Fonction qui recherche les fichiers de type 'extentions' (passé en paramètre)
-				au chemin 'path' spécifié, et les supprime"""
+# _attempts = 0
+# _maxAttempts = 2
+def deleteFiles(path="exercices/", extensions = ".html", attempts = 0):
+	"""Function which look for files ending with 'extentions' (parameter)
+				at the 'path' specified, and delete them"""
+
+	# if attempts < 2:
+	# 	try:
+	# 		dirs = os.listdir(path)
+	# 	except:
+	# 		if attempts == 0:
+	# 			attempts += 1
+	# 			newpath = "../../exercices/"
+	# 			deleteFiles(newpath, attempts)
+	# 		elif attempts == 1:
+	# 			attempts += 1
+	# 			newpath = "../exercices/"
+	# 			deleteFiles(newpath, attempts)
+	# 		else: return 'error'
+	# else: 
+	# 	return 'Cannot delete files'
+	
+
+	dirs = ""
 
 	try:
 		dirs = os.listdir(path)
 	except WindowsError:
 		print ">Recover the path to delete files..."
-		path = "../../exercices/"
+		try:
+			print  ">Second attempt, recorvery..."
+			path = "../../exercices/"
+			dirs = os.listdir(path)
+		except WindowsError:
+			path = "../exercices/"
+			dirs = os.listdir(path)
+		
 
 	file_path = ''
 	
@@ -129,14 +157,16 @@ def deleteFiles(path="exercices/", extensions = ".html"):
 # ---------------------------------------
 # Ask for the deletions of files 
 # ---------------------------------------
-def cleanFiles():
-	userinput = raw_input("Voulez-vous supprimer les fichiers .html? (Y/N) ")
+def cleanFiles(self):
+	userinput = raw_input("Do you want to delete .html files? (Y/N) ")
 	userinput = userinput.lower()
 	if((userinput == 'y') | (userinput == 'yes') | (userinput== 'o') | (userinput == 'oui')):
-		print "Suppression des fichiers .html en cours... "
-		return True
+		print "Deleteing .html file in progress... "
+		if self == True:
+			deleteFiles()
+		else: return True
 	else:
-		print "Les fichiers .html ont ete conserves"
+		print ".html files was not deleted"
 		return False
 
 
@@ -147,6 +177,6 @@ def cleanFiles():
 # is the main app
 if __name__ == '__main__':
 	print("TEST PACKAGE")
-	convertMDtoHTML()
-	# deleteFiles()
+	# convertMDtoHTML()
+	cleanFiles(True)
 	os.system('pause')

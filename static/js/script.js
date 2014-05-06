@@ -2,13 +2,27 @@
 // -----------------------------
 
 
-// Charge divers éléments
+// Load things
+// -----------
 function load_things() {
        var hangon = document.querySelector('#hangon');
        hangon.addEventListener('click', info_message, false);
+
+       // If we're on the exercice's content page
+       if(document.querySelector('.solutionButton'))
+              document.querySelector('.solutionButton').addEventListener('click', ShowSolution, false);
 }
 
-// Affiche ou Masque les messages d'information
+// Show/Hide Exercice's solution
+// -----------------------------
+function ShowSolution(event){
+       var solution = document.querySelector('.solutionArea');
+       if (getComputedStyle(solution, null).display != "inline-block") { solution.style.display = "inline-block";}
+       else solution.style.display = "none"; 
+}
+
+// Show/Hide messages
+// ------------------
 function info_message () {
        var box_to_show = document.querySelector('.box_content');
        if(box_to_show) {
@@ -69,8 +83,9 @@ function open_chapter (event) {
 // ---HORLOGE---
 // -------------
 // -------------
+var _clock = null;
 (function happyHour() {
-       setInterval(TicTac, 1000);
+       _clock = setInterval(TicTac, 1000);
 })();
 
        function TicTac() {
@@ -89,8 +104,8 @@ function open_chapter (event) {
 
               var currentClock = hours + ':' + minutes +':' + seconds;
 
-              if (document.getElementById)
+              if (document.getElementById("clock"))
                      document.getElementById("clock").innerHTML = currentClock;
               else
-                     document.write(currentClock)
+                     clearInterval(_clock);
        }
