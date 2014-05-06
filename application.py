@@ -56,7 +56,26 @@ def coursMath():
 	return render_template('/templates/coursMath.html')
 
 
-# Subjects
+# <<<<<<< HEAD
+# <<<<<<< HEAD
+#cours
+
+@app.route('/cours')
+def cours():
+	return render_template('/templates/cours.html')
+
+@app.route('/cours/info')
+def coursInfo():
+	return render_template('/templates/coursInfo.html')
+
+@app.route('/cours/math')
+def coursMath():
+	return render_template('/templates/coursMath.html')
+
+# Matières
+
+# # Subjects
+
 @app.route('/subject/')
 def subjects():
 	subjectsl = os.listdir(root)
@@ -64,6 +83,10 @@ def subjects():
 
 
 
+<<<<<<< HEAD
+=======
+# Create Exercices
+>>>>>>> 8c11f5c91c56e21b6564267769d7f62199062516
 
 # Rédaction des exos
 @app.route('/redaction', methods=['GET', 'POST'])
@@ -72,6 +95,10 @@ def redaction():
 		return "vous avez rédigé un exercices"
 	else:
 		return render_template('/templates/redaction.html')
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 8c11f5c91c56e21b6564267769d7f62199062516
 
 
 # Chapters list 
@@ -183,4 +210,8 @@ def exercice(id=0, science="informatique", exercice="exercice1.html"):
 # ----------------------
 if __name__ == '__main__':
 	app.run(debug=True)
+<<<<<<< HEAD
 # ----------------------
+=======
+
+>>>>>>> 8c11f5c91c56e21b6564267769d7f62199062516
