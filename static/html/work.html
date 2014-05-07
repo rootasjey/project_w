@@ -10,9 +10,12 @@
 {% block bodycontent %}
 	<div id="body">
 		<div class="exocontent">
-			{% if path %}
-				{% include path %}
-			{% endif %}
+		
+			{# {% if path %}		<!--comment-->
+				{% include path %}	<!--comment-->
+			{% endif %} #}			<!--comment-->
+
+			{{page|safe}}			<!--display exercice-->
 		</div>
 
 		<!-- highlighting -->

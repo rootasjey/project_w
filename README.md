@@ -5,8 +5,8 @@ A UVSQ's project.
 The nice jinja2 extension to run python code uses the [CreateFunction from this sample](http://code.activestate.com/recipes/550804-create-a-restricted-python-function-from-a-string/)
 
 #updates
-* **last**: created solution pattern for exercices (+ more exercice's samples)
-* **next**: create an easy way to write exercices
+* **last**: moved jinja2 templating 1st, then convert from markdown to html format
+* **next**: update exercices
 
 #How to install (Windows)
 * Install [Pyhton 2.7 or later (or Python 3.4 or later, but it's experimental)](https://www.python.org/download/)

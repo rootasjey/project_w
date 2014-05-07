@@ -4,13 +4,16 @@
 import os, sys
 # --------------------------------------
 from packages.converter import converter
+from packages.markdown import Markdown
 from jinja2 import Template, Environment
 from packages.python_extension.python_extension import PythonExtension
 # --------------------------------------
 from flask import Flask, request, render_template
+# from flaskext.htmlbuilder import html, render
 # --------------------------------------
 
-from flask import request
+
+markdowner = Markdown()
 
 # root folder of exercices
 # ----------------------------
@@ -166,16 +169,16 @@ def exercice(id=0, science="informatique", exercice="exercice1.html"):
 			path = root + chosen + '/' + chaptersl[id] + '/'+ ex
 			break;
 
-	# convert .md to .html
-	converter.ConvertSingleFileToHTML(path)
-	extension=".md"
-	path = str.replace(path, extension, ".html")
+	# apply jinja2 parser
+	page = render_template('/static/html/void.html', path = path)
+	page = markdowner.convert(page) # apply markdown parser
 
-	# return page
+	# render the page
 	return render_template('/static/html/work.html', id = id,
-														 exercice = exercice,
-														 path = path)
-	
+													 exercice = exercice,
+													 page = page)
+	# return page
+
 # debug mode if the 
 # application.py is launched
 # ----------------------
