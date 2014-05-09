@@ -14,12 +14,22 @@ _solution4 = (_somme4 * (_somme4 + 1))/2
 _enonce = """<span class="exoSummary">
 Calculez les sommes suivantes. Explicitez la methode si vous en utilisez une </span>"""
 
-_exo = """
-* \\\(\\sum\\limits_{n=1}^{""" + str(_somme1) + """} n\\\)""" + """
-* \\\(\\sum\\limits_{n=1}^{""" + str(_somme2) + """} n\\\)""" + """
-* \\\(\\sum\\limits_{n=1}^{""" + str(_somme3) + """} n\\\)
-"""
+_exo = """<ul>
+<li> \\\(\\sum\\limits_{n=1}^{""" + str(_somme1) + """} n\\\)</li><br/>""" + """
+<li> \\\(\\sum\\limits_{n=1}^{""" + str(_somme2) + """} n\\\)</li><br/>""" + """
+<li> \\\(\\sum\\limits_{n=1}^{""" + str(_somme3) + """} n\\\)</li><br/>""" + """
+<li> \\\(\\sum\\limits_{n=1}^{""" + str(_somme3) + """} n\\\)</li><br/>
+</ul>"""
 
-_result = _enonce + _exo
+solution = """<span class="solutionButton">solution</span>
+<div class="solutionArea">
+<ul>
+<li>{0}</li>
+<li>{1}</li>
+<li>{2}</li>
+<li>{3}</li>
+</ul></div>""".format(_solution1,_solution2,_solution3, _solution4)
+
+_result = _enonce + _exo + solution
 return _result
 {% endpython %}

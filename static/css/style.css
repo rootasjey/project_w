@@ -337,7 +337,7 @@ body {
             font-size: 1.6em;
 
             cursor: pointer;
-            display: inline-block;
+            display: block;
             background: #e74c3c;
             transition: 1s;
         }

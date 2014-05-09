@@ -15,7 +15,7 @@ print(b+c);
 print(a*c);</code></pre>
 """
 
-solution = """<span class="solutionButton">solution</span><div class="solutionArea">
+solution = """<br/><br/><span class="solutionButton">solution</span><div class="solutionArea">
 <span class="exoSolution">Les valeurs affichees sont : **""" + str(a/b) + """**, **""" + str(b+c) + """** et **""" + str(a*c) + """**</span></div>"""
 
 result = enonce + code + solution

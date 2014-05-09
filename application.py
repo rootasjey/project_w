@@ -39,6 +39,11 @@ def passer_titre():
 def Evaluer_args(args):
     return eval(args)
 
+# Filter to execute python code
+@app.template_filter('exec')
+def Exec_python(args):
+    exec(args)
+
 
 # Index route
 @app.route('/')
