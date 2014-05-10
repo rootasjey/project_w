@@ -18,8 +18,9 @@ Notre projet de Master 1 a pour but de fournir aux étudiants de l’Université
 Dans ce projet, on est appelé à réaliser une application web qui permet de publier, faire ou corriger des exercices en ligne de Math/Info. 
 
 L’application se divise en deux parties :
-	* Le  serveur, générant les exercices à partir de leur description.
-	* Le  client, permettant de présenter les exercices à l’utilisateur, de vérifier l’exactitude de la réponse, et de présenter la solution.   
+
+* Le  serveur, générant les exercices à partir de leur description.
+* Le  client, permettant de présenter les exercices à l’utilisateur, de vérifier l’exactitude de la réponse, et de présenter la solution.
 
 
 La dite application doit fonctionner en se basant sur ces deux cotés afin de fournir un espace de manipulation automatique, sûr et souple dans lequel les tâches sont bien distribuées et bien claires pour chaque manipulant.
@@ -27,18 +28,18 @@ La dite application doit fonctionner en se basant sur ces deux cotés afin de fo
 
 Le projet vise à :
 
-	* Faciliter l’accès du rédacteur pour pouvoir rédiger et publier des exercices en ligne.
-	* Faciliter l’accès de l’utilisateur à l’application afin de consulter les exercices publiés en ligne ainsi que la solution de chaque exercice.
-	* Créer une interface simple, claire et facile à utiliser.
+* Faciliter l’accès du rédacteur pour pouvoir rédiger et publier des exercices en ligne.
+* Faciliter l’accès de l’utilisateur à l’application afin de consulter les exercices publiés en ligne ainsi que la solution de chaque exercice.
+* Créer une interface simple, claire et facile à utiliser.
 
 Un des premières pistes a été RStudio, un logiciel Open-Source capable d’exécuter du code R et de créer un document scientifique. Le langage R est très répandu chez les statisticiens et les explorateurs de données.
 Notre projet se différencie en plusieurs points :
 
-	* Notre projet a pour but d’offrir un moyen à des enseignants de rédiger des exercices et de les proposer rapidement à un groupe d’étudiants au travers d’une plateforme en ligne. Celui de RStudio est de créer des documents portant sur des études de données, ce qui représente qu’une partie de notre application.
+* Notre projet a pour but d’offrir un moyen à des enseignants de rédiger des exercices et de les proposer rapidement à un groupe d’étudiants au travers d’une plateforme en ligne. Celui de RStudio est de créer des documents portant sur des études de données, ce qui représente qu’une partie de notre application.
 
-	* Le langage que nous avons utilisé pour la partie programmation des exercices est le Python comportant une syntaxe facilement compréhensible.
+* Le langage que nous avons utilisé pour la partie programmation des exercices est le Python comportant une syntaxe facilement compréhensible.
 
-	* Notre plateforme est destinée à être constamment en ligne et accessible par les utilisateurs.
+* Notre plateforme est destinée à être constamment en ligne et accessible par les utilisateurs.
 
 
 ##Langages et technologies utilisées
@@ -49,6 +50,7 @@ Nous avons utilisé le langage Python pour développer le cœur de l’applicati
 
 
 ###Langages
+
 ####Python
 
 Python est un langage de programmation de haut niveau utilisé dans divers domaines, notamment le domaine scientifique pour sa simplicité. Sa syntaxe permet aux programmeurs  d'exprimer des concepts en peu de lignes de code comparé à d’autres langages tels que le C. 
@@ -59,6 +61,7 @@ L’une des premières choses que nous avons apprises en codant en Python est qu
 
 
 ####HTML
+
 Le HTML (Hypertext Markup Language) est conçu pour présenter les pages web. C’est un langage de balisage qui permet d’écrire de l’hypertexte.
 
 Le HTML sert à présenter directement le contenu à l’utilisateur de l’application. C’est à travers cette interface que le client interagit avec la plateforme.
@@ -266,17 +269,17 @@ Une partie ‘Cours’ permettant aux étudiants d’obtenir des informations su
 Bien que nous étions très motivés par le projet sur lequel nous avons travaillé, certaines fonctionnalités, n’ont pas pu être réalisées.
 Voici par conséquent des pistes d’idée sur lesquelles il serait intéressant de développer pour une prochaine version.
 
-	* Le partage des variables locales des balises {% python %}
-	Un des derniers problèmes rencontrés fut le partage de variables locales des balises {% python %}. Cela permettrait d’avoir plusieurs bouts de code capables d’utiliser des variables communes. La flexibilité d’écriture d’exercice serait meilleure. Cependant, la version actuelle de l’application empêche la communication de variable de plusieurs  blocs {% python %}, pouvant rendre la syntaxe de rédaction compliquée. Cette fonctionnalité est par conséquent la première de la liste des améliorations à ajouter.
+* Le partage des variables locales des balises {% python %}
+Un des derniers problèmes rencontrés fut le partage de variables locales des balises {% python %}. Cela permettrait d’avoir plusieurs bouts de code capables d’utiliser des variables communes. La flexibilité d’écriture d’exercice serait meilleure. Cependant, la version actuelle de l’application empêche la communication de variable de plusieurs  blocs {% python %}, pouvant rendre la syntaxe de rédaction compliquée. Cette fonctionnalité est par conséquent la première de la liste des améliorations à ajouter.
 
-	* Une base de données
-	Une base de données est nécessaire et indispensable pour ce genre d’application. En gardant des statistiques des utilisateurs, ceux-ci peuvent suivre leur évolution au cours du temps. Connaître le nombre de connaissances apprises, le nombre d’exercices faits, le temps passé sur l’application.
+* Une base de données
+Une base de données est nécessaire et indispensable pour ce genre d’application. En gardant des statistiques des utilisateurs, ceux-ci peuvent suivre leur évolution au cours du temps. Connaître le nombre de connaissances apprises, le nombre d’exercices faits, le temps passé sur l’application.
 
-	Afin de gérer une interface administrateur où les professeurs pourraient mettre leurs cours et leurs exercices pour les élèves est fortement envisageable. N’aurait le droit d’ajouter du contenu, qu’une personne agrée par le personnel de l’université.
+Afin de gérer une interface administrateur où les professeurs pourraient mettre leurs cours et leurs exercices pour les élèves est fortement envisageable. N’aurait le droit d’ajouter du contenu, qu’une personne agrée par le personnel de l’université.
 
 
-	* Une correction automatique
-	Une piste très importante pour une application pareille est l’option d’offrir à l’utilisateur la possibilité de répondre aux problèmes,  en vérifiant l’exactitude de la réponse du côté serveur et éventuellement corriger avec la bonne solution de l’exercice. Une note pour chaque exercice motiverait aussi l’utilisateur et il pourrait ainsi suivre son niveau. 
+* Une correction automatique
+Une piste très importante pour une application pareille est l’option d’offrir à l’utilisateur la possibilité de répondre aux problèmes,  en vérifiant l’exactitude de la réponse du côté serveur et éventuellement corriger avec la bonne solution de l’exercice. Une note pour chaque exercice motiverait aussi l’utilisateur et il pourrait ainsi suivre son niveau. 
 
 
 
@@ -304,20 +307,20 @@ En fin nous remercions toute personne qui nous a présenté le moindre de soutie
 
 #Références
 
-	* [Jinja2](http://jinja.pocoo.org/)
-	* [Jinja2 - Extensions](http://jinja.pocoo.org/docs/extensions/)
-	* [Flask](http://flask.pocoo.org/)
-	* [Markdown](http://daringfireball.net/projects/markdown/)
-	* [Markdown - Wikipédia](https://en.wikipedia.org/wiki/Markdown)
-	* [R Markdown](http://www.rstudio.com/ide/docs/r_markdown)
-	* [Python](https://docs.python.org/3/)
-	* [PyTenjin](http://www.kuwata-lab.com/tenjin/pytenjin-users-guide.html)
-	* [ePy](http://wids.net/lab/epy.en.html)
-	* [Openclassrooms - Python](http://fr.openclassrooms.com/informatique/cours/apprenez-a-programmer-en-python-1)
-	* [Openclassrooms - Flask](http://fr.openclassrooms.com/informatique/cours/creez-vos-applications-web-avec-flask)
-	* [StackOverflow](http://stackoverflow.com/)
-	* [GitHub](https://github.com/)
-	* [GitHub - Help](https://help.github.com/)
-	* [Kernel.org - GitHub User Manual](https://www.kernel.org/pub/software/scm/git/docs/user-manual.html)
-	* [CreateAFunction](http://code.activestate.com/recipes/550804-create-a-restricted-python-function-from-a-string/)
-	* [UVSQ - Présentation des projets](http://www.prism.uvsq.fr/~Master_Info/projets.php#projet2)
+* [Jinja2](http://jinja.pocoo.org/)
+* [Jinja2 - Extensions](http://jinja.pocoo.org/docs/extensions/)
+* [Flask](http://flask.pocoo.org/)
+* [Markdown](http://daringfireball.net/projects/markdown/)
+* [Markdown - Wikipédia](https://en.wikipedia.org/wiki/Markdown)
+* [R Markdown](http://www.rstudio.com/ide/docs/r_markdown)
+* [Python](https://docs.python.org/3/)
+* [PyTenjin](http://www.kuwata-lab.com/tenjin/pytenjin-users-guide.html)
+* [ePy](http://wids.net/lab/epy.en.html)
+* [Openclassrooms - Python](http://fr.openclassrooms.com/informatique/cours/apprenez-a-programmer-en-python-1)
+* [Openclassrooms - Flask](http://fr.openclassrooms.com/informatique/cours/creez-vos-applications-web-avec-flask)
+* [StackOverflow](http://stackoverflow.com/)
+* [GitHub](https://github.com/)
+* [GitHub - Help](https://help.github.com/)
+* [Kernel.org - GitHub User Manual](https://www.kernel.org/pub/software/scm/git/docs/user-manual.html)
+* [CreateAFunction](http://code.activestate.com/recipes/550804-create-a-restricted-python-function-from-a-string/)
+* [UVSQ - Présentation des projets](http://www.prism.uvsq.fr/~Master_Info/projets.php#projet2)
