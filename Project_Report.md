@@ -18,7 +18,6 @@ Notre projet de Master 1 a pour but de fournir aux étudiants de l’Université
 Dans ce projet, on est appelé à réaliser une application web qui permet de publier, faire ou corriger des exercices en ligne de Math/Info. 
 
 L’application se divise en deux parties :
-
 	* Le  serveur, générant les exercices à partir de leur description.
 	* Le  client, permettant de présenter les exercices à l’utilisateur, de vérifier l’exactitude de la réponse, et de présenter la solution.   
 
