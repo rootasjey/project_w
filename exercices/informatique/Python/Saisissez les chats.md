@@ -5,7 +5,7 @@ Saisissez les chats
 
 chats = random.randint(1,50)
 
-enonce = """<span class="exoSummary">
+enonce = """<span class="exoQuestion">
 	Le code python ci-dessous affiche differentes informations selon une condition. Explicitez ce code?
 </span>"""
 

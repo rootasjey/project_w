@@ -1,12 +1,15 @@
 // WEBBAPPP - FICHIER JAVASCRIPT
 // -----------------------------
-
+var connexionButton = null;
 
 // Load things
 // -----------
 function load_things() {
        var hangon = document.querySelector('#hangon');
        hangon.addEventListener('click', info_message, false);
+
+       connexionButton = document.querySelector('.connexionButton');
+       connexionButton.addEventListener('click', extend_userpanel, false);
 
        // If we're on the exercice's content page
        if(document.querySelector('.solutionButton'))
@@ -49,8 +52,36 @@ function info_message () {
 
 // Remet le style par défaut des messages d'information
 function set_default_message_style () {
-       document.querySelector('.box_content_hide').className = 'box_content';
+       if(document.querySelector('.box_content_hide')){
+              document.querySelector('.box_content_hide').className = 'box_content';
+       }
+       else if(document.querySelector('.box_content_minimized')){
+             document.querySelector('.box_content_minimized').className = 'box_content'; 
+       }
 }
+
+function extend_userpanel() {
+       if(document.querySelector('.box_content')){
+              var box_to_extend = document.querySelector('.box_content');
+              box_to_extend.className = 'box_content_extended';
+              connexionButton.innerHTML = "Minimize";
+       }
+       else if(document.querySelector('.box_content_show')){
+              var box_to_extend = document.querySelector('.box_content_show');
+              box_to_extend.className = 'box_content_extended';
+              connexionButton.innerHTML = "Minimize";
+       }
+       else{
+              // so the user panel is already extended
+              // and we need to minimize it
+              var box_to_extend = document.querySelector('.box_content_extended');
+              box_to_extend.className = 'box_content_minimized';
+              connexionButton.innerHTML = "Connexion";
+
+              window.setTimeout(set_default_message_style, 1000);
+       }
+}
+
 
 // Ajoute des évènements
 // (function add_events() {

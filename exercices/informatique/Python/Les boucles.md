@@ -11,7 +11,7 @@ if(a>b):
 	a,b=b,a
 
 
-enonce = """ Combien d'elements seront affiches par ce code?"""
+enonce = """ <span class="exoQuestion"> Combien d'elements seront affiches par ce code? </span>"""
 code = """<pre><code>
     for(i in range( """ + str(a) + """,""" + str(b) + """)) {
     print i
