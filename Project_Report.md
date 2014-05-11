@@ -323,4 +323,8 @@ En fin nous remercions toute personne qui nous a présenté le moindre de soutie
 * [GitHub - Help](https://help.github.com/)
 * [Kernel.org - GitHub User Manual](https://www.kernel.org/pub/software/scm/git/docs/user-manual.html)
 * [CreateAFunction](http://code.activestate.com/recipes/550804-create-a-restricted-python-function-from-a-string/)
+* [Hihlight.js](http://highlightjs.org/download/)
+* [MathJax.org](http://www.mathjax.org/)
+* [MathJax - Doc Tex](http://docs.mathjax.org/en/latest/tex.html)
+* [Wikipedia - List of Mathematical Symbols](http://en.wikipedia.org/wiki/Math_markup)
 * [UVSQ - Présentation des projets](http://www.prism.uvsq.fr/~Master_Info/projets.php#projet2)

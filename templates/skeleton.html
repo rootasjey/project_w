@@ -64,8 +64,8 @@
                     <div id="navbar">
                             <a href="/"><h1>webbapp</h1></a>
                             <!-- <a href="/"><h2>Accueil</h2></a> -->
-                            <a href="/subject/"><h2>Exercices</h2></a>
-                            <a href="/cours"><h2>Cours</h2></a>
+                            <a href="/exercices"><h2>Exercices</h2></a>
+                            <a href="/lessons"><h2>Cours</h2></a>
                             <a href="/redaction"><h2>Rédaction</h2></a>                        
                     </div>
                 {% endblock %}
@@ -86,6 +86,10 @@
                         <li><a href="/about">à propos</a></li>
                     </ul>
                 {% endblock %}
+
+                <a href="https://github.com/rootasjey/webbapp">
+                    <img class="github_icon" alt="github" src="{{ url_for('static', filename='img/github_icon.png') }}"/>
+                </a>
             </div>
         </div>
     </body>

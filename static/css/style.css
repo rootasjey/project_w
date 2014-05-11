@@ -312,6 +312,8 @@ body {
 
             position: absolute;
             right: 0;
+
+            cursor: pointer;
             transition: 1s;
         }
             #hangon:hover {
@@ -406,19 +408,6 @@ body {
                 transition: 1s;
             }
 
-            /*.chapter_opened {
-                height: 700px;
-                width: 700px;
-                background: #d35400;
-                display: inline-block;
-
-                color: white;
-                text-align: center;
-                font-size: 3em;
-                transition: 1s;
-            }*/
-
-
     .exoArea {
         width: 600px;
         margin-left:auto;
@@ -437,6 +426,13 @@ body {
             color: #e74c3c;
             transition: 1s;
         }
+
+
+    /*WIDTH FOR EXERCICES AND LESSONS*/
+    .exolesson{
+        width: 800px;
+        margin: auto;
+    }
 
     .solutionArea {
         display: none;
@@ -497,6 +493,12 @@ body {
         width: 500px;
         margin: auto;
     }
+        .centerText a{
+            font-weight: bold;
+        }
+            .centerText a:hover{
+                color: #e74c3c;
+            }
 
 
 
@@ -510,6 +512,15 @@ body {
 }
     #footer a:hover {
         text-decoration: underline;
+    }
+
+    .github_icon{
+        height: 60px;
+        width: 60px;
+
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
     }
 
 

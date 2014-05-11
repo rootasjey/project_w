@@ -44,5 +44,3 @@ Echange de clef de Diffie-Hellman
 
 	return exercice
 {% endpython %}
-
-réééé

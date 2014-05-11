@@ -6,7 +6,7 @@
 		<ul>
 		{% for chapter in chapters %}
 				<span>
-				<a href="/subject/{{ subject }}/chapter/{{ loop.index }}">
+				<a href="/{{ practice }}/{{ subject }}/chapter/{{ loop.index }}">
 					<li class="chapter" id="{{ loop.index }}"><h1>{{ chapter }}</h1></li>
 				</a>
 				</span>

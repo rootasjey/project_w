@@ -7,7 +7,7 @@
 <div id="body">
 	<div class="subjects_list">
 		{% for science in subjects %}
-			<a href="/subject/{{ science }}">
+			<a href="/{{ practice }}/{{ science }}">
 				<div class="subject_square" id="square_{{ science }}"><p>{{ science }}</p></div>
 			</a>
 		{% endfor %}

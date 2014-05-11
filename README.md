@@ -5,7 +5,7 @@ A UVSQ's project.
 The nice jinja2 extension to run python code uses the [CreateFunction from this sample](http://code.activestate.com/recipes/550804-create-a-restricted-python-function-from-a-string/)
 
 #updates
-* **last**: exercices updated for new format (jinja2 -> markdown -> html)
+* **last**: added lessons section + mecanisme + some samples
 * **next**: update UI (web) + global variables (python)
 
 #How to install (Windows)

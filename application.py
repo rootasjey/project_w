@@ -16,7 +16,8 @@ markdowner = Markdown()
 
 # root folder of exercices
 # ----------------------------
-root = "exercices/"
+root_exercices = "exercices/"
+root_lessons =  "lessons/"
 # ----------------------------
 
 
@@ -71,18 +72,6 @@ def about():
 	# page render
 	return render_template('/static/html/other.html', htmlfile = html)
 
-#cours
-@app.route('/cours')
-def cours():
-	return render_template('/templates/cours.html')
-
-@app.route('/cours/info')
-def coursInfo():
-	return render_template('/templates/coursInfo.html')
-
-@app.route('/cours/math')
-def coursMath():
-	return render_template('/templates/coursMath.html')
 
 # Write Exercices
 @app.route('/redaction', methods=['GET', 'POST'])
@@ -95,73 +84,97 @@ def redaction():
 
 # Subjects
 # --------
-@app.route('/subject/')
-def subjects():
-	subjectsl = os.listdir(root)
-	return render_template('/static/html/subject.html', subjects = subjectsl)
+@app.route('/<practice>/')
+def subjects(practice="exercices"):
+	subjectsl = ""
+	root_path = ""
+
+	if practice == "exercices":
+		root_path = root_exercices
+	elif practice == "lessons":
+		root_path = root_lessons
+
+	subjectsl = os.listdir(root_path)
+	return render_template('/static/html/subject.html', subjects = subjectsl,
+														practice = practice)
 
 
 # Chapters list 
 # -------------
-@app.route('/subject/<science>/')
-def chapters(science="informatique"):
-	chosen=""					 # chosen subject
-	subjectsl = os.listdir(root) # subjects list
+@app.route('/<practice>/<science>/')
+def chapters(practice="exercices", science="informatique"):
+
+	chosen_subject=""					 # chosen subject
+	subjectsl = "" # subjects list
+	root_path=""
+
+	# check the practice type
+	if practice=="exercices":
+		root_path = root_exercices
+	elif practice=="lessons":
+		root_path = root_lessons
+
+	subjectsl = os.listdir(root_path)
+
 
 	# find subject's index
 	for subject in subjectsl:
 		if science == subject:
-			chosen = subject
+			chosen_subject = subject
 			break
 	
 	# chapters list
-	chaptersl = os.listdir(root + chosen)
-	return render_template('/static/html/chapter.html', chapters = chaptersl,
-															 subject = chosen);
+	chaptersl = os.listdir(root_path + chosen_subject)
+	return render_template('/static/html/chapter.html', practice = practice,
+														chapters = chaptersl,
+														subject = chosen_subject);
 
 
-# Exercices list
+
+
+# Exercices/Lessons list
 # --------------
-@app.route('/subject/<science>/chapter/<int:id>', methods=['GET', 'POST'])
-def chapter(id=1, science="informatique"):
+@app.route('/<practice>/<science>/chapter/<int:id>', methods=['GET', 'POST'])
+def chapter(practice="exercices", science="informatique", id=1):
 	if request.method == 'GET':
-		id = id - 1 				 # start from 0
-		# book = []					 # exercices' content
-		memory = [] 				 # .html files' indexes to remove
+		id = id - 1 				# start from 0
+		memory = [] 				# .html files' indexes to remove
 
-		chosen=""					 # chosen subject
-		subjectsl = os.listdir(root)
+		chosen_subject=""			# chosen subject
 		chaptersl=[]
-		exercicesl=[]
+		exoslessonsl=[]
+
+		root_path = ""
+		# subjectsl = os.listdir(root)
+		if practice == "exercices":
+			root_path = root_exercices
+		elif practice == "lessons":
+			root_path = root_lessons
+
+		subjectsl = os.listdir(root_path)
 
 		# find subject's index
 		for subject in subjectsl:
 			if science == subject:
-				chosen = subject
+				chosen_subject = subject
 				break
 
-		chaptersl = os.listdir(root + chosen)
-		exercicesl = os.listdir(root + chosen + '/' + chaptersl[id])
+		chaptersl = os.listdir(root_path + chosen_subject)
+		exoslessonsl = os.listdir(root_path + chosen_subject + '/' + chaptersl[id])
 
 
-		for index, ex in enumerate(exercicesl):
+		for index, exolesson in enumerate(exoslessonsl):
 			
-			if ".html" in ex:
+			if ".html" in exolesson:
 				memory.append(index)
 				# save .html indexes
-				# continue # next exercice
-			
-			# path = root + subjectsl[0] + '/' + chaptersl[id] + '/'+ ex
-			# with open(path, 'r') as work:
-			# 			text = work.read()
-			# 			book.append(text)	# ajoute l'exo dans le book
 
 		
-		# remove .html files from the list ------|
+		# remove .html files from the list ---------|
 		cpt = 0
 		deleted = 0
 		while memory:
-			del exercicesl[memory[cpt] - deleted]
+			del exoslessonsl[memory[cpt] - deleted]
 			cpt += 1
 			deleted += 1
 			if deleted >= len(memory):
@@ -169,30 +182,39 @@ def chapter(id=1, science="informatique"):
 		# ------------------------------------------|
 
 		# return the html page
-		return render_template('/static/html/exercice.html', id = id,
-															 science = science,
-															 exercices = exercicesl)
+		return render_template('/static/html/chapterlist.html', practice = practice,
+																science = science,
+																id = id,
+																exoslessons = exoslessonsl)
 
 
-# Exercice show
+# Exercice/Lesson show
 # -------------
-@app.route('/subject/<science>/chapter/<int:id>/<exercice>/')
-def exercice(id=0, science="informatique", exercice="exercice1.html"):
-	subjectsl = os.listdir(root) # subjects list
-	chosen=""					 # subject chosen
+@app.route('/<practice>/<science>/chapter/<int:id>/<work>/')
+def work(practice="exercices", science="informatique", id=0, work=""):
+
+	root_path=""
+	if practice == "exercices":
+		root_path = root_exercices
+	elif practice == "lessons":
+		root_path = root_lessons
+
+	subjectsl = os.listdir(root_path) 	# subjects list
+	chosen_subject=""					# subject chosen
 
 	# find subject's index
 	for subject in subjectsl:
 		if science == subject:
-			chosen = subject
+			chosen_subject = subject
 			break
 	
-	chaptersl = os.listdir(root + chosen)
-	exercicesl = os.listdir(root + chosen + '/' + chaptersl[id])
 
-	for index, ex in enumerate(exercicesl):
-		if exercice in ex:
-			path = root + chosen + '/' + chaptersl[id] + '/'+ ex
+	chaptersl = os.listdir(root_path + chosen_subject)
+	exoslessonsl = os.listdir(root_path + chosen_subject + '/' + chaptersl[id])
+
+	for index, ex in enumerate(exoslessonsl):
+		if work in ex:
+			path = root_path + chosen_subject + '/' + chaptersl[id] + '/'+ ex
 			break
 
 	# apply jinja2 parser
@@ -200,10 +222,11 @@ def exercice(id=0, science="informatique", exercice="exercice1.html"):
 	# apply markdown parser
 	page = markdowner.convert(page)
 
-	# # render the page
-	return render_template('/static/html/work.html', id = id,
-													 exercice = exercice,
-													 page = page)
+	# render the page
+	return render_template('/static/html/work.html',practice = practice,
+													id = id,
+													work = work,
+													page = page)
 
 # debug mode if the 
 # application.py is launched

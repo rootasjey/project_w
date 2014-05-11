@@ -4,9 +4,9 @@
 {% block bodycontent %}
 	<div id="body">
 		<ul>
-		{% for exo in exercices %}
-			<a href="/subject/{{ science }}/chapter/{{ id }}/{{ exo }}">
-				<li class="exotitle">{{ exo|replace(".md", "") }}</li>
+		{% for exolesson in exoslessons %}
+			<a href="/{{ practice }}/{{ science }}/chapter/{{ id }}/{{ exolesson }}">
+				<li class="exotitle">{{ exolesson|replace(".md", "") }}</li>
 			</a>
 			<br />
 		{% endfor %}
