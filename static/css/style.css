@@ -4,8 +4,9 @@ body {
     padding: 0;
     height: 100%;
     background-color: white;
-    font-family: great_vibesregular;
+    font-family: aleolightitalic;
 }
+
 
 #content {
     min-height: 100%;
@@ -14,25 +15,26 @@ body {
 
 #header {
     border-bottom: 1px solid #eee;
-    font-size: 2em;
 }
     #header #navbar {
         display: block;
-        width: 600px;
+        width: 500px;
         margin-left: auto;
         margin-right: auto;
     }
 
     #navbar h1 {
+        font-family: great_vibesregular;
         text-align: center;
-        font-size: 3em;
+        font-size: 7em;
         font-weight: 300;
     }
 
-    #header h2 {
+    #header #navbar h2 {
+        font-family: great_vibesregular;
         text-align: center;
-        font-size: 2em;
-        font-weight: 300;
+        font-size: 3.5em;
+        font-weight: lighter;
         color: #ccc;
 
         margin-top: 0;
@@ -41,7 +43,7 @@ body {
         display: inline;
     }
 
-        #header h2:hover {
+        #header #navbar h2:hover {
             color: black;
         }
 
@@ -67,8 +69,6 @@ body {
             }
         #userbar .message {
             margin-top: 0;
-            font-size: 0.6em;
-            font-family: sspro;
         }
 
         #userbar .box_content {
@@ -76,7 +76,6 @@ body {
             height: 5px;
 
             color: white;
-            font-family: sspro;
 
             background-color: #3498db;
             text-align: center;
@@ -100,7 +99,6 @@ body {
                 height: 5px;
 
                 color: white;
-                font-family: sspro;
 
                 background-color: #3498db;
                 text-align: center;
@@ -134,7 +132,6 @@ body {
                 height: 5px;
 
                 color: white;
-                font-family: sspro;
                 
                 background-color: #3498db;
                 text-align: center;
@@ -165,10 +162,115 @@ body {
                 animation-fill-mode: forwards; 
             }
 
+            #userbar .box_content_extended {
+                width: 100%;
+                height: 5px;
+
+                color: white;
+                
+                background-color: #3498db;
+                text-align: center;
+                padding-right: 40px;
+
+                position: relative;
+                top: -20px;
+                left: -20px;
+
+                overflow: hidden;
+
+                -webkit-animation-name: slidedown_extended;
+                -moz-animation-name: slidedown_extended;
+                -ms-animation-name: slidedown_extended;
+                -o-animation-name: slidedown_extended;
+                animation-name: slidedown_extended;
+
+                -webkit-animation-duration: 1s;
+                -moz-animation-duration: 1s;
+                -ms-animation-duration: 1s;
+                -o-animation-duration: 1s;
+                animation-duration: 1s;
+
+                -webkit-animation-fill-mode: forwards;
+                -moz-animation-fill-mode: forwards;
+                -ms-animation-fill-mode: forwards;
+                -o-animation-fill-mode: forwards;
+                animation-fill-mode: forwards; 
+            }
+
+            #userbar .box_content_minimized {
+                width: 100%;
+                height: 5px;
+
+                color: white;
+                
+                background-color: #3498db;
+                text-align: center;
+                padding-right: 40px;
+
+                position: relative;
+                top: -20px;
+                left: -20px;
+
+                overflow: hidden;
+
+                -webkit-animation-name: slideup_extended;
+                -moz-animation-name: slideup_extended;
+                -ms-animation-name: slideup_extended;
+                -o-animation-name: slideup_extended;
+                animation-name: slideup_extended;
+
+                -webkit-animation-duration: 1s;
+                -moz-animation-duration: 1s;
+                -ms-animation-duration: 1s;
+                -o-animation-duration: 1s;
+                animation-duration: 1s;
+
+                -webkit-animation-fill-mode: forwards;
+                -moz-animation-fill-mode: forwards;
+                -ms-animation-fill-mode: forwards;
+                -o-animation-fill-mode: forwards;
+                animation-fill-mode: forwards; 
+            }
+
         .box_content p{
             color: white;
             margin-top: 10px;
         }
+
+            .connexionButton{
+                width: 200px;
+                height: 40px;
+                margin: auto;
+
+                padding-top: 5px;
+                font-size: 1.3em;
+
+                cursor: pointer;
+                opacity: 0.3;
+                background-color: black;
+
+                transition:1s;
+            }
+                .connexionButton:hover {
+                    opacity: 0.6;
+                    transition:1s;
+                }
+
+            #userbar .userStats .userAvatar {
+                opacity: 0.6;
+                width: 200px;
+                height: 200px;
+                background: white;
+
+                position: absolute;
+                left: 10px;
+
+                display: inline-block;
+            }
+            #userbar .userStats .userProgress{
+                display: inline-block;
+                list-style-type: none;
+            }
 
         #hangon {
             height: 50px;
@@ -194,13 +296,29 @@ body {
                 position: absolute;
                 right: 20px;
             }
+
+
+#body {
+    font-size: 1.2em;
+    padding: 10px;
+    padding-bottom: 200px; /* Height of the footer */
+}
+    div .news {
+    text-align: left;
+    width: 900px;
+
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+
         .subjects_list {
             width: 700px;
             margin: auto;
         }
             .subject_square {
                 color: white;
-                font-size: 3em;
+                font-size: 2em;
                 text-align: center;
                 margin-bottom: 3px;
 
@@ -244,7 +362,6 @@ body {
                     }
 
         .chapter {
-            font-family: sspro;
             cursor: pointer;
         }
             .chapter h1 {
@@ -270,67 +387,31 @@ body {
             }*/
 
 
-#body {
-    padding: 10px;
-    padding-bottom: 200px; /* Height of the footer */
-}
-    div .news {
-    text-align: left;
-    font-size: 2.5em;
-    width: 900px;
-
-    margin-left: auto;
-    margin-right: auto;
-    }
-
-    /* titres des exercices */
-    .exotitle {
-        font-family: sspro;
-        font-size: 2em;
-        color: #3498db;
-        transition: 1s;
-    }
-        .exotitle:hover {
-            color: black;
-            transition: 1s;
-        }
-
-    /* contenu des exercices */
-    .exocontent {
-        font-family: sspro;
-    }
-    .exocontentTiny{
-        font-family: sspro;
-        font-size: 0.6em;
-
-
-        border-top-width: 1px;
-        border-top-color: black;
-        border-top-style: solid;
-    }
-
     .exoArea {
         width: 600px;
         margin-left:auto;
         margin-right: auto;
-        /*display: inline-block;*/
         
     }
     .exoSummary {
-        font-size: 1.5em;
+        /*font-size: 1.5em;*/
     }
     .exoQuestion {
-        color: #27ae60;
         font-weight: bold;
-        font-size: 1.4em;
+        transition: 1s;
     }
+        .exoQuestion:hover {
+            font-weight: bold;
+            color: #e74c3c;
+            transition: 1s;
+        }
 
     .solutionArea {
         display: none;
     }
         .solutionButton {
-            height: 40px;
-            width: 100px;
+            height: 50px;
+            width: 120px;
 
             color: white;
             text-align: center;
@@ -347,7 +428,7 @@ body {
                 transition: 1s;
             }
         .exoSolution {
-            font-family: sspro;
+            /*font-family: sspro;*/
             /*font-size: 0.6em;*/
             /*display: none;*/
         }
@@ -367,8 +448,6 @@ body {
         width: 200px;
         height: 100px;
         margin: auto;
-        /*margin-top: 50px;*/
-        /*margin-bottom: 50px;*/
     }
     .longueur{
         display: inline-block;
@@ -421,7 +500,6 @@ a {
 }
 
     #sidebar h2 {
-        /*border-bottom: 1px solid #eee;*/
         background: #2980b9;
         width: 220px;
         height: 50px;
@@ -443,13 +521,13 @@ a {
     }
     #sidebar ul li {
         /*margin-left: -20px;*/
-        list-style-type: circle;
+        /*list-style-type: circle;*/
     }
 
 #clock {
     color: white;
     margin-top: -30px;
-    font-size: 1em;
+    font-size: 1.5em;
     width: 20px;
     display: inline;
     transition: 1s;
@@ -505,6 +583,51 @@ a {
     to { height: 5px; }
 }
 
+
+/*SLIDEDOWN EXTENDED*/
+@keyframes slidedown_extended {
+    from{ height: 60px; }
+    to { height: 400px; }
+}
+@-webkit-keyframes slidedown_extended {
+    from{ height: 60px; }
+    to { height: 400px; }
+}
+@-moz-keyframes slidedown_extended {
+    from{ height: 60px; }
+    to { height: 400px; }
+}
+@-ms-keyframes slidedown_extended {
+    from{ height: 60px; }
+    to { height: 400px; }
+}
+@-o-keyframes slidedown_extended {
+    from{ height: 60px; }
+    to { height: 400px; }
+}
+
+/*SLIDEUP EXTENDED*/
+@keyframes slideup_extended {
+    from{ height: 400px; }
+    to { height: 5px; }
+}
+@-webkit-keyframes slideup_extended {
+    from{ height: 400px; }
+    to { height: 5px; }
+}
+@-moz-keyframes slideup_extended {
+    from{ height: 400px; }
+    to { height: 5px; }
+}
+@-ms-keyframes slideup_extended {
+    from{ height: 400px; }
+    to { height: 5px; }
+}
+@-o-keyframes slideup_extended {
+    from{ height: 400px; }
+    to { height: 5px; }
+}
+
 /*FONTS*/
 @font-face {
     font-family: 'great_vibesregular';
@@ -518,12 +641,36 @@ a {
 }
 
 @font-face {
-    font-family: 'sspro';
-    src: url('../fonts/sourcesanspro-extralight-webfont.eot');
-    src: url('../fonts/sourcesanspro-extralight-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/sourcesanspro-extralight-webfont.woff') format('woff'),
-         url('../fonts/sourcesanspro-extralight-webfont.ttf') format('truetype'),
-         url('../fonts/sourcesanspro-extralight-webfont.svg#source_sans_proextralight') format('svg');
+    font-family: 'aleoregular';
+    src: url('../fonts/aleo-regular-webfont.eot');
+    src: url('../fonts/aleo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aleo-regular-webfont.woff') format('woff'),
+         url('../fonts/aleo-regular-webfont.ttf') format('truetype'),
+         url('../fonts/aleo-regular-webfont.svg#aleoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aleolightitalic';
+    src: url('../fonts/aleo-lightitalic-webfont.eot');
+    src: url('../fonts/aleo-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aleo-lightitalic-webfont.woff') format('woff'),
+         url('../fonts/aleo-lightitalic-webfont.ttf') format('truetype'),
+         url('../fonts/aleo-lightitalic-webfont.svg#aleolightitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aleolight';
+    src: url('../fonts/aleo-light-webfont.eot');
+    src: url('../fonts/aleo-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aleo-light-webfont.woff') format('woff'),
+         url('../fonts/aleo-light-webfont.ttf') format('truetype'),
+         url('../fonts/aleo-light-webfont.svg#aleolight') format('svg');
     font-weight: normal;
     font-style: normal;
 
