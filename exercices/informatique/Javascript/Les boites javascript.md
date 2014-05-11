@@ -25,7 +25,7 @@ solution = """<br/><br/>
 <span class="solutionButton">solution</span>
 <div class="solutionArea">
 <span class="exoSolution">
-La fonction recupere tous les elements ayant la classe **box** et leur donne une largeur de **""" + str(width) + """px**
+La fonction recupère tous les éléments ayant la classe **box** et leur donne une largeur de **""" + str(width) + """px**
 </span></div>"""
 
 

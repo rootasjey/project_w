@@ -31,14 +31,20 @@
 
                                 <!-- Statistiques de l'utilisateur -->
                                 <div class="userStats">
-                                    <div class="userAvatar"></div>
+                                    <img class="userAvatar" src="{{ url_for('static', filename='img/user_sample_icon.png') }}"/>
                                     <div class="userProgress">
                                         <ul>
-                                            <li>Vous avez effectué 3 exercices au cours de cette semaine</li>
-                                            <li>Votre temps total passé à travailler est de : 3 heures</li>
-                                            <li>Votre progression a augmenté de 15%</li>
+                                            <li>Vous avez effectué <strong>3</strong> exercices au cours de cette semaine </li>
+                                            <li>Votre temps total passé à travailler est de : <strong>3 heures</strong> </li>
+                                            <li>Votre progression a augmenté de <strong>15%</strong> </li>
                                         </ul>
+
+                                        <div class="userIcons">
+                                        <img src="{{ url_for('static', filename='img/settings_icon.png') }}"/>
+                                        <img src="{{ url_for('static', filename='img/logout_icon.png') }}"/>
+                                        </div>
                                     </div>
+                                    
                                 </div>
 
                             </div>
@@ -77,7 +83,7 @@
                     <ul>
                         <li><a href="/">accueil</a></li>
                         <li><a href="/">aide</a></li>
-                        <li><a href="/">à propos</a></li>
+                        <li><a href="/about">à propos</a></li>
                     </ul>
                 {% endblock %}
             </div>

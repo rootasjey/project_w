@@ -9,20 +9,20 @@ Echange de clef de Diffie-Hellman
 
 
 
-	enonce1 = """ **Alice** et **Bob** veulent convenir d'un secret en utilisant le protocole d'echange de clef de Diffie-Hellman."""
+	enonce1 = """ **Alice** et **Bob** veulent convenir d'un secret en utilisant le protocole d'échange de clef de Diffie-Hellman."""
 	enonce1 += """ Ils se mettent d'accord pour le corps \\\(Z/""" + str(p) +"Z\\\)"""
-	enonce1 += """ et pour le generateur \\\(g = """ + str(g) + """\\\)."""
-	enonce1 += """ Alice choisit la clef secrete \\\(a = """ + str(a) + """\\\) et Bob \\\(b = """ + str(b) + """\\\)."""
+	enonce1 += """ et pour le générateur \\\(g = """ + str(g) + """\\\)."""
+	enonce1 += """ Alice choisit la clef secrète \\\(a = """ + str(a) + """\\\) et Bob \\\(b = """ + str(b) + """\\\)."""
 
 
 	questions1 = """<p>
 <span class="exoQuestion">	1. Calculez les clefs publiques de Alice et Bob.</span><br/>
-<span class="exoQuestion">	2. Calculez la clef partagee. </span>
+<span class="exoQuestion">	2. Calculez la clef partagée. </span>
 </p>"""
 
 
 
-	enonce2 = """ <br/>Utilisez l'algorithme d'exponentiation binaire pour repondre aux deux questions. Ne donnez pas seulement les resultats finaux: developpez en detail les etapes du calcul."""
+	enonce2 = """ <br/>Utilisez l'algorithme d'exponentiation binaire pour répondre aux deux questions. Ne donnez pas seulement les résultats finaux: developpez en détail les étapes du calcul."""
 
 
 	questions2 = """<p>
@@ -43,5 +43,6 @@ Echange de clef de Diffie-Hellman
 	exercice = enonce1 + questions1 + enonce2 + questions2 + solution
 
 	return exercice
-
 {% endpython %}
+
+réééé

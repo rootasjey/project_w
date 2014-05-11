@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 import os, sys
 from jinja2 import nodes
 from jinja2.ext import Extension
@@ -62,7 +63,8 @@ class PythonExtension(Extension):
       block_content = caller()
       run = CreateFunction(block_content, "", additional_symbols = dict(random=random, time=time))
       result = run()
-      return str(result)
+      result = str(result)
+      return result.decode('utf-8')
 
 
 
@@ -93,7 +95,6 @@ for k in __bi:
   if k.endswith("Error") or k.endswith("Warning"):
       SAFE_SYMBOLS.append(k)
 del __bi
-
 
 
 # -----------------------------------------------------

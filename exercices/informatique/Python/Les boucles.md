@@ -11,7 +11,7 @@ if(a>b):
 	a,b=b,a
 
 
-enonce = """ <span class="exoQuestion"> Combien d'elements seront affiches par ce code? </span>"""
+enonce = """ <span class="exoQuestion"> Combien d'éléments seront affichés par ce code? </span>"""
 code = """<pre><code>
     for(i in range( """ + str(a) + """,""" + str(b) + """)) {
     print i
@@ -21,7 +21,7 @@ code = """<pre><code>
 solution = """<br/><br/>
 <span class="solutionButton">solution</span>
 <div class="solutionArea">
-	<span class="exoSolution">Il y aura **""" + str(b - a) + """** elements affiches</span>
+	<span class="exoSolution">Il y aura **""" + str(b - a) + """** éléments affichés</span>
 </div>"""
 
 

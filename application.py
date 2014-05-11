@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 """This is the default application which launch the web app"""
 
-import os, sys
+import os, sys, codecs
 # --------------------------------------
 from packages.converter import converter
 from packages.markdown import Markdown
@@ -9,7 +9,6 @@ from jinja2 import Template, Environment
 from packages.python_extension.python_extension import PythonExtension
 # --------------------------------------
 from flask import Flask, request, render_template
-# from flaskext.htmlbuilder import html, render
 # --------------------------------------
 
 
@@ -49,6 +48,28 @@ def Exec_python(args):
 @app.route('/')
 def index():
 	return render_template('/templates/index.html')
+
+
+# About Page
+@app.route('/about')
+def about():
+	path = ''
+	path_about = 'static/md'
+	files = os.listdir(path_about)
+	for file in files:
+		if 'About' in file:
+			path = path_about + '/' + file
+			break
+
+	# open file with codecs for the markdown converter
+	input_file = codecs.open(path, mode="r", encoding="utf-8")
+	text = input_file.read()		# read
+	input_file.close()				# clode
+
+	html = markdowner.convert(text)	# conversion
+	
+	# page render
+	return render_template('/static/html/other.html', htmlfile = html)
 
 #cours
 @app.route('/cours')
@@ -91,7 +112,7 @@ def chapters(science="informatique"):
 	for subject in subjectsl:
 		if science == subject:
 			chosen = subject
-			break;
+			break
 	
 	# chapters list
 	chaptersl = os.listdir(root + chosen)
@@ -164,7 +185,7 @@ def exercice(id=0, science="informatique", exercice="exercice1.html"):
 	for subject in subjectsl:
 		if science == subject:
 			chosen = subject
-			break;
+			break
 	
 	chaptersl = os.listdir(root + chosen)
 	exercicesl = os.listdir(root + chosen + '/' + chaptersl[id])
@@ -172,17 +193,17 @@ def exercice(id=0, science="informatique", exercice="exercice1.html"):
 	for index, ex in enumerate(exercicesl):
 		if exercice in ex:
 			path = root + chosen + '/' + chaptersl[id] + '/'+ ex
-			break;
+			break
 
 	# apply jinja2 parser
 	page = render_template('/static/html/void.html', path = path)
-	page = markdowner.convert(page) # apply markdown parser
+	# apply markdown parser
+	page = markdowner.convert(page)
 
-	# render the page
+	# # render the page
 	return render_template('/static/html/work.html', id = id,
 													 exercice = exercice,
 													 page = page)
-	# return page
 
 # debug mode if the 
 # application.py is launched

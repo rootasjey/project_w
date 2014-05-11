@@ -256,21 +256,53 @@ body {
                     transition:1s;
                 }
 
-            #userbar .userStats .userAvatar {
+            .userStats {
+                position: absolute;
+                left: 10px;
+            }
+            .userAvatar {
                 opacity: 0.6;
                 width: 200px;
                 height: 200px;
                 background: white;
 
-                position: absolute;
-                left: 10px;
+                display: inline-block;
 
-                display: inline-block;
+                border-style: solid;
+                border-color: white;
+                border-width: 10px;
+                cursor: pointer;
             }
-            #userbar .userStats .userProgress{
+                .userAvatar:hover{
+                    opacity: 1;
+                }
+
+            .userProgress{
                 display: inline-block;
+                text-align: left;
                 list-style-type: none;
             }
+            .userProgress ul{
+                list-style-type: none;
+            }
+
+            .userIcons {
+                margin-left: 40px;
+            }
+                .userIcons img {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 5px;
+                    cursor: pointer;
+
+                    transition: 1s;
+                }
+                    .userIcons img:hover{
+                        width: 35px;
+                        height: 35px;
+
+                        transition: 1s;
+                    }
 
         #hangon {
             height: 50px;
@@ -461,6 +493,13 @@ body {
         color:red;
     }
 
+    .centerText{
+        width: 500px;
+        margin: auto;
+    }
+
+
+
 #footer {
     position: absolute;
     bottom: 0;
@@ -520,8 +559,6 @@ a {
         margin-top: -50px;
     }
     #sidebar ul li {
-        /*margin-left: -20px;*/
-        /*list-style-type: circle;*/
     }
 
 #clock {
