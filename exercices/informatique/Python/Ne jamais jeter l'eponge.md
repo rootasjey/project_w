@@ -5,7 +5,7 @@ Ne jamais jeter l'eponge
 attempts = 0
 maxAttempts = random.randint(5,42)
 
-enonce = """<span class="exoQuestion">
+enonce = """<span class="exoSummary">
 Le code python suivant utilise la structure de block try/except. Pouvez-vous expliquer ce qui se passe en detail lors de l'execution?</span>"""
 
 code = """<pre><code>

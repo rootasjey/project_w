@@ -5,7 +5,7 @@ a = random.randint(0,10)
 b = random.randint(0,20)
 c = random.randint(0,8)
 
-enonce = """<span class="exoQuestion"> Quelles seront les valeurs affichees? </span>"""
+enonce = """<span class="exoSummary"> Quelles seront les valeurs affichees? </span>"""
 code = """
 <pre><code>int a = """ + str(a) + """
 int b = """ + str(b) + """

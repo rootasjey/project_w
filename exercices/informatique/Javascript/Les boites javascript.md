@@ -1,4 +1,4 @@
-Les Boites JavaScript
+LES BOITES JAVASCRIPT
 =======================
 
 {% python %}
@@ -6,7 +6,7 @@ Les Boites JavaScript
 width = random.randint(0,100)
 
 
-enonce1 = """<span class="exoQuestion"> Le code Javascript suivant effectue des modifications sur une page HTML existante. Lesquels?</span>"""
+enonce1 = """<span class="exoSummary"> Le code Javascript suivant effectue des modifications sur une page HTML existante. Lesquels?</span>"""
 
 
 
