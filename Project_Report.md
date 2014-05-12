@@ -529,7 +529,7 @@ Afin de développer le projet, il a fallu préparer l’environnement en install
 
 
 La page d’accueil affiche une brève description du projet, explique ce que l’application est capable de faire. Un menu se trouve en dessous du nom de l’application, permettant de se rendre sur la page d’exercices, la partie cours, ou de rédiger un exercice.
-En haut à droite un message est affiché, accueillant l’utilisateur. La barre bleue du haut peut se dérouler et affiche l’heure, un bouton de connexion ainsi que des information sur l’utilisateur.
+En haut à droite un message est affiché, accueillant l’utilisateur. La barre bleue du haut peut se dérouler et affiche l’heure, un bouton de connexion ainsi que des informations sur l’utilisateur.
 
 Le Template de la page d’accueil est réutilisé pour toutes les autres pages ce qui permet un minimum de code variant d’une page à l’autre.
 
