@@ -490,7 +490,7 @@ Aussi, Python n'accepte pas non plus les caractères spéciaux et accentués par
 
 > -*- coding: utf8 -*-
 
-Nous avons du encoder le texte en sortie dans l'extention Jinja2 pour pallier à tout problème. Et nous sommes enfin parvenu à afficher correctment les caractères spéciaux en Markdown.
+Nous avons dû encoder le texte en sortie dans l'extention Jinja2 pour pallier à tout problème. Et nous sommes enfin parvenus à afficher correctment les caractères spéciaux en Markdown.
 
 
 <!-- Saut de ligne -->
