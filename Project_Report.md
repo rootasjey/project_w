@@ -180,8 +180,8 @@ Pouvant maintenant utiliser des structures de programmation telles que les condi
 
 Ce procédé montre toute la flexibilité de ces Framework et les possibilités qu’apporte leur utilisation côte à côte.
 
-##L'extension Jinja2
 
+##L'extension Jinja2
 Cette partie a été la plus laborieuse. Le but était de créer une extension jinja2 capable d’exécuter du code Python à l’intérieur d’un bloc jinja2.
 
 On voulait pouvoir écrire le code suivant et obtenir la génération d’un exercice en sortie.
@@ -201,6 +201,54 @@ Notre projet devant présenter des exercices de mathématiques, il était indisp
 Notre application exécute ainsi le script MathJax disponible à travers le Content Distribution Network (CDN), ce qui permet d’alléger la taille du projet. Le script MathJax pesant actuellement 32.9Mb, nous aurions eu une augmentation non négligeable de l’application.
 
 
+#Les points chauds
+Durant le développement de l'application, nous nous sommes heurtés à plusieurs soucis qui, parfois, nous a pris beaucoup de notre temps.
+
+Voici quelques recommandations pour vos développement personnels.
+
+##Les modules Python
+La création d'un module dans le langage Python capable de convertir des fichiers markdown fut le premier obstacle majeur, même si avec du recul cela semble maintenant très simple à réaliser. A l'époque, nous ne connaissions que très peu de Python, et nous avons dû nous adapter au fur et à mesure que nous avancions dans la production. Grâce à un travail commun, nous avons pu saisir le fonctionnement général des modules et nous avons fait le rapprochement avec les bibliothèques que l'on peut retrouver dans des langages comme le JavaScript et le C++.
+Après quelques tests réussis, nous étions enfin lancé dans le développement du projet, et nous savions que ce n'était que le début d'une longue expérience.
+
+##L'extension Jinja2
+Bien que le module soit dans l'ensemble bien documenté, quand il s'agit d'étendre Jinja2 les exemples sont moins nombreux, et nous avons dû effectuer quelques recherches approfondies pour expérimenter suffisamment cette tâche.
+
+##L'encodage UTF-8
+L'encodage de caractères est l'un des problèmes majeurs pour les programmeurs à cause des nombreux soucis qu'y peuvent survenir à cause de l'utilisation de caractères spéciaux dans le code Python ou dans un fichier Mardown. Etant francophone, l'utilisation de caractère accentués était indispensable. De plus, l'utilisation de plusieurs modules et formats, en passant par différents parseurs, rendent le débuggage plus long et fastidieux.
+
+Le parseur de Markdown n'accepte que les caractères Unicode, c'est-à-dire que les caractères tels que 'à,é,è,î' produisaient un bel erreur lors de la conversion du fichier .md en format HTML.
+
+Afin de régler ce problème, il faut importer le module codecs de Python, et
+* ouvrir le fichier en précisant l'encodage voulu
+
+    import codecs
+    
+    # open file with codecs for the markdown converter
+    input_file = codecs.open(path, mode="r", encoding="utf-8")
+    text = input_file.read()		# read
+    input_file.close()				# clode
+
+    html = markdowner.convert(text)	# conversion
+
+* convertir la chaîne de caractères avant de la passer dans le parseur Markdown
+
+    import codecs
+    from packages.markdown import Markdown
+    markdowner = Markdown()
+    
+    # open file
+    with open(file_path, 'r') as file:
+        text = file.read()		# read
+        text = text.decode('utf-8')
+        html = markdowner.convert(html)
+
+    html = markdowner.convert(text)	# conversion
+
+Aussi, Python n'accepte pas non plus les caractères spécaux et accentués par défaut. C'est pour cette raison qu'il faut ajouter cette ligne au début de chaque document **.py** afin d'établir l'encodage UTF-8 automatiquement.
+
+># -*- coding: utf8 -*-
+
+Nous avons du encoder le texte en sortie dans l'extention Jinja2 pour pallier à tout problème. Et nous sommes enfin parvenu à afficher correctment les caractères spéciaux en Markdown.
 
 #L'application
 
@@ -211,14 +259,14 @@ Au terme du projet, nous avons obtenu une application fonctionnelle comportant l
 
 Afin de développer le projet, il a fallu préparer l’environnement en installant les technologies nécessaires.
 
-	* Avoir Python 3.x ou 2.7+ installé, et easy_install
-	* Installer les dépendances :
-		* easy_install pip
-		* pip install flask
-		* pip install jinja2
-	* Télécharger l'application à partir du [lien](https://github.com/rootasjey/webbapp )
-	* Exécuter "python application.py"
-	* Visiter [http://localhost:5000](http://localhost:5000)
+* Avoir Python 3.x ou 2.7+ installé, et easy_install
+* Installer les dépendances :
+	* easy_install pip
+	* pip install flask
+	* pip install jinja2
+* Télécharger l'application à partir du [lien](https://github.com/rootasjey/webbapp )
+* Exécuter "python application.py"
+* Visiter [http://localhost:5000](http://localhost:5000)
 
 
 ##Fonctionnement
@@ -258,10 +306,20 @@ Les parties peuvent être ajoutées dans l’ordre qui convient le mieux.
 
 On peut mélanger différents styles d’écriture en rédigeant un énoncé, c’est-à-dire qu’on peut utiliser la syntaxe du HTML, du Markdown, ou même celle du langage de programmation Python pour les valeurs aléatoires. Cependant les résultats peuvent être différents de ceux souhaités à cause de l’utilisation coordonnée des parseurs de Jinja2 et de Markdown.
 
-Et finalement l’interface de la rubrique « Cours », une option qu’on a rajouté nous-même et qui n’était pas demandé dans le projet. Au cas où on veut aussi   publier des cours en ligne, on a pensé à cette option pour simplifier aussi la publication des cours en ligne.
 
 Une partie ‘Cours’ permettant aux étudiants d’obtenir des informations sur des méthodes de travail ou de résolutions de problèmes a été ajoutée à la fin du projet. Cette partie, bien que facultative, apporte un plus à la plateforme.
 
+Etant donné que nous avions déjà un mécanisme fonctionnel pour les exercices, nous avons adapté le gestionnaire d'URL (flask) afin que les routes prennent un paramètre de plus.
+
+/<practice>/maths/
+
+Ainsi, si l'utilisateur souhaite accéder aux cours, la variable **practice** prendra *'lessons'* comme valeur, sinon *'exercices'* pour s'entraîner sur des problèmes.
+
+/lessons/conception bdd/
+/exercices/crypto/
+
+Là encore, nous avons facilité l'ajout de contenu en automatisant la fonction qui s'occupe de récupérer les matières, les chapitres et les exercices.
+Comme pour les fichiers exercices, les cours sont écrit au format markdown et sont rendus directement dans le navigateur.
 
 
 #Perspectives futures
