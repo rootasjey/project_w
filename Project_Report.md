@@ -362,8 +362,6 @@ Ce procédé montre toute la flexibilité de ces Framework et les possibilités 
 <!-- Saut de ligne -->
 
 
-##L'extension Jinja2
-
 
 ##L'extension Jinja2
 Cette partie a été la plus laborieuse. Le but était de créer une extension jinja2 capable d’exécuter du code Python à l’intérieur d’un bloc jinja2.
