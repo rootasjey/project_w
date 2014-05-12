@@ -2,12 +2,12 @@
 Presentation:
 Plateforme d'exercice en ligne de maths/info
 ============================================
-##Etudiants:
+####Etudiants:
 
 * CORPINOT Jeremie
 * KATIR Somia
 
-##Encadrant:
+####Encadrant:
 
 * Luca DE FEO
 
