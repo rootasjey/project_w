@@ -4,12 +4,15 @@ Plateforme d'exercice en ligne de maths/info
 ============================================
 ####Etudiants:
 
-* CORPINOT Jeremie
-* KATIR Somia
+   * CORPINOT Jeremie
+   * KATIR Somia
 
 ####Encadrant:
 
-* Luca DE FEO
+   * Luca DE FEO
+
+####Etablissement: UVSQ
+####Année universitaire: 2013/2014
 
 ============================================
 
