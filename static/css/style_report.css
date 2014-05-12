@@ -19,11 +19,11 @@ a{
 	font-weight: bold;
 	transition: 1s;
 }
+	a:hover{
+		color: #e74c3c;
+	}
 
-a:hover{
-	color: #e74c3c;
-}
-
+/*BUTTON TO RETURN TO TOP*/
 #top {
 	position: fixed;
 	right: 40px;
@@ -31,5 +31,47 @@ a:hover{
 
 	width: 90px;
 	height: 90px;
-	transform: rotate(-90deg);
+	
+
+	transition: 1s;
 }
+	#top:hover{
+		transform: rotate(-90deg);
+		transition: 1s;
+	}
+
+
+
+/*IFRAME CONTAINER*/
+.iframe_control{
+	width: 100%;
+	height: 300px;
+
+	border: 10px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    /*---------------*/
+    border-bottom-width: 50px;
+}
+	/*BUTTONS (REFRESH,...)*/
+	.iframe_button{
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+
+		transition: 1s;	
+	}
+		.iframe_button:hover{
+			width: 35px;
+			height: 35px;
+
+			transition: 1s;
+		}
+
+	/*IFRAME CLASS*/
+	.frame{
+		width: 100%;
+		height: 300px;
+
+	}
+
+

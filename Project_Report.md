@@ -332,10 +332,10 @@ Flask possède un système de routes qui sont les URLs accessibles pour accéder
 Les routes dynamiques contiennent des variables dans l’URL ; on a une partie constante et répétitive, et une autre qui change en fonction de ce que demande l’utilisateur.
 
 Ainsi, la page d’affichage d’un exercice est définie par la route suivante :
-[http://localhost:5000/practice/science/chapter/id](http://localhost:5000/exercices/informatique/chapter/2/Les%20boucles.md/)
+[http://localhost:5000/practice/science/chapter/id](http://localhost:5000/exercices/informatique/chapter/2/Les-boucles.md/)
 
 **practice** définissant le type de contenu, si l'utilisateur souhaite s'entraîner sur des exercices, ou apprendre de nouvelles connaissances. La variables **science** correspondant à la matière *(Maths, Informatique, Cryptographie)*, **chapter** a  et **id** est le numéro de l’exercice demandé. Un exemple pratique de route serait :
-http://localhost:5000/subject/maths/chapter/0/La somme en mille.md/
+[http://localhost:5000/practice/maths/chapter/0/La-somme-en-mille.md/](http://localhost:5000/exercices/maths/chapter/0/La-somme-en-mille.md/)
 
 Pour cette route, on accédera à l’exercice ‘La somme en mille’ du chapitre 0 du domaine des mathématiques. L’exercice est au format Markdown, et traduit à la volé lors de son affichage.
 
@@ -506,8 +506,6 @@ Nous avons du encoder le texte en sortie dans l'extention Jinja2 pour pallier à
 
 Au terme du projet, nous avons obtenu une application fonctionnelle comportant les fonctions principales qui étaient requises au préalable.
 
-<iframe src="#" name="frame_index" id="frame_index"></iframe>
-
 
 <!-- Saut de ligne -->
 <br/><br/>
@@ -518,12 +516,12 @@ Au terme du projet, nous avons obtenu une application fonctionnelle comportant l
 
 Afin de développer le projet, il a fallu préparer l’environnement en installant les technologies nécessaires.
 
-* Avoir Python 3.x ou 2.7+ installé, et easy_install
+* Avoir [Python 3.x](https://www.python.org/download/releases/3.4.0/) ou [2.7+](https://www.python.org/download/releases/2.7.6/) installé, et [easy_install](http://pythonhosted.org/setuptools/easy_install.html)
 * Installer les dépendances :
 	* easy_install pip
 	* pip install flask
 	* pip install jinja2
-* Télécharger l'application à partir du [lien](https://github.com/rootasjey/webbapp )
+* Télécharger l'application à partir du [lien Github](https://github.com/rootasjey/webbapp )
 * Exécuter "python application.py"
 * Visiter [http://localhost:5000](http://localhost:5000)
 
@@ -534,15 +532,44 @@ Afin de développer le projet, il a fallu préparer l’environnement en install
 <!-- Saut de ligne -->
 
 
-
 ##Fonctionnement
+
+<!-- SCREENSHOT INDEX -->
+<div class="iframe_control" >
+	<iframe src="/" class="frame"></iframe>
+	<img src="/static/img/refresh_icon.png" class="iframe_button" onclick="reload_iframe(event)">
+</div>
+
 
 La page d’accueil affiche une brève description du projet, explique ce que l’application est capable de faire. Un menu se trouve en dessous du nom de l’application, permettant de se rendre sur la page d’exercices, la partie cours, ou de rédiger un exercice.
 En haut à droite un message est affiché, accueillant l’utilisateur. La barre bleue du haut peut se dérouler et affiche l’heure, un bouton de connexion ainsi que des information sur l’utilisateur.
 
 Le Template de la page d’accueil est réutilisé pour toutes les autres pages ce qui permet un minimum de code variant d’une page à l’autre.
 
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
+<!-- SCREENSHOT EXERCICES LIST -->
+<div class="iframe_control" >
+	<iframe src="/exercices" class="frame"></iframe>
+	<img src="/static/img/refresh_icon.png" class="iframe_button" onclick="reload_iframe(event)">
+</div>
+
 Les différentes matières accessibles sur la plateforme sont présentées avec des couleurs, et d’autres domaines peuvent être aisément ajoutés.
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
+<!-- SCREENSHOT EXERCICES CONTENT -->
+<div class="iframe_control" >
+	<iframe src="/exercices/informatique/chapter/0/Petits-Calculs.md/" class="frame"></iframe>
+	<img src="/static/img/refresh_icon.png" class="iframe_button" onclick="reload_iframe(event)">
+</div>
+
 
 Cette capture représente l’interface client de l’application avec la présentation de l’exercice, qui, ici, présente du code du langage C. La solution de l’exercice est masquée par défaut, et le bouton rouge permet de l’afficher.
 
@@ -575,31 +602,31 @@ Les parties peuvent être ajoutées dans l’ordre qui convient le mieux.
 On peut mélanger différents styles d’écriture en rédigeant un énoncé, c’est-à-dire qu’on peut utiliser la syntaxe du HTML, du Markdown, ou même celle du langage de programmation Python pour les valeurs aléatoires. Cependant les résultats peuvent être différents de ceux souhaités à cause de l’utilisation coordonnée des parseurs de Jinja2 et de Markdown.
 
 
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
+<!-- SCREENSHOT EXERCICES CONTENT -->
+<div class="iframe_control" >
+	<iframe src="/lessons/conception-bdd/chapter/0/Femeture-Transitive.md/" class="frame"></iframe>
+	<img src="/static/img/refresh_icon.png" class="iframe_button" onclick="reload_iframe(event)">
+</div>
+
+
 Une partie ‘Cours’ permettant aux étudiants d’obtenir des informations sur des méthodes de travail ou de résolutions de problèmes a été ajoutée à la fin du projet. Cette partie, bien que facultative, apporte un plus à la plateforme.
 
 Etant donné que nous avions déjà un mécanisme fonctionnel pour les exercices, nous avons adapté le gestionnaire d'URL (flask) afin que les routes prennent un paramètre de plus.
 
-/<practice>/maths/
+* [/practice/maths/](http://localhost:5000/lessons/maths/)
 
 Ainsi, si l'utilisateur souhaite accéder aux cours, la variable **practice** prendra *'lessons'* comme valeur, sinon *'exercices'* pour s'entraîner sur des problèmes.
 
-/lessons/conception bdd/
-/exercices/crypto/
+* [/lessons/conception-bdd/](http://localhost:5000/lessons/conception-bdd/)
+* [/exercices/crypto/](http://localhost:5000/exercices/crypto/)
 
 Là encore, nous avons facilité l'ajout de contenu en automatisant la fonction qui s'occupe de récupérer les matières, les chapitres et les exercices.
 Comme pour les fichiers exercices, les cours sont écrit au format markdown et sont rendus directement dans le navigateur.
 
-Etant donné que nous avions déjà un mécanisme fonctionnel pour les exercices, nous avons adapté le gestionnaire d'URL (flask) afin que les routes prennent un paramètre de plus.
-
-/practice/maths/
-
-Ainsi, si l'utilisateur souhaite accéder aux cours, la variable **practice** prendra *'lessons'* comme valeur, sinon *'exercices'* pour s'entraîner sur des problèmes.
-
-/lessons/conception bdd/
-/exercices/crypto/
-
-Là encore, nous avons facilité l'ajout de contenu en automatisant la fonction qui s'occupe de récupérer les matières, les chapitres et les exercices.
-Comme pour les fichiers exercices, les cours sont écrit au format markdown et sont rendus directement dans le navigateur.
 
 
 <!-- Saut de ligne -->

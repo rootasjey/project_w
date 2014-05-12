@@ -7,7 +7,8 @@ c = random.randint(0,8)
 
 enonce = """<span class="exoQuestion"> Quelles seront les valeurs affichées? </span>"""
 code = """
-<pre><code>int a = """ + str(a) + """
+<pre><code>
+int a = """ + str(a) + """
 int b = """ + str(b) + """
 int c = """ + str(c) + """
 print(a/b);

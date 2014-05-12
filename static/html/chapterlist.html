@@ -6,7 +6,7 @@
 		<ul>
 		{% for exolesson in exoslessons %}
 			<a href="/{{ practice }}/{{ science }}/chapter/{{ id }}/{{ exolesson }}">
-				<li class="exotitle">{{ exolesson|replace(".md", "") }}</li>
+				<li class="exotitle">{{ exolesson|replace(".md", "")|replace("-", " ") }}</li>
 			</a>
 			<br />
 		{% endfor %}
