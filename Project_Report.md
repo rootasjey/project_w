@@ -398,9 +398,9 @@ Notre application exécute ainsi le script MathJax disponible à travers le Cont
 #Les bugs rencontrés
 </span>
 
-Durant le développement de l'application, nous nous sommes heurtés à plusieurs soucis qui, parfois, nous a pris beaucoup de notre temps.
+Durant le développement de l'application, nous nous sommes heurtés à plusieurs soucis qui, parfois, nous ont pris beaucoup de notre temps.
 
-Voici quelques recommandations pour vos développement personnels.
+Voici quelques recommandations pour vos développements personnels.
 
 
 
