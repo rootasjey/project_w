@@ -1,9 +1,31 @@
-PROJET
-Plateforme d'exercice en ligne de maths/info
-============================================
+<span id="title">
+PROJET</span>
+#Plateforme d'exercice en ligne de maths/info
 
 
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
+
+
+##Tables des matières
+* <a href="#introduction">Introduction</a>
+* <a href="#developpement">Développement</a>
+* <a href="#methodologie">Méthodologie</a>
+* <a href="#bugs">Les bugs rencontrés</a>
+* <a href="#application">L'application</a>
+* <a href="#futur">Perspectives futures</a>
+* <a href="#conclusion">Conclusion</a>
+* <a href="#contribution">Déclaration de contribution</a>
+* <a href="#references">Références</a>
+
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
+
+<span id="introduction">
 #Introduction
+</span>
 
 Les mathématiques et l’informatique sont devenues des outils indispensables dans le domaine scientifique. C’est pour cette raison que l’apprentissage de ces disciplines est un atout majeur pour surmonter de nouveaux challenges. Les étudiants peuvent acquérir des connaissances dans ces domaines en s'exerçant. Cet apprentissage peut se faire de diverses manières et plus la méthode choisie est dynamique et interactive, plus elle est efficace et appréciée par les étudiants. 
 
@@ -12,7 +34,14 @@ Des plateformes web telles que Code.org et Codecademy.com proposent exclusivemen
 Notre projet de Master 1 a pour but de fournir aux étudiants de l’Université de Versailles Sciences un accès à des connaissances scientifiques nécessaires dans leur cursus de Licence. Pour ce faire, nous nous sommes appuyés sur des technologies modernes, notamment des outils de développement web, afin d’obtenir des résultats différents de ce qui existe déjà.
 
 
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
+
+<span id="developpement">
 #Développement
+</span>
+
 ##Description du projet
 
 Dans ce projet, on est appelé à réaliser une application web qui permet de publier, faire ou corriger des exercices en ligne de Math/Info. 
@@ -42,11 +71,22 @@ Notre projet se différencie en plusieurs points :
 * Notre plateforme est destinée à être constamment en ligne et accessible par les utilisateurs.
 
 
-##Langages et technologies utilisées
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
+
+##Langages et technologies utilisés
 
 Afin de mener à terme notre projet, nous utilisons plusieurs langages de programmation et différents outils, ce qui nous procure une grande flexibilité et une puissance accrue dans le développement.
 
 Nous avons utilisé le langage Python pour développer le cœur de l’application.
+
+
+
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
 
 
 ###Langages
@@ -59,6 +99,31 @@ Python supporte plusieurs paradigmes de programmation, y compris l’orienté ob
 
 L’une des premières choses que nous avons apprises en codant en Python est que l’indentation est importante, et l’absence d’accolades fut déroutant début. Mais la simplicité et la modularité du langage nous a permis d’obtenir des résultats concluant très rapidement.
 
+	# ---------------------------------
+	# Convert one file from .md to .html
+	# ---------------------------------
+	def ConvertSingleFileToHTML(path=""):
+		if path == "":
+			return
+
+		extension = ".md"
+		if path.endswith(extension):
+			# open file
+			with open(path, 'r') as exercice:
+				text = exercice.read()
+				# create a new absolute path 
+				# (for the new file) > replacing the extension
+				new_path = str.replace(path, extension, ".html")
+				# create a new file
+				with open(new_path, 'w') as html_file:
+					# conversion + write in the new file
+					html_file.write(markdowner.convert(text)) 
+
+
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
+
 
 ####HTML
 
@@ -66,24 +131,74 @@ Le HTML (Hypertext Markup Language) est conçu pour présenter les pages web. C�
 
 Le HTML sert à présenter directement le contenu à l’utilisateur de l’application. C’est à travers cette interface que le client interagit avec la plateforme.
 
+	<div id="footer">
+	    {% block bodyfooter %}
+	        <ul>
+	            <li><a href="/">accueil</a></li>
+	            <li><a href="/report">report</a></li>
+	            <li><a href="/about">à propos</a></li>
+	        </ul>
+	    {% endblock %}
+
+	    <a href="https://github.com/rootasjey/webbapp/keny">
+	        <img class="keny_icon" alt="keny" src="dead_keny.png"/>
+	    </a>
+	</div>
+
+
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
+
+
 ####CSS
 CSS (Cascading Style Sheets : feuilles de style en cascade) sert à décrire la présentation des documents HTML et XML. Introduit au milieu des années 1990, CSS devient couramment utilisé dans la conception de sites web et bien pris en charge par les navigateurs web dans les années 2000.
 	
 Le langage CSS permet de séparer le contenu de sa présentation. Il permet d’agrémenter les éléments HTML de styles tels que la couleur, la transparence, les bordures, la position ainsi que les animations.
 Nous avons utilisé des feuilles CSS séparées du contenu HTML dans le but d’avoir une application claire, et de faciliter la mise en forme du contenu. Ainsi, si pour une raison particulière on venait à modifier l’affichage, ce changement se ferait à un seul endroit du code. 
 
+	/*HEADER*/
+	.report_header{
+		margin-left: 40px;
+		font-family: great_vibesregular;
+		font-size: 3em;
+	}
+
+
+
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
+
 
 ####JavaScript
-
 JavaScript est un langage de programmation de scripts principalement utilisé dans les pages web interactives. C'est un langage orienté objets à prototypes, c'est-à-dire que les bases du langage et ses principales interfaces sont fournies par des objets qui ne sont pas des instances de classes, mais qui sont chacun équipés de constructeurs permettant de générer leurs propriétés.
 
 Le JavaScript offre à notre application des fonctionnalités que seuls le HTML et le CSS ne pourraient fournir. On a ainsi pu effectuer des actions spécifiques lors des évènements. Le clic sur un bouton solution permet, par exemple, d’afficher ou de masquer la solution d’un exercice.
 
 Dans une prochaine version, le JavaScript pourrait permettre d’utiliser la technologie AJAX pour éviter le rechargement des différentes pages de la plateforme.
 
+	var _clock = null;
+	(function happyHour() {
+	       _clock = setInterval(TicTac, 1000);
+	})();
+
+
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
+
+
 ####Markdown
 
 Le langage Markdown est un format qui permet d’écrire du HTML de manière simplifiée. Il peut cependant être utilisé tel quel, sans formatage particulier. La conversion de ce format (.md) vers le format HTML (.html) n’est pas compliquée grâce à de nombreux outils existants.
+
+Ce rapport est lui-même rédigé dans le format **Markdown**.
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
 
 
 ###Les Modules
@@ -91,10 +206,19 @@ Le langage Markdown est un format qui permet d’écrire du HTML de manière sim
 Les modules python sont les différentes parties qui sont venues s’intégrer à l’application de base afin d’étendre ses fonctionnalités. Ces modules nous évitent de tout coder et nous permettent de gagner du temps sur le développement.
 
 
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
+
+
 ####Markdown
 
 Un module python permettant la conversion d’un fichier Markdown à un fichier HTML est utilisé par l’application.
 
+
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
 
 ####Flask
 
@@ -103,10 +227,22 @@ Flask est un  micro-Framework pour python permettant de créer des applications 
 L’avantage de Flask par rapport aux autres Framework web existant tels que Django ou Pyramid qui sont plus répandus, est que sa syntaxe est simple et le module est très basique. Il nous a donc fallu peu de temps pour comprendre le fonctionnement de ce module et nous n’avons pas rencontré beaucoup de difficultés lors de son utilisation. Cependant, l’aspect basique de Flask est voulu car il est possible d’étendre ses fonctionnalités.
 Il serait intéressant par la suite d’implémenter un cache pour notre plateforme, ou le support de l’authentification OAuth.
 
+
+	# Index route
+	@app.route('/')
+	def index():
+		return render_template('/static/html/index.html')
+
+
 Pour fonctionner, Flask a besoin de Werkzeug et de Jinja2, deux extensions supplémentaires créées par le même auteur.
 
 Werkzeug
 Werkzeug est une librairie utilitaire python pour la WSGI (Web Server Gateway Interface). La WSGI est une spécification qui définit comment des serveurs web communiquent avec les applications web, et comment  les applications web peuvent être assemblées ensemble pour former une seule requête.
+
+
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
 
 
 ####Jinja2
@@ -119,7 +255,20 @@ Allant de pair avec Flask, le choix de ce module de templating s’est fait natu
 
 L’application devient plus légère en évitant la redondance de code HTML, et est dotée d’une structure de programmation : il devient alors possible de créer des boucles, des conditions ou de parcourir des tableaux. Sans ce module, le nombre de pages HTML aurait été conséquent.
 
+	{% block css %}
+		{{super()}} <!--récupère le contenu du block parent-->
+		<link type="text/css" href="url" rel="stylesheet" />
+
+		<!-- highlight script -->
+		<script type="text/javascript" src="url"></script>
+	{% endblock %}
+
 De nombreuses organisations l’utilisent, telles que Mozilla, SourceForge, Instagram, NPR.
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
 
 
 ###Outils
@@ -131,15 +280,31 @@ GitHub est le service web que nous avons utilisé pour héberger le code source 
 Il est multiplateforme, facile à prendre en main, et utilise Git qui est un logiciel de version décentralisé.
 
 
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
+
+
 ####SublimeText
 
 Comme dans tout projet informatique, nous avions besoin d’un bon éditeur de code, de préférence supportant plusieurs langages à la fois, et multiplateforme. SublimeText répondait parfaitement à nos attentes, léger et facile d’utilisation, le développement n’a été que plus agréable.
 
 
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
 
+
+<span id="methodologie" >
 #Méthodologie
+</span>
 
 Un planning a été établi afin d’organiser les différentes tâches à effectuer. La majeure partie du temps, on a essayé de travailler conjointement sur une fonctionnalité dans le but de compléter rapidement le point en cours et d’atteindre le point suivant dans les meilleurs délais.
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
 
 
 ##Extension Markdown
@@ -154,6 +319,11 @@ Par la suite, nous n’aurons besoin que de formater un bloc de texte Markdown e
 Il a fallu, dès cette première partie, comprendre les fonctionnements de bases du langage Python, notamment la création et l’utilisation d’un module, l’ouverture et l’écriture dans un fichier, ainsi que l’utilisation du module os qui permet d’éditer des fichiers sur le système d’exploitation.
 
 
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
+
 ##Création d'un serveur local avec Flask
 
 La création d’un serveur local afin d’avoir un début d’application fonctionnelle était l’étape suivante. Nous devions intégrer le module correspondant et maîtriser son utilisation. Cela s’est fait assez rapidement étant donné la simplicité de la syntaxe de Flask. En effet 7 lignes de code suffisent à créer une application web locale fonctionnelle. Il ne suffisait plus qu’à effectuer les tests nécessaires en se rendant à l’adresse : http://localhost:5000.
@@ -162,14 +332,19 @@ Flask possède un système de routes qui sont les URLs accessibles pour accéder
 Les routes dynamiques contiennent des variables dans l’URL ; on a une partie constante et répétitive, et une autre qui change en fonction de ce que demande l’utilisateur.
 
 Ainsi, la page d’affichage d’un exercice est définie par la route suivante :
-http://localhost:5000/subject/<science>/chapter/<int: id>
+[http://localhost:5000/practice/science/chapter/id](http://localhost:5000/exercices/informatique/chapter/2/Les%20boucles.md/)
 
-Avec pour variables science correspondant au domaine scientifique (Maths, Informatique), et id étant le numéro de l’exercice demandé. Un exemple pratique de route serait :
+**practice** définissant le type de contenu, si l'utilisateur souhaite s'entraîner sur des exercices, ou apprendre de nouvelles connaissances. La variables **science** correspondant à la matière *(Maths, Informatique, Cryptographie)*, **chapter** a  et **id** est le numéro de l’exercice demandé. Un exemple pratique de route serait :
 http://localhost:5000/subject/maths/chapter/0/La somme en mille.md/
 
 Pour cette route, on accédera à l’exercice ‘La somme en mille’ du chapitre 0 du domaine des mathématiques. L’exercice est au format Markdown, et traduit à la volé lors de son affichage.
 
 L’utilisation de Python nous a donné un accès facile au système de fichiers du système d’exploitation. C’est grâce à cela que nous avons pu coder de manière assez souple les routes des pages de l’application. La création d’un nouveau dossier correspondant à un domaine suffit pour ajouter une matière à la plateforme, il n’est pas nécessaire de modifier le code source de l’application. La procédure est identique pour les chapitres et les exercices associés. L’application se chargera seule de parcourir tous les dossiers disponibles dans le répertoire, et lister les nouveaux contenus disponibles à l’utilisateur.
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
 
 
 ##Jinja2 et le Templating
@@ -179,6 +354,12 @@ On a fait l’écriture du HTML et l’utilisation du templating conjointement a
 Pouvant maintenant utiliser des structures de programmation telles que les conditions et les variables, nous avons utilisé ces fonctionnalités pour créer les routes dynamiques. En effet il est possible de passer des variables au moteur de template, et c’est ce que nous avons fait en passant en paramètre la liste des matières disponibles dans le dossier d’exercices, ou la liste des chapitres disponibles pour une matière par exemple.
 
 Ce procédé montre toute la flexibilité de ces Framework et les possibilités qu’apporte leur utilisation côte à côte.
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
 
 ##L'extension Jinja2
 
@@ -194,6 +375,11 @@ Il ne restait plus qu’à créer une extension Jinja2 avec cet extrait et de l�
 Maintenant qu’on était capable d’exécuter du code python, la partie intéressante était d’implémenter un générateur aléatoire pour diversifier les exercices. Cela passe par des fonctions comme random.randint (n, m) ou randrange (n, m) utilisées pour générer des valeurs numériques aléatoires.
 
 
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
+
 ##Les mathématiques avec MathJax
 
 Notre projet devant présenter des exercices de mathématiques, il était indispensable de trouver un moyen d’afficher de manière élégante les formules comme les équations, les limites, et les symboles spéciaux. Sous les conseils de notre Maître de projet, nous nous sommes penchés sur les bibliothèques JavaScript disponibles dans le domaine du web. Notre choix s’est porté sur MathJax, une bibliothèque JavaScript Open Source multiplateforme.
@@ -201,24 +387,130 @@ Notre projet devant présenter des exercices de mathématiques, il était indisp
 Notre application exécute ainsi le script MathJax disponible à travers le Content Distribution Network (CDN), ce qui permet d’alléger la taille du projet. Le script MathJax pesant actuellement 32.9Mb, nous aurions eu une augmentation non négligeable de l’application.
 
 
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
 
+
+<span id="bugs">
+#Les bugs rencontrés
+</span>
+
+Durant le développement de l'application, nous nous sommes heurtés à plusieurs soucis qui, parfois, nous a pris beaucoup de notre temps.
+
+Voici quelques recommandations pour vos développement personnels.
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
+
+##Les modules Python
+La création d'un module dans le langage Python capable de convertir des fichiers markdown fut le premier obstacle majeur, même si avec du recul cela semble maintenant très simple à réaliser. A l'époque, nous ne connaissions que très peu de Python, et nous avons dû nous adapter au fur et à mesure que nous avancions dans la production. Grâce à un travail commun, nous avons pu saisir le fonctionnement général des modules et nous avons fait le rapprochement avec les bibliothèques que l'on peut retrouver dans des langages comme le JavaScript et le C++.
+Après quelques tests réussis, nous étions enfin lancé dans le développement du projet, et nous savions que ce n'était que le début d'une longue expérience.
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
+
+##L'extension Jinja2
+Bien que le module soit dans l'ensemble bien documenté, quand il s'agit d'étendre Jinja2 les exemples sont moins nombreux, et nous avons dû effectuer quelques recherches approfondies pour expérimenter suffisamment cette tâche.
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
+
+
+##L'encodage UTF-8
+L'encodage de caractères est l'un des problèmes majeurs pour les programmeurs à cause des nombreux soucis qu'y peuvent survenir à cause de l'utilisation de caractères spéciaux dans le code Python ou dans un fichier Mardown. Etant francophone, l'utilisation de caractère accentués était indispensable. De plus, l'utilisation de plusieurs modules et formats, en passant par différents parseurs, rendent le débuggage plus long et fastidieux.
+
+Le parseur de Markdown n'accepte que les caractères Unicode, c'est-à-dire que les caractères tels que 'à,é,è,î' produisaient un bel erreur lors de la conversion du fichier .md en format HTML.
+
+Afin de régler ce problème, il faut importer le module **codecs** de Python, et
+ouvrir le fichier en précisant l'encodage adéquat
+
+    import codecs
+    
+    # open file with codecs for the markdown converter
+    input_file = codecs.open(path, mode="r", encoding="utf-8")
+    text = input_file.read()		# read
+    input_file.close()				# clode
+
+    html = markdowner.convert(text)	# conversion
+
+
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
+
+
+puis, convertir la chaîne de caractères avant de la passer dans le parseur Markdown
+
+    import codecs
+    from packages.markdown import Markdown
+    markdowner = Markdown()
+    
+    # open file
+    with open(file_path, 'r') as file:
+        text = file.read()		# read
+        text = text.decode('utf-8')
+        html = markdowner.convert(html)
+
+    html = markdowner.convert(text)	# conversion
+
+
+<!-- Saut de ligne -->
+<br/>
+<!-- Saut de ligne -->
+
+
+Aussi, Python n'accepte pas non plus les caractères spécaux et accentués par défaut. C'est pour cette raison qu'il faut ajouter cette ligne au début de chaque document **.py** afin d'établir l'encodage UTF-8 automatiquement.
+
+> -*- coding: utf8 -*-
+
+Nous avons du encoder le texte en sortie dans l'extention Jinja2 pour pallier à tout problème. Et nous sommes enfin parvenu à afficher correctment les caractères spéciaux en Markdown.
+
+
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
+
+
+<span id="application">
 #L'application
+</span>
 
 Au terme du projet, nous avons obtenu une application fonctionnelle comportant les fonctions principales qui étaient requises au préalable.
+
+<iframe src="#" name="frame_index" id="frame_index"></iframe>
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
 
 
 ##L'installation
 
 Afin de développer le projet, il a fallu préparer l’environnement en installant les technologies nécessaires.
 
-	* Avoir Python 3.x ou 2.7+ installé, et easy_install
-	* Installer les dépendances :
-		* easy_install pip
-		* pip install flask
-		* pip install jinja2
-	* Télécharger l'application à partir du [lien](https://github.com/rootasjey/webbapp )
-	* Exécuter "python application.py"
-	* Visiter [http://localhost:5000](http://localhost:5000)
+* Avoir Python 3.x ou 2.7+ installé, et easy_install
+* Installer les dépendances :
+	* easy_install pip
+	* pip install flask
+	* pip install jinja2
+* Télécharger l'application à partir du [lien](https://github.com/rootasjey/webbapp )
+* Exécuter "python application.py"
+* Visiter [http://localhost:5000](http://localhost:5000)
+
+
+<!-- Saut de ligne -->
+<br/><br/>
+<!-- Saut de ligne -->
 
 
 ##Fonctionnement
@@ -242,58 +534,89 @@ Pour créer un exercice sur la page, l’utilisateur doit choisir un domaine d�
 En effet, nous n’avons pas voulu nous limiter qu’aux domaines des mathématiques et de l’informatique, malgré l’appréciation que nous portons pour ces matières. Ceci pour étendre la portée de la plateforme.
 
 
-Lors de la rédaction d’un exercice, il y a deux parties principales : 
-	* L’exercice en lui-même
-	* La solution
+Lors de la rédaction d’un exercice, il y a deux parties principales :
+
+* L’exercice en lui-même
+* La solution
 
 L’exercice est composé de plusieurs sous-parties :
-	* Des énoncés
-	* Des questions
-	* Des extraits de code de programmation (facultatif)
-	* Des figures géométriques (facultatives)
-	* Des illustrations (facultatives)
+
+* Des énoncés
+* Des questions
+* Des extraits de code de programmation (facultatif)
+* Des figures géométriques (facultatives)
+* Des illustrations (facultatives)
 
 Les parties peuvent être ajoutées dans l’ordre qui convient le mieux.
 
 
 On peut mélanger différents styles d’écriture en rédigeant un énoncé, c’est-à-dire qu’on peut utiliser la syntaxe du HTML, du Markdown, ou même celle du langage de programmation Python pour les valeurs aléatoires. Cependant les résultats peuvent être différents de ceux souhaités à cause de l’utilisation coordonnée des parseurs de Jinja2 et de Markdown.
 
-Et finalement l’interface de la rubrique « Cours », une option qu’on a rajouté nous-même et qui n’était pas demandé dans le projet. Au cas où on veut aussi   publier des cours en ligne, on a pensé à cette option pour simplifier aussi la publication des cours en ligne.
 
 Une partie ‘Cours’ permettant aux étudiants d’obtenir des informations sur des méthodes de travail ou de résolutions de problèmes a été ajoutée à la fin du projet. Cette partie, bien que facultative, apporte un plus à la plateforme.
 
 
+Etant donné que nous avions déjà un mécanisme fonctionnel pour les exercices, nous avons adapté le gestionnaire d'URL (flask) afin que les routes prennent un paramètre de plus.
 
+/practice/maths/
+
+Ainsi, si l'utilisateur souhaite accéder aux cours, la variable **practice** prendra *'lessons'* comme valeur, sinon *'exercices'* pour s'entraîner sur des problèmes.
+
+/lessons/conception bdd/
+/exercices/crypto/
+
+Là encore, nous avons facilité l'ajout de contenu en automatisant la fonction qui s'occupe de récupérer les matières, les chapitres et les exercices.
+Comme pour les fichiers exercices, les cours sont écrit au format markdown et sont rendus directement dans le navigateur.
+
+
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
+
+
+<span id="futur">
 #Perspectives futures
+</span>
 
-Bien que nous étions très motivés par le projet sur lequel nous avons travaillé, certaines fonctionnalités, n’ont pas pu être réalisées.
-Voici par conséquent des pistes d’idée sur lesquelles il serait intéressant de développer pour une prochaine version.
+Bien que nous étions très motivés par le projet sur lequel nous avons travaillé, certaines fonctionnalités, n’ont pas pu être réalisées. Voici par conséquent des pistes d’idée sur lesquelles il serait intéressant de développer pour une prochaine version.
 
 * Le partage des variables locales des balises {% python %}
-Un des derniers problèmes rencontrés fut le partage de variables locales des balises {% python %}. Cela permettrait d’avoir plusieurs bouts de code capables d’utiliser des variables communes. La flexibilité d’écriture d’exercice serait meilleure. Cependant, la version actuelle de l’application empêche la communication de variable de plusieurs  blocs {% python %}, pouvant rendre la syntaxe de rédaction compliquée. Cette fonctionnalité est par conséquent la première de la liste des améliorations à ajouter.
+Un des derniers problèmes rencontrés fut le partage de variables locales des balises **{% python %}**. Cela permettrait d’avoir plusieurs bouts de code capables d’utiliser des variables communes. La flexibilité d’écriture d’exercice serait meilleure. Cependant, la version actuelle de l’application empêche la communication de variable de plusieurs  blocs {% python %}, pouvant rendre la syntaxe de rédaction compliquée. Cette fonctionnalité est par conséquent la première de la liste des améliorations à ajouter.
 
 * Une base de données
 Une base de données est nécessaire et indispensable pour ce genre d’application. En gardant des statistiques des utilisateurs, ceux-ci peuvent suivre leur évolution au cours du temps. Connaître le nombre de connaissances apprises, le nombre d’exercices faits, le temps passé sur l’application.
-
-Afin de gérer une interface administrateur où les professeurs pourraient mettre leurs cours et leurs exercices pour les élèves est fortement envisageable. N’aurait le droit d’ajouter du contenu, qu’une personne agrée par le personnel de l’université.
-
-
-* Une correction automatique
-Une piste très importante pour une application pareille est l’option d’offrir à l’utilisateur la possibilité de répondre aux problèmes,  en vérifiant l’exactitude de la réponse du côté serveur et éventuellement corriger avec la bonne solution de l’exercice. Une note pour chaque exercice motiverait aussi l’utilisateur et il pourrait ainsi suivre son niveau. 
+Une interface administrateur où les professeurs pourraient mettre leurs cours et leurs exercices pour les étudiants est fortement envisageable. N’aurait le droit d’ajouter du contenu, qu’une personne agrée par le personnel de l’université.
 
 
+* La correction automatique
+La vérification automatique d'une réponse à un problème permettrait à l'étudiant de réfléchir d'avantage avant de consulter la solution. Pour le moment, il est obligé de consulter toute la solution pour vérifier l'exactitude de ses réponses.
+La réponse serait vérifiée du côté serveur et éventuellement corrigée. Une note pour chaque exercice motiverait aussi l’utilisateur, ce qui lui permttrait de suivre son niveau. 
 
+
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
+
+
+<span id="conclusion">
 #Conclusion
+</span>
+
 Ce Projet nous a  représenté une réelle opportunité afin de mettre en pratique toutes nos connaissances acquises. Il nous a été aussi d’une grande utilité puisqu’il nous a permis d’acquérir de nouvelles connaissances techniques. 
 
-L’avancement de notre projet symbolise une énorme fierté pour nous, et on signale qu’on a le grand plaisir de laisser une telle trace dans l’université de Versailles Saint-Quentin-en-Yvelines qui elle aussi laissera éternellement sa trace dans notre mémoire.
+L'aboutissement de notre projet symbolise une énorme fierté pour nous, et nous avons le grand plaisir de laisser une trace dans l’université de Versailles Saint-Quentin-en-Yvelines qui, elle aussi, laissera sa trace dans notre mémoire.
 
-On souhaite réussir cette application et la continuer jusqu’à son achèvement pour donner un produit de qualité pour le département informatique de notre université.
+Nous souhaiterions améliorer ce projet afin d'obtenir un produit de qualité pour le département informatique de l'Université de Versailles Saint-Quentin-en-Yvelines
 
-Pour conclure, On espère que ce projet correspondra aux attentes de LUCA DE FEO et qu’il atteindra les objectifs pour lesquels il a été conçu. 
+Nous espérons que ce projet saura répondre aux attentes pour lesquelles il a été crée.
 
 
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
 
+
+<span id="contribution"></span>
 #Déclaration de contribution
 
 On tient à exprimer notre gratitude envers tous ceux qui nous ont aidés de près ou de loin dans la conception et la réalisation de notre projet, ce projet qui nous a poussé à exploiter tout notre savoir théorique et technique dans le domaine de programmation informatique voir même consulter d’autres sources d’informations afin de compléter l’ensemble des éléments nécessaires pour boucler notre travail et donner un résultat fructueux.
@@ -304,14 +627,20 @@ Nous n’oublions pas notre encadrant : Mr. Luca DE FEO qui nous a fait confianc
 En fin nous remercions toute personne qui nous a présenté le moindre de soutien durant notre parcours d’étude.
 
 
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
 
+
+<span id="references">
 #Références
+</span>
 
 * [Jinja2](http://jinja.pocoo.org/)
-* [Jinja2 - Extensions](http://jinja.pocoo.org/docs/extensions/)
+* [Jinja2 - Extensions Documentation](http://jinja.pocoo.org/docs/extensions/)
 * [Flask](http://flask.pocoo.org/)
 * [Markdown](http://daringfireball.net/projects/markdown/)
-* [Markdown - Wikipédia](https://en.wikipedia.org/wiki/Markdown)
+* [Markdown Syntax - Wikipédia](https://en.wikipedia.org/wiki/Markdown)
 * [R Markdown](http://www.rstudio.com/ide/docs/r_markdown)
 * [Python](https://docs.python.org/3/)
 * [PyTenjin](http://www.kuwata-lab.com/tenjin/pytenjin-users-guide.html)

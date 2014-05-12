@@ -3,9 +3,12 @@
     <head>
     {% block header %}
         <meta charset="utf-8" />
-        <title>{% block titre %}webbapp - Accueil{% endblock %}</title>
+        <title>{% block title %}webbapp - Accueil{% endblock %}</title>
+
+        {% block css %}
         <link type="text/css" href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
-        
+        {% endblock css %}
+
         <script type="text/javascript" src=" {{ url_for('static', filename='js/script.js' ) }} " language="javascript" ></script>
         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {% endblock %}
@@ -82,7 +85,7 @@
                 {% block bodyfooter %}
                     <ul>
                         <li><a href="/">accueil</a></li>
-                        <li><a href="/">aide</a></li>
+                        <li><a href="/report">report</a></li>
                         <li><a href="/about">à propos</a></li>
                     </ul>
                 {% endblock %}

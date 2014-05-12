@@ -12,13 +12,20 @@ from flask import Flask, request, render_template
 # --------------------------------------
 
 
+# Markdown object
+# to convert .md to .html
+# -----------------------
 markdowner = Markdown()
+# -----------------------
+
 
 # root folder of exercices
 # ----------------------------
 root_exercices = "exercices/"
 root_lessons =  "lessons/"
 # ----------------------------
+
+
 
 
 # -------------------/
@@ -34,6 +41,10 @@ def passer_titre():
 	return dict(welcomeMessage = 'Visiteur')
 
 
+# --------------------------
+# FILTERS (Flask)
+# --------------------------
+# --------------------------
 # Filter to eval python code
 @app.template_filter('eval')
 def Evaluer_args(args):
@@ -43,12 +54,19 @@ def Evaluer_args(args):
 @app.template_filter('exec')
 def Exec_python(args):
     exec(args)
+# --------------------------
+# END FILTERS
+# --------------------------
 
 
+# -----------
+# ROUTES
+# -----------
+# -----------
 # Index route
 @app.route('/')
 def index():
-	return render_template('/templates/index.html')
+	return render_template('/static/html/index.html')
 
 
 # About Page
@@ -71,6 +89,24 @@ def about():
 	
 	# page render
 	return render_template('/static/html/other.html', htmlfile = html)
+
+
+# Project Report Page
+@app.route('/report')
+def report():
+	# file name
+	path_report = "Project_Report.md"
+
+	# open file with codecs for the markdown converter
+	input_file = codecs.open(path_report, mode="r", encoding="utf-8")
+	text = input_file.read()		# read
+	input_file.close()				# clode
+
+	html = markdowner.convert(text)	# conversion
+	
+	# page render
+	return render_template('/static/html/minimalist.html', title="Project Report",
+														   html = html)
 
 
 # Write Exercices

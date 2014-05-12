@@ -6,10 +6,12 @@ var connexionButton = null;
 // -----------
 function load_things() {
        var hangon = document.querySelector('#hangon');
-       hangon.addEventListener('click', info_message, false);
+       if(hangon)
+              hangon.addEventListener('click', info_message, false);
 
        connexionButton = document.querySelector('.connexionButton');
-       connexionButton.addEventListener('click', extend_userpanel, false);
+       if(connexionButton)
+              connexionButton.addEventListener('click', extend_userpanel, false);
 
        // If we're on the exercice's content page
        if(document.querySelector('.solutionButton'))

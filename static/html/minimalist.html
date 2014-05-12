@@ -1,0 +1,42 @@
+{% extends "/templates/skeleton.html" %}
+{% block title %}webbapp - {{ title }}{% endblock %}
+
+{% block css %}
+	{{super()}}
+	<!-- rapport style -->
+	<link type="text/css" href="{{ url_for('static', filename='css/style_report.css') }}" rel="stylesheet" />
+	<script type="text/javascript" src=" {{ url_for('static', filename='js/script_report.js' ) }} " language="javascript" ></script>
+
+
+	<!-- highlight script -->
+    <link type="text/css" rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css">
+    <script type="text/javascript" src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+{% endblock %}
+
+
+
+{% block bodyheader %}
+	<span class="report_header" >
+		<a href="/">
+			webbapp
+		</a>
+	</span>
+{% endblock %}
+
+
+
+{% block bodycontent %}
+	<div id="body">
+		<div class="report_body">
+			{{ html|safe }}
+		</div>
+
+		<!-- Go To Top -->
+		<a href="#title">
+			<img id="top" alt="up" src="static/img/arrow_icon.png"/>
+		</a>
+	</div>
+
+	<!-- highlighting -->
+	<script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}

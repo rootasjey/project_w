@@ -1,0 +1,35 @@
+/* CSS STYLE FOR THE PROJECT REPORT */
+/* -------------------------------- */
+
+/*HEADER*/
+.report_header{
+	margin-left: 40px;
+	font-family: great_vibesregular;
+	font-size: 3em;
+}
+
+
+/*BODY CONTENT (REPORT)*/
+.report_body{
+	width: 700px;
+	margin: auto;
+}
+
+a{
+	font-weight: bold;
+	transition: 1s;
+}
+
+a:hover{
+	color: #e74c3c;
+}
+
+#top {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+
+	width: 90px;
+	height: 90px;
+	transform: rotate(-90deg);
+}
