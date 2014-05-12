@@ -486,7 +486,7 @@ Nous avons du encoder le texte en sortie dans l'extention Jinja2 pour pallier à
 <!-- Saut de ligne -->
 
 
-Aussi, Python n'accepte pas non plus les caractères spécaux et accentués par défaut. C'est pour cette raison qu'il faut ajouter cette ligne au début de chaque document **.py** afin d'établir l'encodage UTF-8 automatiquement.
+Aussi, Python n'accepte pas non plus les caractères spéciaux et accentués par défaut. C'est pour cette raison qu'il faut ajouter cette ligne au début de chaque document **.py** afin d'établir l'encodage UTF-8 automatiquement.
 
 > -*- coding: utf8 -*-
 
