@@ -2,6 +2,12 @@
 Presentation
 Plateforme d'exercice en ligne de maths/info
 ============================================
+##Etudiants:
+* ###CORPINOT Jeremie
+* ###KATIR Somia
+##Encadrant:
+* ###Luca DE FEO
+
 #Plan:
 ##1.Introduction
 ##2. Methodologies
