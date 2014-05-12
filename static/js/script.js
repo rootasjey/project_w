@@ -13,10 +13,19 @@ function load_things() {
        if(connexionButton)
               connexionButton.addEventListener('click', extend_userpanel, false);
 
+
        // If we're on the exercice's content page
        if(document.querySelector('.solutionButton'))
               document.querySelector('.solutionButton').addEventListener('click', ShowSolution, false);
+
+
+       // If we're on Report Page
+       if(document.querySelector('.report_body')){
+              show_iframe();
+       }
 }
+
+
 
 // Show/Hide Exercice's solution
 // -----------------------------
@@ -142,3 +151,13 @@ var _clock = null;
               else
                      clearInterval(_clock);
        }
+
+
+// Show iframe(s) if we are on Report Page
+// -----------------------------
+function show_iframe () {
+       var frames = document.querySelectorAll('.iframe_control');
+       for (var i = frames.length - 1; i >= 0; i--) {
+              frames[i].style.display = 'inline-block';
+       };
+}
