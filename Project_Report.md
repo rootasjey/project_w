@@ -410,7 +410,7 @@ Voici quelques recommandations pour vos développements personnels.
 
 ##Les modules Python
 La création d'un module dans le langage Python capable de convertir des fichiers markdown fut le premier obstacle majeur, même si avec du recul cela semble maintenant très simple à réaliser. A l'époque, nous ne connaissions que très peu de Python, et nous avons dû nous adapter au fur et à mesure que nous avancions dans la production. Grâce à un travail commun, nous avons pu saisir le fonctionnement général des modules et nous avons fait le rapprochement avec les bibliothèques que l'on peut retrouver dans des langages comme le JavaScript et le C++.
-Après quelques tests réussis, nous étions enfin lancé dans le développement du projet, et nous savions que ce n'était que le début d'une longue expérience.
+Après quelques tests réussis, nous étions enfin lancés dans le développement du projet, et nous savions que ce n'était que le début d'une longue expérience.
 
 
 
