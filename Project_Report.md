@@ -635,7 +635,7 @@ Une interface administrateur où les professeurs pourraient mettre leurs cours e
 
 * La correction automatique
 La vérification automatique d'une réponse à un problème permettrait à l'étudiant de réfléchir d'avantage avant de consulter la solution. Pour le moment, il est obligé de consulter toute la solution pour vérifier l'exactitude de ses réponses.
-La réponse serait vérifiée du côté serveur et éventuellement corrigée. Une note pour chaque exercice motiverait aussi l’utilisateur, ce qui lui permttrait de suivre son niveau. 
+La réponse serait vérifiée du côté serveur et éventuellement corrigée. Une note pour chaque exercice motiverait aussi l’utilisateur, ce qui lui permettrait de suivre son niveau. 
 
 
 <!-- Saut de ligne -->
