@@ -4,7 +4,7 @@ Plateforme d'exercice en ligne de maths/info
 ============================================
 ####Etudiants:
 
-   * CORPINOT Jeremie
+                  * CORPINOT Jeremie
    * KATIR Somia
 
 ####Encadrant:
