@@ -653,7 +653,7 @@ L'aboutissement de notre projet symbolise une énorme fierté pour nous, et nous
 
 Nous souhaiterions améliorer ce projet afin d'obtenir un produit de qualité pour le département informatique de l'Université de Versailles Saint-Quentin-en-Yvelines
 
-Nous espérons que ce projet saura répondre aux attentes pour lesquelles il a été crée.
+Nous espérons que ce projet saura répondre aux attentes pour lesquelles il a été créé.
 
 
 <!-- Saut de ligne -->
