@@ -9,7 +9,7 @@ Plateforme d'exercice en ligne de maths/info
 
 ##Encadrant:
 
-* ###Luca DE FEO
+* Luca DE FEO
 
 #Plan:
 ##1.Introduction
