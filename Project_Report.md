@@ -610,7 +610,7 @@ Ainsi, si l'utilisateur souhaite accéder aux cours, la variable **practice** pr
 * [/exercices/crypto/](http://localhost:5000/exercices/crypto/)
 
 Là encore, nous avons facilité l'ajout de contenu en automatisant la fonction qui s'occupe de récupérer les matières, les chapitres et les exercices.
-Comme pour les fichiers exercices, les cours sont écrits au format Markdown et sont rendus directement dans le navigateur.
+Comme pour les fichiers exercices, les cours sont écrits au format Markdown et ils sont rendus directement dans le navigateur.
 
 
 
