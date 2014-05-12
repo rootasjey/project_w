@@ -486,17 +486,6 @@ Nous avons du encoder le texte en sortie dans l'extention Jinja2 pour pallier à
 <!-- Saut de ligne -->
 
 
-Aussi, Python n'accepte pas non plus les caractères spéciaux et accentués par défaut. C'est pour cette raison qu'il faut ajouter cette ligne au début de chaque document **.py** afin d'établir l'encodage UTF-8 automatiquement.
-
-> -*- coding: utf8 -*-
-
-Nous avons dû encoder le texte en sortie dans l'extension Jinja2 pour pallier à tout problème. Et nous sommes enfin parvenus à afficher correctement les caractères spéciaux en Markdown.
-
-
-<!-- Saut de ligne -->
-<br/><br/><br/>
-<!-- Saut de ligne -->
-
 
 <span id="application">
 #L'application
