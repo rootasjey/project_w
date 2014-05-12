@@ -520,9 +520,11 @@ Afin de développer le projet, il a fallu préparer l’environnement en install
 ##Fonctionnement
 
 <!-- SCREENSHOT INDEX -->
-<div class="iframe_control" style="display:none;">
+<div class="iframe_control">
 	<iframe src="/" class="frame"></iframe>
-	<img src="/static/img/refresh_icon.png" class="iframe_button" onclick="reload_iframe(event)">
+	<img src="/static/img/refresh_icon.png" class="iframe_button" 
+		 style="display:none;"
+		 onclick="reload_iframe(event)">
 </div>
 
 
@@ -537,9 +539,9 @@ Le Template de la page d’accueil est réutilisé pour toutes les autres pages 
 <!-- Saut de ligne -->
 
 <!-- SCREENSHOT EXERCICES LIST -->
-<div class="iframe_control" style="display:none;">
+<div class="iframe_control">
 	<iframe src="/exercices" class="frame"></iframe>
-	<img src="/static/img/refresh_icon.png" class="iframe_button" onclick="reload_iframe(event)">
+	<img src="/static/img/refresh_icon.png" class="iframe_button" style="display:none;" onclick="reload_iframe(event)">
 </div>
 
 Les différentes matières accessibles sur la plateforme sont présentées avec des couleurs, et d’autres domaines peuvent être aisément ajoutés.
@@ -550,9 +552,9 @@ Les différentes matières accessibles sur la plateforme sont présentées avec 
 <!-- Saut de ligne -->
 
 <!-- SCREENSHOT EXERCICES CONTENT -->
-<div class="iframe_control" style="display:none;">
+<div class="iframe_control">
 	<iframe src="/exercices/informatique/chapter/0/Petits-Calculs.md/" class="frame"></iframe>
-	<img src="/static/img/refresh_icon.png" class="iframe_button" onclick="reload_iframe(event)">
+	<img src="/static/img/refresh_icon.png" class="iframe_button" style="display:none;" onclick="reload_iframe(event)">
 </div>
 
 
@@ -592,9 +594,9 @@ On peut mélanger différents styles d’écriture en rédigeant un énoncé, c�
 <!-- Saut de ligne -->
 
 <!-- SCREENSHOT EXERCICES CONTENT -->
-<div class="iframe_control" style="display:none;">
+<div class="iframe_control">
 	<iframe src="/lessons/conception-bdd/chapter/0/Femeture-Transitive.md/" class="frame"></iframe>
-	<img src="/static/img/refresh_icon.png" class="iframe_button" onclick="reload_iframe(event)">
+	<img src="/static/img/refresh_icon.png" class="iframe_button" style="display:none;" onclick="reload_iframe(event)">
 </div>
 
 

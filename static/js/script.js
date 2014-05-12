@@ -156,7 +156,7 @@ var _clock = null;
 // Show iframe(s) if we are on Report Page
 // -----------------------------
 function show_iframe () {
-       var frames = document.querySelectorAll('.iframe_control');
+       var frames = document.querySelectorAll('.iframe_button');
        for (var i = frames.length - 1; i >= 0; i--) {
               frames[i].style.display = 'inline-block';
        };
