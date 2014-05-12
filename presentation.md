@@ -7,7 +7,7 @@ Plateforme d'exercice en ligne de maths/info
 ##2. Methodologies
 ##3. organisation
 ##4.demonstration
-###5. conclusion
+##5. conclusion
 #1.Introduction
 ##Description du sujet
 ##cahier de charge
