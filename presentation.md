@@ -1,11 +1,14 @@
 
-Presentation
+Presentation:
 Plateforme d'exercice en ligne de maths/info
 ============================================
 ##Etudiants:
-* ###CORPINOT Jeremie
-* ###KATIR Somia
+
+* CORPINOT Jeremie
+* KATIR Somia
+
 ##Encadrant:
+
 * ###Luca DE FEO
 
 #Plan:
