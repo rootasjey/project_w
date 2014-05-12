@@ -21,7 +21,7 @@ function load_things() {
 
        // If we're on Report Page
        if(document.querySelector('.report_body')){
-              show_iframe();
+              refresh_button_to_iframe();
        }
 }
 
@@ -153,11 +153,17 @@ var _clock = null;
        }
 
 
-// Show iframe(s) if we are on Report Page
+// Add Refresh Button to iframe(s)
+// if we are on Report Page
 // -----------------------------
-function show_iframe () {
-       var frames = document.querySelectorAll('.iframe_button');
+function refresh_button_to_iframe () {
+       var frames = document.querySelectorAll('.iframe_control');
        for (var i = frames.length - 1; i >= 0; i--) {
-              frames[i].style.display = 'inline-block';
+              
+              var img = document.createElement('img');
+              img.src = "/static/img/refresh_icon.png";
+              img.className = "iframe_button";
+              img.addEventListener('click', reload_iframe, false);
+              frames[i].appendChild(img);
        };
 }
