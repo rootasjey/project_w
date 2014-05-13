@@ -27,11 +27,11 @@ PROJET</span>
 #Introduction
 </span>
 
-Les mathématiques et l’informatique sont devenues des outils indispensables dans le domaine scientifique. C’est pour cette raison que l’apprentissage de ces disciplines est un atout majeur pour surmonter de nouveaux challenges. Les étudiants peuvent acquérir des connaissances dans ces domaines en s'exerçant à travers des problèmes. Cet apprentissage peut se faire de diverses manières et plus la méthode choisie est dynamique et interactive, plus elle est efficace et appréciée par les étudiants. 
+Les mathématiques et l’informatique sont devenues des outils indispensables dans le domaine scientifique. C’est pour cette raison que l’apprentissage de ces disciplines est un atout majeur pour surmonter de nouveaux challenges. Les étudiants peuvent acquérir des connaissances dans ces domaines en s'exerçant à travers des problèmes. Cet apprentissage peut se faire de diverses manières et plus la méthode choisie est dynamique et interactive, plus elle est efficace et appréciée par les étudiants.
 
 Des plateformes web telles que Code.org et Codecademy.com proposent exclusivement  des exercices en informatique qui permettent aux étudiants de s'entraîner. Une autre plateforme, OpenClassrooms donne accès aussi bien à des cours théoriques qu'à des exercices en Informatique et en Mathématiques. Ces sites, mis en place récemment, ont pour objectif d’enseigner la programmation et les mathématiques au grand public et ainsi donner à chacun un accès facile aux connaissances. Il a été constaté que peu de plateformes web existent en français alliant ces deux disciplines pour le niveau universitaire.
 
-Notre projet de Master 1 a pour but de fournir aux étudiants de l’Université de Versailles Sciences un accès à des connaissances scientifiques nécessaires dans leur cursus universitaire. Pour ce faire, nous nous sommes appuyés sur des technologies modernes, notamment des outils de développement web, afin d’obtenir des résultats différents de ce qui existe déjà.
+Notre projet de Master 1 a pour but de fournir aux étudiants de l’Université de Versailles Sciences un accès à des connaissances scientifiques nécessaires dans leur cursus universitaire. Pour ce faire, des technologies modernes, notamment des outils de développement web, sont employés afin d’obtenir des résultats différents de ce qui existe déjà.
 
 
 <!-- Saut de ligne -->
@@ -44,7 +44,7 @@ Notre projet de Master 1 a pour but de fournir aux étudiants de l’Université
 
 ##Description du projet
 
-Dans ce projet, on est appelé à réaliser une application web qui permet de publier, faire ou corriger des exercices en ligne de Math/Info. 
+Dans ce projet, on est appelé à réaliser une application web qui permet de publier, faire ou corriger des exercices en ligne de Math/Info.
 
 L’application se divise en deux parties :
 
@@ -52,8 +52,7 @@ L’application se divise en deux parties :
 * Le  client, permettant de présenter les exercices à l’utilisateur, de vérifier l’exactitude de la réponse, et de présenter la solution.
 
 
-La dite application doit fonctionner en se basant sur ces deux cotés afin de fournir un espace de manipulation automatique, sûr et souple dans lequel les tâches sont bien distribuées et bien claires pour chaque manipulant.
-            L’application demandée doit être robuste et fiable tout en réfléchissant sur les options qu’elle peut fournir en plus des options demandées.
+La dite application doit fonctionner en se basant sur ces deux cotés afin de fournir un espace autonome, robuste et fiable sur le long terme.
 
 Le projet vise à :
 
@@ -61,14 +60,15 @@ Le projet vise à :
 * Faciliter l’accès de l’utilisateur à l’application afin de consulter les exercices publiés en ligne ainsi que la solution de chaque exercice.
 * Créer une interface simple, claire et facile à utiliser.
 
-Un des premières pistes a été RStudio, un logiciel Open-Source capable d’exécuter du code R et de créer un document scientifique. Le langage R est très répandu chez les statisticiens et les explorateurs de données.
+Une des premières pistes a été RStudio, un logiciel Open-Source capable d’exécuter du code R et accessoirement de créer des documents scientifiques. Le langage R est très répandu chez les statisticiens et les explorateurs de données.
+
 Notre projet se différencie en plusieurs points :
 
 * Il a pour but d’offrir un moyen à des enseignants de rédiger des exercices et de les proposer rapidement à un groupe d’étudiants au travers d’une plateforme en ligne. Celui de RStudio est de créer des documents portant sur des études de données, ce qui représente qu’une partie de notre application.
 
-* Le langage que nous avons utilisé pour la partie programmation des exercices est le Python comportant une syntaxe facilement compréhensible.
+* Les langage utilisés pour la prédaction des exercices sont le Markdown, le HTML, et le Python.
 
-* La plateforme est destinée à être constamment en ligne et accessible par les utilisateurs.
+* La plateforme est destinée à être en ligne et accessible par les utilisateurs.
 
 
 <!-- Saut de ligne -->
@@ -78,7 +78,7 @@ Notre projet se différencie en plusieurs points :
 
 ##Langages et technologies utilisés
 
-Afin de mener à terme notre projet, nous utilisons plusieurs langages de programmation et différents outils, ce qui procure une grande flexibilité et une puissance accrue dans le développement.
+Afin de mener à terme le travail demandé, nous utilisons plusieurs langages de programmation et différents outils, ce qui procure une grande flexibilité et une puissance accrue dans le développement.
 
 Le langage Python représente le cœur de l’application.
 
@@ -93,11 +93,11 @@ Le langage Python représente le cœur de l’application.
 
 ####Python
 
-Python est un langage de programmation de haut niveau utilisé dans divers domaines, notamment le domaine scientifique pour sa simplicité. Sa syntaxe permet aux programmeurs  d'exprimer des concepts en peu de lignes de code comparé à d’autres langages tels que le C. 
+Python est un langage de programmation de haut niveau utilisé dans divers domaines, dont les sciences. Sa syntaxe permet aux programmeurs  d'exprimer des concepts en peu de lignes de code comparé à d’autres langages tels que le C. 
 
 Python supporte plusieurs paradigmes de programmation, y compris l’orienté objet et la programmation fonctionnelle. Il dispose d'un typage dynamique fort et d’une gestion automatique de la mémoire. Une grande bibliothèque de modules spécialisés permet d’étendre les fonctionnalités de base du langage.
 
-L’une des premières choses que nous avons apprises en codant en Python est que l’indentation est importante, et l’absence d’accolades fut déroutant début. Mais la simplicité et la modularité du langage nous a permis d’obtenir des résultats concluant très rapidement.
+L’une des premières choses que nous avons apprises en codant en Python est l'importance de l’indentation, et l’absence d’accolades fut déroutant début. Mais la simplicité et la modularité du langage nous a permis d’obtenir des résultats concluant très rapidement.
 
 	# ---------------------------------
 	# Convert one file from .md to .html
@@ -127,9 +127,9 @@ L’une des premières choses que nous avons apprises en codant en Python est qu
 
 ####HTML
 
-Le HTML (Hypertext Markup Language) est conçu pour présenter les pages web. C’est un langage de balisage qui permet d’écrire de l’hypertexte.
+Le HTML (Hypertext Markup Language) est conçu pour présenter les pages web. C’est un langage de balisage permettant d’écrire de l’hypertexte.
 
-Le HTML sert à présenter directement le contenu à l’utilisateur de l’application. C’est à travers cette interface que le client interagit avec la plateforme.
+Le HTML structure le contenu d'une page web à l’utilisateur final. C’est à travers cette interface que le client interagit avec la plateforme.
 
 	<div id="footer">
 	    {% block bodyfooter %}
@@ -152,10 +152,10 @@ Le HTML sert à présenter directement le contenu à l’utilisateur de l’appl
 
 
 ####CSS
-CSS (Cascading Style Sheets : feuilles de style en cascade) sert à décrire la présentation des documents HTML et XML. Introduit au milieu des années 1990, CSS devient couramment utilisé dans la conception de sites web et bien pris en charge par les navigateurs web dans les années 2000.
+CSS (Cascading Style Sheets : feuilles de style en cascade) sert à décrire la mise en forme des documents HTML et XML. Introduit au milieu des années 1990, CSS devient couramment utilisé dans la conception de sites web et bien pris en charge par les navigateurs web dans les années 2000.
 	
-Le langage CSS permet de séparer le contenu de sa présentation. Il permet d’agrémenter les éléments HTML de styles tels que la couleur, la transparence, les bordures, la position ainsi que les animations.
-Nous avons utilisé des feuilles CSS séparées du contenu HTML dans le but d’avoir une application claire, et de faciliter la mise en forme du contenu. Ainsi, si pour une raison particulière on venait à modifier l’affichage, ce changement se ferait à un seul endroit du code. 
+Le langage CSS donne un moyen de séparer le contenu de la mise en forme. Il agrémente les éléments HTML de styles tels que la couleur, la transparence, les bordures, la position, ainsi que les animations.
+Notre platforme possède des feuilles de style distinctes des documents HTML pour une plus grande clarté et faciliter la maintenance du code. Ainsi, si pour une raison particulière on venait à modifier l’affichage, ce changement se ferait à un seul endroit du code. 
 
 	/*HEADER*/
 	.report_header{
@@ -172,11 +172,11 @@ Nous avons utilisé des feuilles CSS séparées du contenu HTML dans le but d’
 
 
 ####JavaScript
-JavaScript est un langage de programmation de scripts principalement utilisé dans les pages web interactives. C'est un langage orienté objets à prototypes, c'est-à-dire que les bases du langage et ses principales interfaces sont fournies par des objets qui ne sont pas des instances de classes, mais qui sont chacun équipés de constructeurs permettant de générer leurs propriétés.
+JavaScript est un langage de programmation de scripts principalement utilisé dans les pages web interactives. C'est un langage orienté objets à prototypes; c'est-à-dire que les bases du langage et ses principales interfaces sont fournies par des objets qui ne sont pas des instances de classes, mais qui sont chacun équipés de constructeurs permettant de générer leurs propriétés.
 
 Le JavaScript offre à notre application des fonctionnalités que seuls le HTML et le CSS ne pourraient fournir. On a ainsi pu effectuer des actions spécifiques lors des évènements. Le clic sur un bouton solution permet, par exemple, d’afficher ou de masquer la solution d’un exercice.
 
-Dans une prochaine version, le JavaScript pourrait permettre d’utiliser la technologie AJAX pour éviter le rechargement des différentes pages de la plateforme.
+Dans une prochaine version, le JavaScript pourrait permettre d’utiliser la technologie AJAX afin d'éviter le rechargement des différentes pages de l'application.
 
 	var _clock = null;
 	(function happyHour() {
@@ -191,7 +191,7 @@ Dans une prochaine version, le JavaScript pourrait permettre d’utiliser la tec
 
 ####Markdown
 
-Le langage Markdown est un format qui permet d’écrire du HTML de manière simplifiée. Il peut cependant être utilisé tel quel, sans formatage particulier. La conversion de ce format (.md) vers le format HTML (.html) n’est pas compliquée grâce à de nombreux outils existants.
+Markdown est un format qui permet d’écrire du HTML de manière simplifiée. Il peut cependant être utilisé tel quel, sans formatage particulier. La conversion de ce format (.md) vers le format HTML (.html) est rendu facile grâce à de nombreux outils existants.
 
 Ce rapport est lui-même rédigé dans le format **Markdown**.
 
@@ -222,9 +222,9 @@ Un module python permettant la conversion d’un fichier Markdown à un fichier 
 
 ####Flask
 
-Flask est un  micro-Framework pour python permettant de créer des applications web comme un micro blog ou un clone Twitter. L’application, crée par Armin Ronacher , est en licence Free-BSD et n’importe qui peut contribuer au projet de l’auteur sur GitHub.
+Flask est un  micro-Framework pour python permettant de créer des applications web comme un micro blog ou un clone Twitter. L’application, crée par Armin Ronacher, est en licence Free-BSD et tout le monde peut contribuer au projet sur GitHub.
 
-L’avantage de Flask par rapport aux autres Framework web existant tels que Django ou Pyramid qui sont plus répandus, est que sa syntaxe est simple et le module est très basique. Il nous a donc fallu peu de temps pour comprendre le fonctionnement de ce module et nous n’avons pas rencontré beaucoup de difficultés lors de son utilisation. Cependant, l’aspect basique de Flask est voulu car il est possible d’étendre ses fonctionnalités.
+L’avantage de Flask par rapport aux autres Framework web existant tels que Django ou Pyramid, qui sont plus répandus, est que la syntaxe est simple et le module est très basique. Il nous a donc fallu peu de temps pour comprendre le fonctionnement de ce module et nous n’avons pas rencontré de difficulté particulière lors de son utilisation. Cependant, l’aspect basique de Flask est voulu car il est possible d’étendre ses fonctionnalités.
 Il serait intéressant par la suite d’implémenter un cache pour notre plateforme, ou le support de l’authentification OAuth.
 
 
