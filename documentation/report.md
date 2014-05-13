@@ -677,8 +677,8 @@ Une partie ‘Cours’ permettant aux étudiants d’obtenir des informations su
 
 Ainsi, si l'utilisateur souhaite accéder aux cours, la variable `<practice>` prendra `lessons` comme valeur, sinon `exercices` pour s'entraîner sur des problèmes.
 
-* </lessons/conception-bdd/>
-* </exercices/crypto/>
+* [/lessons/conception-bdd/](/lessons/conception-bdd/)
+* [/exercices/crypto/](/exercices/crypto/)
 
 Là encore, nous avons facilité l'ajout de contenu en automatisant la fonction qui s'occupe de récupérer les matières, les chapitres et les exercices.
 Comme pour les fichiers exercices, les cours sont écrits au format Markdown et ils sont rendus directement dans le navigateur.
