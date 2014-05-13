@@ -17,7 +17,6 @@
 
 #body a{
 	font-weight: bold;
-	transition: 1s;
 }
 	#body a:hover{
 		color: #e74c3c;
@@ -32,12 +31,17 @@
 	width: 90px;
 	height: 90px;
 	
-
-	transition: 1s;
+	opacity: 0.1;
+	transition: 0.5s;
 }
 	#top:hover{
+		opacity: 1;
 		transform: rotate(-90deg);
-		transition: 1s;
+		-webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(9-0deg);
+        -mz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+		transition: 0.5s;
 	}
 
 

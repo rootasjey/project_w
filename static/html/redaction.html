@@ -4,12 +4,51 @@
 <div id="body">
 
   <div class="centerText">
-    <p>Vous êtes ici dans la partie des rédacteurs. Vous pouvez commencer à écrire un cours ou un exercice en html, python ou markdown.</p>
 
-    <form method="POST" action="">
+    <p>Vous êtes ici dans la partie des rédacteurs. 
+    Vous pouvez commencer à écrire un cours ou un exercice en html, python ou markdown.</p>
+
+    <ul class="horizontal_list">
+      <li onclick="practice_type_create(event)" style="font-weight:700;">Exercices</li>
+      <li onclick="practice_type_create(event)">Cours</li>
+    </ul>
+
+    <!-- FORM : ADD CONTENT (EXERCICE/LESSON) -->
+    <form name="form_addcontent" id="form_addcontent" method="POST" action="">
+
+      SCIENCE <br/>
+      <select name="subject" onchange="">
+
+        {% for subject in exx_subjects %}
+          <option value="{{subject}}">{{ subject }}</option>          
+        {% endfor %}
+
+        <!-- create a new subject -->
+        <option value="newsubject">nouvelle matière</option>          
+      </select> <br/><br/>
+
+
+      CHAPITRE <br/>
+      <select name="chapter">
+
+        {% for chapter in chapter_list %}
+          <option value="{{chapter}}">{{ chapter }}</option>          
+        {% endfor %}
+
+        <!-- create a new chapter -->
+        <option value="newchapter">nouveau chapitre</option>          
+      </select> <br/><br/>
+
+
+      TITRE <br/>
       <input type="text" name="title" placeholder="TITRE" ><br/><br/>
-      <textarea name="exocontent" placeholder="Ecrivez le contenu de votre exercice dans cet encadré" rows="4" cols="60"></textarea>
+
+
+      CONTENU <br/>
+      <textarea name="exocontent" placeholder="Ecrivez le contenu de votre exercice dans cet encadré" rows="4" cols="60">
+      </textarea>
     </form>
+
   </div>
 
 </div>

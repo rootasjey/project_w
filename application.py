@@ -103,15 +103,6 @@ def report():
 														   html = html)
 
 
-# Write Exercices
-@app.route('/redaction', methods=['GET', 'POST'])
-def redaction():
-	if request.method == 'POST':
-		return "vous avez rédigé un exercices"
-	elif request.method == 'GET':
-		return render_template('/static/html/redaction.html')
-
-
 # Subjects
 # --------
 @app.route('/<practice>/')
@@ -257,6 +248,37 @@ def work(practice="exercices", science="informatique", id=0, work=""):
 													id = id,
 													work = work,
 													page = page)
+
+# Write Exercices
+@app.route('/redaction', methods=['GET', 'POST'])
+def redaction():
+	if request.method == 'POST':
+		return "vous avez rédigé un exercices"
+	elif request.method == 'GET':
+
+		# get domains/subjects
+		# in exercices folder
+		exx_subjects = os.listdir(root_exercices)
+		# in lessons folder
+		less_subjects = os.listdir(root_lessons)
+
+		# get 1st subject's chapters list
+		chaptersl = os.listdir(root_exercices + exx_subjects[0])
+
+		return render_template('/static/html/redaction.html', exx_subjects = exx_subjects,
+															  less_subjects = less_subjects,
+															  chapter_list = chaptersl)
+
+@app.route('/api/<practice>/<subject>')
+def get_subjects(practice="exercices", subject="informatique"):
+	# get subjects
+	path=""
+
+	if practice == "exercices":
+		path = root_exercices;
+	elif practice == "lessons":
+		path = root_lessons
+
 
 # debug mode if the 
 # application.py is launched

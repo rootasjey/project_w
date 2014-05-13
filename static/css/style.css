@@ -340,6 +340,10 @@ body {
         transition: 0.5s;
         /*-------------*/
         transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -mz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
         opacity: 0.1;
     }
         .go_back_icon:hover{
@@ -347,7 +351,10 @@ body {
             /*-------------*/
             opacity: 1;
             transform: rotate(180deg);
-            
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -mz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
         }
 
 
@@ -603,6 +610,24 @@ a {
         font-size: 3em;
         transition: 1s;
     }*/
+
+
+.horizontal_list{
+}
+
+.horizontal_list li{
+    list-style-type: none;
+    display: inline-block;
+    cursor: pointer;
+
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 3em;
+}
+    .horizontal_list li:hover{
+        color: #e74c3c
+    }
 
 /*ANIMATIONS*/
 /*---------*/

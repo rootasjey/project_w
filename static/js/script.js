@@ -61,7 +61,8 @@ function info_message () {
        }
 }
 
-// Remet le style par défaut des messages d'information
+// Set default style on information messages
+// ------------------------------------
 function set_default_message_style () {
        if(document.querySelector('.box_content_hide')){
               document.querySelector('.box_content_hide').className = 'box_content';
@@ -71,6 +72,8 @@ function set_default_message_style () {
        }
 }
 
+// Extend panel where user can see its stats
+// --------------------------
 function extend_userpanel() {
        if(document.querySelector('.box_content')){
               var box_to_extend = document.querySelector('.box_content');
@@ -93,32 +96,6 @@ function extend_userpanel() {
        }
 }
 
-
-// Ajoute des évènements
-// (function add_events() {
-//        window.setTimeout(load_click_on_chapters, 1000);
-// })();
-
-function load_click_on_chapters () {
-       if(document.querySelector('.chapitre')){
-              var chapters = document.querySelectorAll('.chapitre');
-              for (var i = chapters.length - 1; i >= 0; i--) {
-                     chapters[i].addEventListener('click', open_chapter, false);
-              };
-       }
-}
-
-// Lorsqu'on clic sur un chapitre
-function open_chapter (event) {
-       var parent = event.target.parentNode;
-       var chap_num = parent.id;
-       chap_num = chap_num - 1;
-
-       var xhr = new XMLHttpRequest();
-       xhr.open('GET', "/domaine/informatique/chapitre?id=" + chap_num);
-       xhr.send(null);
-       // console.log(xhr.responseText);
-}
 
 
 // -------------
@@ -166,4 +143,32 @@ function refresh_button_to_iframe () {
               img.addEventListener('click', reload_iframe, false);
               frames[i].appendChild(img);
        };
+}
+
+
+// -----------------
+// ON REDACTION PAGE
+// -----------------
+// Clicked on a practice type
+// --------------------------
+function practice_type_create (event) {
+       if(event.target){
+              var practice = event.target;
+              if(getComputedStyle(practice, null).fontWeight == '400'){
+                     practice.style.fontWeight = '700';
+                     var brother = practice.nextElementSibling;
+                     var sister = practice.previousElementSibling;
+
+                     if(brother) brother.style.fontWeight = '400';
+                     else if(sister) sister.style.fontWeight = '400';
+              }
+              else if (getComputedStyle(practice, null).fontWeight == '700'){
+                     // do nothing // already selected
+              }
+       }
+}
+
+
+function subject_changed (event) {
+       //ajax
 }

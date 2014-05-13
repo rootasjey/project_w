@@ -27,11 +27,11 @@ PROJET</span>
 #Introduction
 </span>
 
-Les mathématiques et l’informatique sont devenues des outils indispensables dans le domaine scientifique. C’est pour cette raison que l’apprentissage de ces disciplines est un atout majeur pour surmonter de nouveaux challenges. Les étudiants peuvent acquérir des connaissances dans ces domaines en s'exerçant. Cet apprentissage peut se faire de diverses manières et plus la méthode choisie est dynamique et interactive, plus elle est efficace et appréciée par les étudiants. 
+Les mathématiques et l’informatique sont devenues des outils indispensables dans le domaine scientifique. C’est pour cette raison que l’apprentissage de ces disciplines est un atout majeur pour surmonter de nouveaux challenges. Les étudiants peuvent acquérir des connaissances dans ces domaines en s'exerçant à travers des problèmes. Cet apprentissage peut se faire de diverses manières et plus la méthode choisie est dynamique et interactive, plus elle est efficace et appréciée par les étudiants. 
 
-Des plateformes web telles que Code.org et Codecademy.com proposent exclusivement  des exercices en informatique qui permettent aux étudiants de s'entraîner. Une autre plateforme, OpenClassrooms donne accès aussi bien à des cours théoriques qu'à des exercices en Informatique et en Mathématiques. Ces sites, mis en place récemment, ont pour objectif d’enseigner la programmation et les mathématiques au grand public et ainsi donner à chacun un accès facile aux connaissances. Il a été constaté que peu de plateformes web existent en français qui allient ces deux disciplines pour le niveau universitaire.
+Des plateformes web telles que Code.org et Codecademy.com proposent exclusivement  des exercices en informatique qui permettent aux étudiants de s'entraîner. Une autre plateforme, OpenClassrooms donne accès aussi bien à des cours théoriques qu'à des exercices en Informatique et en Mathématiques. Ces sites, mis en place récemment, ont pour objectif d’enseigner la programmation et les mathématiques au grand public et ainsi donner à chacun un accès facile aux connaissances. Il a été constaté que peu de plateformes web existent en français alliant ces deux disciplines pour le niveau universitaire.
 
-Notre projet de Master 1 a pour but de fournir aux étudiants de l’Université de Versailles Sciences un accès à des connaissances scientifiques nécessaires dans leur cursus de Licence. Pour ce faire, nous nous sommes appuyés sur des technologies modernes, notamment des outils de développement web, afin d’obtenir des résultats différents de ce qui existe déjà.
+Notre projet de Master 1 a pour but de fournir aux étudiants de l’Université de Versailles Sciences un accès à des connaissances scientifiques nécessaires dans leur cursus universitaire. Pour ce faire, nous nous sommes appuyés sur des technologies modernes, notamment des outils de développement web, afin d’obtenir des résultats différents de ce qui existe déjà.
 
 
 <!-- Saut de ligne -->
@@ -64,11 +64,11 @@ Le projet vise à :
 Un des premières pistes a été RStudio, un logiciel Open-Source capable d’exécuter du code R et de créer un document scientifique. Le langage R est très répandu chez les statisticiens et les explorateurs de données.
 Notre projet se différencie en plusieurs points :
 
-* Notre projet a pour but d’offrir un moyen à des enseignants de rédiger des exercices et de les proposer rapidement à un groupe d’étudiants au travers d’une plateforme en ligne. Celui de RStudio est de créer des documents portant sur des études de données, ce qui représente qu’une partie de notre application.
+* Il a pour but d’offrir un moyen à des enseignants de rédiger des exercices et de les proposer rapidement à un groupe d’étudiants au travers d’une plateforme en ligne. Celui de RStudio est de créer des documents portant sur des études de données, ce qui représente qu’une partie de notre application.
 
 * Le langage que nous avons utilisé pour la partie programmation des exercices est le Python comportant une syntaxe facilement compréhensible.
 
-* Notre plateforme est destinée à être constamment en ligne et accessible par les utilisateurs.
+* La plateforme est destinée à être constamment en ligne et accessible par les utilisateurs.
 
 
 <!-- Saut de ligne -->
@@ -78,9 +78,9 @@ Notre projet se différencie en plusieurs points :
 
 ##Langages et technologies utilisés
 
-Afin de mener à terme notre projet, nous utilisons plusieurs langages de programmation et différents outils, ce qui nous procure une grande flexibilité et une puissance accrue dans le développement.
+Afin de mener à terme notre projet, nous utilisons plusieurs langages de programmation et différents outils, ce qui procure une grande flexibilité et une puissance accrue dans le développement.
 
-Nous avons utilisé le langage Python pour développer le cœur de l’application.
+Le langage Python représente le cœur de l’application.
 
 
 
