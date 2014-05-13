@@ -307,7 +307,7 @@ Un planning a été établi afin d’organiser les différentes tâches à effec
 <!-- Saut de ligne -->
 
 
-##Extension Markdown
+##Utilisation de Markdown Pour générer les exercices
 
 Nous avons donc commencé l’apprentissage du langage Python en écrivant une extension capable de convertir un fichier au format Markdown (.md) vers le format HTML (.html). Cette tâche, étant la première du projet, nous a pris quelques semaines mais l’existence d’un module Python nous a grandement facilité la tâche. Il suffisait d’intégrer correctement ce module dans notre application.
 
@@ -324,7 +324,7 @@ Il a fallu, dès cette première partie, comprendre les fonctionnements de bases
 <!-- Saut de ligne -->
 
 
-##Création d'un serveur local avec Flask
+##Création d'un serveur web avec Flask
 
 La création d’un serveur local afin d’avoir un début d’application fonctionnelle était l’étape suivante. Nous devions intégrer le module correspondant et maîtriser son utilisation. Cela s’est fait assez rapidement étant donné la simplicité de la syntaxe de Flask. En effet 7 lignes de code suffisent à créer une application web locale fonctionnelle. Il ne suffisait plus qu’à effectuer les tests nécessaires en se rendant à l’adresse : http://localhost:5000.
 
@@ -363,7 +363,21 @@ Ce procédé montre toute la flexibilité de ces Framework et les possibilités 
 
 
 
-##L'extension Jinja2
+
+
+##Affichage mathématique avec MathJax
+
+Notre projet devant présenter des exercices de mathématiques, il était indispensable de trouver un moyen d’afficher de manière élégante les formules comme les équations, les limites, et les symboles spéciaux. Sous les conseils de notre Maître de projet, nous nous sommes penchés sur les bibliothèques JavaScript disponibles dans le domaine du web. Notre choix s’est porté sur MathJax, une bibliothèque JavaScript Open Source multiplateforme.
+
+Notre application exécute ainsi le script MathJax disponible à travers le Content Distribution Network (CDN), ce qui permet d’alléger la taille du projet. Le script MathJax pesant actuellement 32.9Mb, nous aurions eu une augmentation non négligeable de l’application.
+
+
+
+<!-- Saut de ligne -->
+<br/><br/><br/>
+<!-- Saut de ligne -->
+
+##Extension des capacités de Jinja2
 Cette partie a été la plus laborieuse. Le but était de créer une extension jinja2 capable d’exécuter du code Python à l’intérieur d’un bloc jinja2.
 
 On voulait pouvoir écrire le code suivant et obtenir la génération d’un exercice en sortie.
@@ -378,19 +392,6 @@ Maintenant qu’on était capable d’exécuter du code python, la partie intér
 
 <!-- Saut de ligne -->
 <br/><br/>
-<!-- Saut de ligne -->
-
-
-##Les mathématiques avec MathJax
-
-Notre projet devant présenter des exercices de mathématiques, il était indispensable de trouver un moyen d’afficher de manière élégante les formules comme les équations, les limites, et les symboles spéciaux. Sous les conseils de notre Maître de projet, nous nous sommes penchés sur les bibliothèques JavaScript disponibles dans le domaine du web. Notre choix s’est porté sur MathJax, une bibliothèque JavaScript Open Source multiplateforme.
-
-Notre application exécute ainsi le script MathJax disponible à travers le Content Distribution Network (CDN), ce qui permet d’alléger la taille du projet. Le script MathJax pesant actuellement 32.9Mb, nous aurions eu une augmentation non négligeable de l’application.
-
-
-
-<!-- Saut de ligne -->
-<br/><br/><br/>
 <!-- Saut de ligne -->
 
 
