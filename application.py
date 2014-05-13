@@ -72,16 +72,10 @@ def index():
 # About Page
 @app.route('/about')
 def about():
-	path = ''
-	path_about = 'static/md'
-	files = os.listdir(path_about)
-	for file in files:
-		if 'About' in file:
-			path = path_about + '/' + file
-			break
+	path_about = "documentation/about.md"
 
 	# open file with codecs for the markdown converter
-	input_file = codecs.open(path, mode="r", encoding="utf-8")
+	input_file = codecs.open(path_about, mode="r", encoding="utf-8")
 	text = input_file.read()		# read
 	input_file.close()				# clode
 
@@ -95,7 +89,7 @@ def about():
 @app.route('/report')
 def report():
 	# file name
-	path_report = "Project_Report.md"
+	path_report = "documentation/report.md"
 
 	# open file with codecs for the markdown converter
 	input_file = codecs.open(path_report, mode="r", encoding="utf-8")
@@ -114,8 +108,8 @@ def report():
 def redaction():
 	if request.method == 'POST':
 		return "vous avez rédigé un exercices"
-	else:
-		return render_template('/templates/redaction.html')
+	elif request.method == 'GET':
+		return render_template('/static/html/redaction.html')
 
 
 # Subjects

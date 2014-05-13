@@ -5,7 +5,7 @@ A UVSQ's project.
 The nice jinja2 extension to run python code uses the [CreateFunction from this sample](http://code.activestate.com/recipes/550804-create-a-restricted-python-function-from-a-string/)
 
 #updates
-* **last**: hidded iframe by default in the markdown doc (showed only if we fired the application.py)
+* **last**: updated redaction UI
 * **next**: update UI (web) + global variables (python)
 
 #How to install (Windows)

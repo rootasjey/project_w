@@ -277,6 +277,7 @@ body {
                     opacity: 1;
                 }
 
+            /*USER STATS*/
             .userProgress{
                 display: inline-block;
                 text-align: left;
@@ -330,6 +331,24 @@ body {
                 position: absolute;
                 right: 20px;
             }
+
+    .go_back_icon{
+        width: 40px;
+        height: 40px;
+        margin-bottom: -20px;
+
+        transition: 0.5s;
+        /*-------------*/
+        transform: rotate(90deg);
+        opacity: 0.1;
+    }
+        .go_back_icon:hover{
+            transition: 0.5s;
+            /*-------------*/
+            opacity: 1;
+            transform: rotate(180deg);
+            
+        }
 
 
 #body {

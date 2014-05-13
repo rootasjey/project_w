@@ -58,6 +58,9 @@
                             <!-- AVATAR DE L'UTILISATEUR -->
                             <!-- <img class="useravatar" src="../static/img/avatar.png" alt="avatar.png"> -->
                             <p class="message">Hello {{welcomeMessage}} !</p>
+                            <a href="javascript:history.go(-1)">
+                                <img class="go_back_icon" src="{{ url_for('static', filename='img/arrow_icon.png') }}"/>
+                            </a>
 
                             
                          {% endblock  %}
