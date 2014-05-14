@@ -377,10 +377,9 @@ les répétitions. -->
 Ainsi, la page d’affichage d’un exercice est définie par la route suivante :
 [`/<practice>/<science>/chapter/<id>`](/exercices/informatique/chapter/2/Les-boucles.md/)
 
-`<practice>` définissant le type de contenu, si l'utilisateur souhaite s'entraîner sur des exercices, ou apprendre de nouvelles connaissances. La variables `<science>` correspondant à la matière *(Maths, Informatique, Cryptographie)*, `<chapter>` a <!--Comment (Luca): oui ?--> et `<id>` est le numéro de l’exercice demandé. Un exemple pratique de route serait :
+`<practice>` définissant le type de contenu, si l'utilisateur souhaite s'entraîner sur des exercices, ou apprendre de nouvelles connaissances. La variables `<science>` correspondant à la matière *(Maths, Informatique, Cryptographie)*, et `<id>` est le numéro du chapitre et la suite de la route signifie le nom de l’exercice demandé. Un exemple pratique de route serait :
 [`/exercices/maths/chapter/0/La-somme-en-mille.md/`](/exercices/maths/chapter/0/La-somme-en-mille.md/)
 
-<!--Comment (Luca): Et où est `La-somme-en-mille.md` dans la route dynamique  ? -->
 
 Pour cette route, on accédera à l’exercice ‘La somme en mille’ du chapitre 0 du domaine des mathématiques. L’exercice est au format Markdown, et traduit à la volé lors de son affichage.
 
