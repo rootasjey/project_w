@@ -58,17 +58,17 @@ Le projet vise à :
 
 * Faciliter l’accès du rédacteur pour pouvoir rédiger et publier des exercices en ligne.
 * Faciliter l’accès de l’utilisateur à l’application afin de consulter les exercices publiés en ligne ainsi que la solution de chaque exercice.
-* Créer une interface simple, claire et facile à utiliser.
+* Créer une interface simple à utiliser.
 
-Une des premières pistes a été RStudio, un logiciel Open-Source capable d’exécuter du code R et accessoirement de créer des documents scientifiques. Le langage R est très répandu chez les statisticiens et les explorateurs de données.
+Une des premières pistes a été RStudio, un logiciel Open-Source capable d’exécuter du code R et aussi de créer des documents scientifiques. Le langage R est très répandu chez les statisticiens et les explorateurs de données.
 
-Notre projet se différencie en plusieurs points :
+Notre projet se différencie de RStudio sur plusieurs points :
 
-* Il a pour but d’offrir un moyen à des enseignants de rédiger des exercices et de les proposer rapidement à un groupe d’étudiants au travers d’une plateforme en ligne. Celui de RStudio est de créer des documents portant sur des études de données, ce qui représente qu’une partie de notre application.
+* Permettre à des enseignants de rédiger des exercices et de les proposer rapidement à un groupe d’étudiants au travers d’une plateforme en ligne. Tandis que RStudio permet seulement de créer des documents portant sur des études de données
 
-* Les langage utilisés pour la prédaction des exercices sont le Markdown, le HTML, et le Python.
+* Le Markdown, le HTML, et le Python sont utilisés pour la rédaction des exercices
 
-* La plateforme est destinée à être en ligne et accessible par les utilisateurs.
+* La plateforme est destinée à être en ligne et accessible par les utilisateurs
 
 
 <!-- Saut de ligne -->
@@ -78,10 +78,7 @@ Notre projet se différencie en plusieurs points :
 
 ##Langages et technologies utilisés
 
-Afin de mener à terme le travail demandé, nous utilisons plusieurs langages de programmation et différents outils, ce qui procure une grande flexibilité et une puissance accrue dans le développement.
-
-Le langage Python représente le cœur de l’application.
-
+Afin de mener à terme le travail demandé, nous utilisons plusieurs langages de programmation et différents outils, ce qui procure une grande flexibilité dans le développement.
 
 
 <!-- Saut de ligne -->
@@ -207,7 +204,7 @@ Les modules python sont les différentes parties qui sont venues s’intégrer �
 
 
 <!-- Saut de ligne -->
-<br/>
+<br/>s
 <!-- Saut de ligne -->
 
 
@@ -225,7 +222,7 @@ Un module python permettant la conversion d’un fichier Markdown à un fichier 
 Flask est un  micro-Framework pour python permettant de créer des applications web comme un micro blog ou un clone Twitter. L’application, crée par Armin Ronacher, est en licence Free-BSD et tout le monde peut contribuer au projet sur GitHub.
 
 L’avantage de Flask par rapport aux autres Framework web existant tels que Django ou Pyramid, qui sont plus répandus, est que la syntaxe est simple et le module est très basique. Il nous a donc fallu peu de temps pour comprendre le fonctionnement de ce module et nous n’avons pas rencontré de difficulté particulière lors de son utilisation. Cependant, l’aspect basique de Flask est voulu car il est possible d’étendre ses fonctionnalités.
-Il serait intéressant par la suite d’implémenter un cache pour notre plateforme, ou le support de l’authentification OAuth.
+Il serait intéressant par la suite d’implémenter un cache pour accélérer l'affichage des pages, ou le support de l’authentification OAuth.
 
 
 	# Index route
@@ -234,7 +231,7 @@ Il serait intéressant par la suite d’implémenter un cache pour notre platefo
 		return render_template('/static/html/index.html')
 
 
-Pour fonctionner, Flask a besoin de Werkzeug et de Jinja2, deux extensions supplémentaires créées par le même auteur.
+Pour fonctionner, Flask nécessite Werkzeug et Jinja2, deux extensions supplémentaires créées par Armin Ronacher.
 
 Werkzeug
 Werkzeug est une librairie utilitaire python pour la WSGI (Web Server Gateway Interface). La WSGI est une spécification qui définit comment des serveurs web communiquent avec les applications web, et comment  les applications web peuvent être assemblées ensemble pour former une seule requête.

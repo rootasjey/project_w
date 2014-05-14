@@ -269,15 +269,47 @@ def redaction():
 															  less_subjects = less_subjects,
 															  chapter_list = chaptersl)
 
-@app.route('/api/<practice>/<subject>')
-def get_subjects(practice="exercices", subject="informatique"):
+@app.route('/api/get/<practice>/')
+def get_subjects(practice="exercices"):
 	# get subjects
 	path=""
+	subjects = ""
 
 	if practice == "exercices":
 		path = root_exercices;
 	elif practice == "lessons":
 		path = root_lessons
+
+	subjects = os.listdir(path)		
+
+	print subjects
+	st = list()
+	st.append('1')
+
+	resp = app.make_response(st)
+	return ('resp','er')
+
+
+@app.route('/api/get/<practice>/<subject>')
+def get_chapters(practice="exercices", subject="informatique"):
+	# get subjects
+	path=""
+	chapters = ""
+	print 'toto'
+
+	if practice == "exercices":
+		path = root_exercices;
+	elif practice == "lessons":
+		path = root_lessons
+
+	subjectsl = os.listdir(path)		
+	for s in subjectsl:
+		if s == subject:
+			chapters = os.listdir(path + s)
+			break
+
+	print chapters
+	return chapters
 
 
 # debug mode if the 
