@@ -103,6 +103,7 @@ Notre projet se différencie de RStudio sur plusieurs points :
 
 ## Les objectifs du produit:
 Idéalement notre plateforme serait capable de:
+
 * Rédiger et corriger un exercice
 * Donner une correction automatique de l'exercice
 * Permettre aux utilisateurs d'avoir une session sauvegardant leur progression
@@ -113,7 +114,7 @@ Idéalement notre plateforme serait capable de:
 
 		{% python %}
 		a = random.randint(0, 10)
-		Je ne veux rien afficher ici
+		#Je ne veux rien afficher ici
 		return None
 		{% endpython %}
 		
@@ -403,7 +404,7 @@ les répétitions. -->
 Ainsi, la page d’affichage d’un exercice est définie par la route suivante :
 [`/<practice>/<science>/chapter/<id>`](/exercices/informatique/chapter/2/Les-boucles.md/)
 
-`<practice>` définissant le type de contenu, si l'utilisateur souhaite s'entraîner sur des exercices, ou apprendre de nouvelles connaissances. La variables `<science>` correspondant à la matière *(Maths, Informatique, Cryptographie)*, et `<id>` est le numéro du chapitre et la suite de la route signifie le nom de l’exercice demandé. Un exemple pratique de route serait :
+`<practice>` définissant le type de contenu, si l'utilisateur souhaite s'entraîner sur des exercices, ou apprendre de nouvelles connaissances. La variable `<science>` correspondant à la matière *(Maths, Informatique, Cryptographie)*, et `<id>` est le numéro du chapitre et la suite de la route signifie le nom de l’exercice demandé. Un exemple pratique de route serait :
 [`/exercices/maths/chapter/0/La-somme-en-mille.md/`](/exercices/maths/chapter/0/La-somme-en-mille.md/)
 
 
