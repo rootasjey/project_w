@@ -737,7 +737,7 @@ Nous espérons que ce projet saura répondre aux attentes pour lesquelles il a �
 <span id="contribution"></span>
 # Remerciements
 
-On tient à exprimer notre gratitude envers tous ceux qui nous ont aidés de près ou de loin dans la conception et la réalisation de notre projet, ce projet qui nous a poussé à exploiter tout notre savoir théorique et technique dans le domaine de programmation informatique, voir même consulter d’autres sources d’informations afin de compléter l’ensemble des éléments nécessaires pour boucler notre travail et donner un résultat fructueux. <!--Comment (Luca): Bravo, Proust ! -->
+On tient à exprimer notre gratitude envers tous ceux qui nous ont aidés de près ou de loin dans la conception et la réalisation de notre projet, ce projet qui nous a poussé à exploiter tout notre savoir théorique et technique dans le domaine de programmation informatique, voir même consulter d’autres sources d’informations afin de compléter l’ensemble des éléments nécessaires pour boucler notre travail et donner un résultat fructueux. 
 
 Nos remerciements à tout le corps professoral de l’université de Versailles Saint-Quentin-En-Yvelines et aux professeurs du département informatique. Sans eux, notre processus d’études n’aurait ni débuté ni progressé.
 Nous n’oublions pas notre encadrant Mr. Luca DE FEO qui nous a fait confiance en nous offrant l’opportunité de travailler sur un tel projet, un professeur exemplaire pendant cette année d’étude à l’université. Il nous a transmis un maximum de son expérience et de ses connaissances personnelles afin  de créer un savoir-faire chez chaque étudiant de notre promotion, et pour lequel nous souhaitons tout le bonheur et la prospérité.
