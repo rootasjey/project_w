@@ -113,7 +113,7 @@ Idéalement notre plateforme serait capable de:
 
 	{% python %}
 	a = random.randint(0, 10)
-	# Je ne veux rien afficher ici
+	Je ne veux rien afficher ici
 	return None
 	{% endpython %}
 	
