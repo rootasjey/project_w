@@ -4,7 +4,7 @@
 import os, sys, codecs
 # --------------------------------------
 from packages.converter import converter
-from packages.markdown import Markdown
+from markdown import Markdown
 from jinja2 import Template, Environment
 from packages.python_extension.python_extension import PythonExtension
 # --------------------------------------
