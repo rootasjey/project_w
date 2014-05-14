@@ -111,19 +111,19 @@ Idéalement notre plateforme serait capable de:
 * Rechercher du contenu grâce à une barre de saisie
 * Pouvoir utiliser des variables globales comme dans l'exemple suivant:
 
-	{% python %}
-	a = random.randint(0, 10)
-	Je ne veux rien afficher ici
-	return None
-	{% endpython %}
-	
-	<span class="exo">Combien vaut {{ a }} + {{ a }} ?</span>
-	
-	{% python %}
-	sol = a + a
-	{% endpython %}
-	
-	<span class="solution">Facile : {{ sol }}</span>
+		{% python %}
+		a = random.randint(0, 10)
+		Je ne veux rien afficher ici
+		return None
+		{% endpython %}
+		
+		<span class="exo">Combien vaut {{ a }} + {{ a }} ?</span>
+		
+		{% python %}
+		sol = a + a
+		{% endpython %}
+		
+		<span class="solution">Facile : {{ sol }}</span>
 
  
  
