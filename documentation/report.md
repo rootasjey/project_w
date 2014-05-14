@@ -101,6 +101,32 @@ Notre projet se différencie de RStudio sur plusieurs points :
 
 * La plateforme est destinée à être en ligne et accessible par les utilisateurs
 
+## Les objectifs du produit:
+Idéalement notre plateforme serait capable de:
+* Rédiger et corriger un exercice
+* Donner une correction automatique de l'exercice
+* Permettre aux utilisateurs d'avoir une session sauvegardant leur progression
+* Attribuer une note de chaque exercice effectué
+* Proposer des exercices et des cours personnalisés
+* Rechercher du contenu grâce à une barre de saisie
+* Pouvoir utiliser des variables globales comme dans l'exemple suivant:
+
+	{% python %}
+	a = random.randint(0, 10)
+	# Je ne veux rien afficher ici
+	return None
+	{% endpython %}
+	
+	<span class="exo">Combien vaut {{ a }} + {{ a }} ?</span>
+	
+	{% python %}
+	sol = a + a
+	{% endpython %}
+	
+	<span class="solution">Facile : {{ sol }}</span>
+
+ 
+ 
 
 <!-- Saut de ligne -->
 <br/><br/>
