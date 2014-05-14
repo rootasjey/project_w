@@ -162,7 +162,9 @@ function practice_type_create (event) {
                      if(brother) brother.style.fontWeight = '400';
                      else if(sister) sister.style.fontWeight = '400';
 
-                     // send a ajax request?
+                     // send an ajax request?
+                     practice = practice.className;
+                     send_request(practice);
               }
               else if (getComputedStyle(practice, null).fontWeight == '700'){
                      // do nothing // already selected
@@ -174,30 +176,106 @@ function practice_type_create (event) {
 // SUBJECT CHANGED
 // ---------------
 function subject_changed (event) {
-       //ajax
        var form = document.forms.form_addcontent;
        var practice = get_practice_selected();
        var subject = form.subject.value;
-       console.log(subject);
 
+       send_request(practice, subject);
+
+       if(subject == "newsubject"){
+              form.newsubjectname.style.display = "inline";
+              form.newchaptername.style.display = "inline";
+       }
+       else { 
+              form.newsubjectname.style.display = "none";
+              form.newchaptername.style.display = "none";
+       }
+}
+
+function chapter_changed (event) {
+       var form = document.forms.form_addcontent;
+       var chapter = form.chapter.value;
+
+
+       if(chapter == "newchapter"){
+              form.newchaptername.style.display = "inline";
+       } else form.newchaptername.style.display = "none";
+}
+
+function send_request (practice="", subject="") {
+       //ajax
        var xhr = new XMLHttpRequest();
-       // xhr.open('GET', 'api/get/' + practice + '/' + subject);
-       xhr.open('GET', "/api/get/lessons/");
-
-       console.log('request sent');
+       xhr.open('GET', "/api/get/" + practice + "/" + subject);
 
        xhr.onreadystatechange = function() {
            if (xhr.readyState == 4 && xhr.status == 200) {
-               console.log('response received');
-               var response = xhr.response;
-               if(response){
-                     console.log('valid response!');
-               }
+              var response = xhr.response;
+
+              if(response){
+                     response = JSON.parse(response);
+                     if(subject.length.toString() > 0){
+                            // update chapters
+                            update_chapter_list(response);
+                     }
+                     else{
+                            // update sciences
+                            update_science_list(response);
+                     }
+              }
            }
        };
 
        xhr.send(null);
 }
+
+
+function update_science_list (list) {
+       var form = document.forms.form_addcontent;
+       var subjects = form.subject;
+       subjects.innerHTML = "";
+
+       for (var i = list.length - 1; i >= 0; i--) {
+              var option = document.createElement('option');
+              option.value = list[i];
+              option.innerHTML = list[i];
+
+              subjects.appendChild(option);
+       };
+
+       // add a value to add a new science
+       var o = document.createElement('option');
+       o.value = "newsubject";
+       o.innerHTML = "nouvelle matière";
+       subjects.appendChild(o);
+
+
+       // launch 2nd req
+       var practice = get_practice_selected();
+       var subject = form.subject.value;
+       send_request(practice, subject);
+}
+
+
+function update_chapter_list (list) {
+       var form = document.forms.form_addcontent;
+       var chapters = form.chapter;
+       chapters.innerHTML = "";
+
+       for (var i = list.length - 1; i >= 0; i--) {
+              var option = document.createElement('option');
+              option.value = list[i];
+              option.innerHTML = list[i];
+
+              chapters.appendChild(option);
+       };
+
+       // add a value to add a new chapter
+       var o = document.createElement('option');
+       o.value = "newchapter";
+       o.innerHTML = "nouveau chapitre";
+       chapters.appendChild(o);
+}
+
 
 function get_practice_selected () {
        var parent = document.querySelector('.horizontal_list');
@@ -205,7 +283,57 @@ function get_practice_selected () {
 
        for (var i = practices.length - 1; i >= 0; i--) {
               if(getComputedStyle(practices[i], null).fontWeight == '700'){
-                     return practices[i];
+                     return practices[i].className;
               }
        };
+}
+
+function submit_form_addcontent (event) {
+       var form = document.forms.form_addcontent;
+       // console.log(form);
+       var practice = get_practice_selected();
+       var science = form.subject.value;
+       var chapter = form.chapter.value;
+       var exotitle = form.exotitle.value;
+       var work = form.work.value;
+
+       var newsubjectname = form.newsubjectname.value;
+       var newchaptername = form.newchaptername.value;
+
+       //ajax
+       var xhr = new XMLHttpRequest();
+       // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+       // xhr.open('POST', "/redaction");
+       xhr.open('GET', "/api/post/work?practice=" + practice 
+                                   + "&science=" + science 
+                                   + "&chapter=" + chapter 
+                                   + "&title=" + exotitle 
+                                   + "&work=" + work
+                                   + "&newsubjectname=" + newsubjectname
+                                   + "&newchaptername=" + newchaptername);
+       
+       
+       xhr.onreadystatechange = function() {
+           if (xhr.readyState == 4 && xhr.status == 200) {
+              var response = xhr.response;
+
+              if(response == "true"){
+                     // console.log('req received')
+                     // console.log(response)
+                     // form.style.display = "none";
+                     var text = document.querySelector('.centerText');
+                     var result = "L'exercice a bien été ajouté!";
+                     text.innerHTML = result;
+              }
+              else{
+                     var text = document.querySelector('.centerText');
+                     var result = "Un soucis s'est produit";
+                     var message = "<br/>" + response;
+                     text.innerHTML = result + message;
+              }
+           }
+       };
+
+       // xhr.send("key=" + "24");
+       xhr.send(null);
 }

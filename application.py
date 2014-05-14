@@ -8,8 +8,9 @@ from markdown import Markdown
 from jinja2 import Template, Environment
 from packages.python_extension.python_extension import PythonExtension
 # --------------------------------------
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, json, jsonify
 # --------------------------------------
+from werkzeug.datastructures import CombinedMultiDict, MultiDict
 
 
 # Markdown object
@@ -253,9 +254,13 @@ def work(practice="exercices", science="informatique", id=0, work=""):
 @app.route('/redaction', methods=['GET', 'POST'])
 def redaction():
 	if request.method == 'POST':
-		return "vous avez rédigé un exercices"
-	elif request.method == 'GET':
+		searchword = request.form['key']
+		print searchword
+		# dico = request.form
+		# print dico
+		# print dico["exocontent"]
 
+	elif request.method == 'GET':
 		# get domains/subjects
 		# in exercices folder
 		exx_subjects = os.listdir(root_exercices)
@@ -269,9 +274,11 @@ def redaction():
 															  less_subjects = less_subjects,
 															  chapter_list = chaptersl)
 
+
+
 @app.route('/api/get/<practice>/')
 def get_subjects(practice="exercices"):
-	# get subjects
+
 	path=""
 	subjects = ""
 
@@ -280,27 +287,24 @@ def get_subjects(practice="exercices"):
 	elif practice == "lessons":
 		path = root_lessons
 
-	subjects = os.listdir(path)		
+	subjects = os.listdir(path)
+	subjects = json.dumps(subjects)
 
-	print subjects
-	st = list()
-	st.append('1')
-
-	resp = app.make_response(st)
-	return ('resp','er')
+	# response return
+	return subjects
 
 
 @app.route('/api/get/<practice>/<subject>')
 def get_chapters(practice="exercices", subject="informatique"):
-	# get subjects
+
 	path=""
 	chapters = ""
-	print 'toto'
 
 	if practice == "exercices":
 		path = root_exercices;
 	elif practice == "lessons":
 		path = root_lessons
+
 
 	subjectsl = os.listdir(path)		
 	for s in subjectsl:
@@ -308,8 +312,63 @@ def get_chapters(practice="exercices", subject="informatique"):
 			chapters = os.listdir(path + s)
 			break
 
-	print chapters
+	chapters = json.dumps(chapters)
+
+	# response return
 	return chapters
+
+
+@app.route('/api/post/work')
+def add_work():
+	practice = request.args.get('practice', '')
+	science = request.args.get('science', '')
+	chapter = request.args.get('chapter', '')
+	title = request.args.get('title', '')
+	work = request.args.get('work', '')
+
+	new_path = ""
+	if(practice == "exercices"):
+		new_path = root_exercices
+	elif(practice == "lessons"):
+		new_path = root_lessons
+
+	if science == "newsubject":
+		new_subject = request.args.get('newsubjectname', '')
+		if len(new_subject) > 1:
+			new_path = new_path + new_subject
+			try:
+				os.mkdir(new_path)
+			except Exception, e:
+				return 'Error: folder (for subject) is already defined'
+			
+			# print new_path
+		else: return 'Error: subject name not defined'
+	else: new_path = new_path + science
+
+
+	if chapter == "newchapter":
+		new_chapter = request.args.get('newchaptername', '')
+		if len(new_chapter) > 1:
+			new_path = new_path + '/' + new_chapter + '/'
+			try:
+				os.mkdir(new_path)
+			except Exception, e:
+				return 'Error: folder (for chapter) is already defined'
+		else: return 'Error: chapter name not defined'
+	else: new_path = new_path + '/' + chapter + '/'
+
+
+	if len(title) < 1:
+		return 'Error: title name not defined'
+	else: 
+		# title.replace(' ', '-')
+		title = title + ".md"
+
+	with open(new_path + title, 'w') as exercice:
+		# conversion + write in the new file
+		exercice.write(markdowner.convert(work.decode('utf-8')))
+
+	return 'true'
 
 
 # debug mode if the 

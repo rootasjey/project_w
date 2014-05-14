@@ -625,6 +625,26 @@ a {
         color: #e74c3c
     }
 
+.validateFormButton {
+            height: 50px;
+            width: 120px;
+            padding-top: 20px;
+
+            color: white;
+            text-align: center;
+            font-size: 1.3em;
+
+            cursor: pointer;
+            display: block;
+            background: #e74c3c;
+            transition: 1s;
+        }
+            .validateFormButton:hover {
+                /*color: black;*/
+                background: black;
+                transition: 1s;
+            }
+
 /*ANIMATIONS*/
 /*---------*/
 /*SLIDEDOWN*/
