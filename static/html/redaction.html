@@ -17,7 +17,7 @@
     <form name="form_addcontent" id="form_addcontent" method="POST" action="">
 
       SCIENCE <br/>
-      <select name="subject" onchange="">
+      <select name="subject" onchange="subject_changed(event)">
 
         {% for subject in exx_subjects %}
           <option value="{{subject}}">{{ subject }}</option>          

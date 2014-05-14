@@ -161,6 +161,8 @@ function practice_type_create (event) {
 
                      if(brother) brother.style.fontWeight = '400';
                      else if(sister) sister.style.fontWeight = '400';
+
+                     // send a ajax request?
               }
               else if (getComputedStyle(practice, null).fontWeight == '700'){
                      // do nothing // already selected
@@ -169,6 +171,41 @@ function practice_type_create (event) {
 }
 
 
+// SUBJECT CHANGED
+// ---------------
 function subject_changed (event) {
        //ajax
+       var form = document.forms.form_addcontent;
+       var practice = get_practice_selected();
+       var subject = form.subject.value;
+       console.log(subject);
+
+       var xhr = new XMLHttpRequest();
+       // xhr.open('GET', 'api/get/' + practice + '/' + subject);
+       xhr.open('GET', "/api/get/lessons/");
+
+       console.log('request sent');
+
+       xhr.onreadystatechange = function() {
+           if (xhr.readyState == 4 && xhr.status == 200) {
+               console.log('response received');
+               var response = xhr.response;
+               if(response){
+                     console.log('valid response!');
+               }
+           }
+       };
+
+       xhr.send(null);
+}
+
+function get_practice_selected () {
+       var parent = document.querySelector('.horizontal_list');
+       var practices = parent.children;
+
+       for (var i = practices.length - 1; i >= 0; i--) {
+              if(getComputedStyle(practices[i], null).fontWeight == '700'){
+                     return practices[i];
+              }
+       };
 }
