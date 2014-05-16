@@ -3,14 +3,13 @@
 
 import os, sys, codecs
 # --------------------------------------
-from packages.converter import converter
 from markdown import Markdown
 from jinja2 import Template, Environment
 from packages.python_extension.python_extension import PythonExtension
 # --------------------------------------
 from flask import Flask, request, render_template, json, jsonify
 # --------------------------------------
-from werkzeug.datastructures import CombinedMultiDict, MultiDict
+# from werkzeug.datastructures import CombinedMultiDict, MultiDict
 
 
 # Markdown object
@@ -71,6 +70,7 @@ def index():
 
 
 # About Page
+# ----------
 @app.route('/about')
 def about():
 	path_about = "documentation/about.md"
@@ -78,7 +78,7 @@ def about():
 	# open file with codecs for the markdown converter
 	input_file = codecs.open(path_about, mode="r", encoding="utf-8")
 	text = input_file.read()		# read
-	input_file.close()				# clode
+	input_file.close()				# close
 
 	html = markdowner.convert(text)	# conversion
 	
@@ -87,6 +87,7 @@ def about():
 
 
 # Project Report Page
+# -------------------
 @app.route('/report')
 def report():
 	# file name
@@ -95,7 +96,7 @@ def report():
 	# open file with codecs for the markdown converter
 	input_file = codecs.open(path_report, mode="r", encoding="utf-8")
 	text = input_file.read()		# read
-	input_file.close()				# clode
+	input_file.close()				# close
 
 	html = markdowner.convert(text)	# conversion
 	
@@ -155,7 +156,7 @@ def chapters(practice="exercices", science="informatique"):
 
 
 # Exercices/Lessons list
-# --------------
+# ----------------------
 @app.route('/<practice>/<science>/chapter/<int:id>', methods=['GET', 'POST'])
 def chapter(practice="exercices", science="informatique", id=1):
 	if request.method == 'GET':
@@ -211,7 +212,7 @@ def chapter(practice="exercices", science="informatique", id=1):
 
 
 # Exercice/Lesson show
-# -------------
+# --------------------
 @app.route('/<practice>/<science>/chapter/<int:id>/<work>/')
 def work(practice="exercices", science="informatique", id=0, work=""):
 
@@ -251,14 +252,17 @@ def work(practice="exercices", science="informatique", id=0, work=""):
 													page = page)
 
 # Write Exercices
+# ---------------
 @app.route('/redaction', methods=['GET', 'POST'])
 def redaction():
 	if request.method == 'POST':
 		searchword = request.form['key']
 		print searchword
+
 		# dico = request.form
 		# print dico
 		# print dico["exocontent"]
+
 
 	elif request.method == 'GET':
 		# get domains/subjects
@@ -275,7 +279,8 @@ def redaction():
 															  chapter_list = chaptersl)
 
 
-
+# Return practice's subject list
+# ------------------------------
 @app.route('/api/get/<practice>/')
 def get_subjects(practice="exercices"):
 
@@ -294,6 +299,8 @@ def get_subjects(practice="exercices"):
 	return subjects
 
 
+# Return subject's chapters list
+# ------------------------------
 @app.route('/api/get/<practice>/<subject>')
 def get_chapters(practice="exercices", subject="informatique"):
 
@@ -312,12 +319,15 @@ def get_chapters(practice="exercices", subject="informatique"):
 			chapters = os.listdir(path + s)
 			break
 
+	# format the array to json
 	chapters = json.dumps(chapters)
 
 	# response return
 	return chapters
 
 
+# Create an exercice/lesson
+# -------------------------
 @app.route('/api/post/work')
 def add_work():
 	practice = request.args.get('practice', '')
@@ -332,28 +342,35 @@ def add_work():
 	elif(practice == "lessons"):
 		new_path = root_lessons
 
+	# create a new subject if requested
+	# ------------------------
 	if science == "newsubject":
 		new_subject = request.args.get('newsubjectname', '')
 		if len(new_subject) > 1:
 			new_path = new_path + new_subject
+
 			try:
 				os.mkdir(new_path)
 			except Exception, e:
-				return 'Error: folder (for subject) is already defined'
+				return 'Error: folder (for subject) is already defined. Choose another name.'
 			
 			# print new_path
 		else: return 'Error: subject name not defined'
 	else: new_path = new_path + science
 
 
+	# create a new chapter if requested
+	# -------------------------
 	if chapter == "newchapter":
 		new_chapter = request.args.get('newchaptername', '')
 		if len(new_chapter) > 1:
 			new_path = new_path + '/' + new_chapter + '/'
+
 			try:
 				os.mkdir(new_path)
 			except Exception, e:
-				return 'Error: folder (for chapter) is already defined'
+				return 'Error: folder (for chapter) is already defined. Choose another name.'
+
 		else: return 'Error: chapter name not defined'
 	else: new_path = new_path + '/' + chapter + '/'
 
@@ -364,10 +381,12 @@ def add_work():
 		# title.replace(' ', '-')
 		title = title + ".md"
 
+	# create a new file
 	with open(new_path + title, 'w') as exercice:
 		# conversion + write in the new file
 		exercice.write(markdowner.convert(work.decode('utf-8')))
 
+	# return that everything is OK!
 	return 'true'
 
 
