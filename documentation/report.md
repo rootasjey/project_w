@@ -266,7 +266,7 @@ Les modules python sont les différentes parties qui sont venues s’intégrer �
 <!--Comment (Luca): "Python" ou "python" ? Soyez cohérents. -->
 
 <!-- Saut de ligne -->
-<br/>s
+<br/>
 <!-- Saut de ligne -->
 
 

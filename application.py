@@ -3,7 +3,7 @@
 
 import os, sys, codecs
 # --------------------------------------
-from markdown import Markdown
+from packages.markdown import Markdown
 from jinja2 import Template, Environment
 from packages.python_extension.python_extension import PythonExtension
 # --------------------------------------

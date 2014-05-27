@@ -4,9 +4,11 @@ It's a web-platform where students can practice mathematic and computer science 
 A UVSQ's project.
 The nice jinja2 extension to run python code uses the [CreateFunction from this sample](http://code.activestate.com/recipes/550804-create-a-restricted-python-function-from-a-string/)
 
+
+
 #updates
 * **last**: updated redaction UI
-* **next**: update UI (web) + global variables (python)
+* **next**: create global variables (python)
 
 #How to install (Windows)
 * Install [Pyhton 2.7 or later (or Python 3.4 or later, but it's experimental)](https://www.python.org/download/)
@@ -43,3 +45,14 @@ The nice jinja2 extension to run python code uses the [CreateFunction from this 
 * [flask](http://flask.pocoo.org/)
 * [highlight.js](http://highlightjs.org/)
 * [fontsquirrel](http://www.fontsquirrel.com/)
+
+
+#screnshots
+
+<img src='static/img/webbapp_home.jpg' alt='home'/>
+
+<img src='static/img/webbapp_exercice.jpg' alt='exercice'/>
+
+<img src='static/img/webbapp_redaction.jpg' alt='redaction'/>
+
+<img src='static/img/webbapp_userpanel.jpg' alt='userpanel'/>
