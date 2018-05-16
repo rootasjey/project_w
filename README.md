@@ -6,11 +6,13 @@ The nice jinja2 extension to run python code uses the [CreateFunction from this 
 
 
 
-#updates
+## updates
+
 * **last**: updated redaction UI
 * **next**: create global variables (python)
 
-#How to install (Windows)
+## How to install (Windows)
+
 * Install [Pyhton 2.7 or later (or Python 3.4 or later, but it's experimental)](https://www.python.org/download/)
 * Run the python script **distribute_setup.py** (located in the 'install' folder) to install **easy_install**
 * Add **easy_install** to the PATH environment :
@@ -27,19 +29,21 @@ The nice jinja2 extension to run python code uses the [CreateFunction from this 
 * You're ready to go, try to run the **application.py** python script
 * And Voilà!
 
-#Languages
+## Languages
+
 * python
 * html/css
 * javascript
 
-#Developers:
+## Developers
+
 * Jeremie CORPINOT
 * Somia KATIR
 
-#Supervisor
+## Supervisor
 * Lucas De Feo
 
-# librairies
+## librairies
 * [python](https://www.python.org/)
 * [jinja2](http://jinja.pocoo.org/)
 * [flask](http://flask.pocoo.org/)
@@ -47,7 +51,7 @@ The nice jinja2 extension to run python code uses the [CreateFunction from this 
 * [fontsquirrel](http://www.fontsquirrel.com/)
 
 
-#screnshots
+## screnshots
 
 <img src='static/img/webbapp_home.jpg' alt='home'/>
 
